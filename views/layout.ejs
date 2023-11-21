@@ -1,0 +1,20 @@
+<html lang="en">
+
+<head>
+  <%- include ('./partials/head') %>
+    <title>
+      <%= title %> | 1080p Technology
+    </title>
+</head>
+
+<body class="bg-gray-900 text-white font-sans flex flex-col h-screen justify-between">
+  <%- include ('./partials/nav') %>
+    <!-- Pass bodyFile as filename -->
+    <div class="flex-grow">
+      <%- include(bodyFile) %>
+    </div>
+    <%- include ('./partials/footer') %>
+      <script src="/javascript/script.js"></script>
+</body>
+
+</html>
