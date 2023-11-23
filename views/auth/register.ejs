@@ -1,0 +1,68 @@
+<section class="bg-gray-900 pb-10">
+    <a href="#" class="flex justify-center my-6">
+        <img class="w-40 mr-2" src="img/1.jpg" alt="logo">
+    </a>
+    <div class="grid grid-cols-1 md:grid-cols-2 px-6 py-8">
+        <section class="hero">
+            <div class="hero-content">
+                <h1
+                    class="mb-4 text-center lg:text-left text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    Transform your development experience</h1>
+                <p
+                    class="mb-8 text-center lg:text-left text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+                    Where bugs meet their
+                    match, and teamwork takes the lead!</p>
+            </div>
+        </section>
+        <div class="w-auto bg-gray-800 border-gray-700 rounded-lg shadow">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl text-center">
+                    Register for an account
+                </h1>
+                <form class="space-y-3" action="/register" method="POST">
+                    <div>
+                        <input type="text" hidden value="customer" name="role">
+                    </div>
+                    <div>
+                        <label for="username" class="block mb-2 text-sm font-medium text-white">Username</label>
+                        <input type="text" name="username" id="username"
+                            class="bg-gray-700 border border-gray-600 placeholder-gray-400 text-white invalid:border-red-500 invalid:text-red-600 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required>
+                        <p class="text-xs pt-2 text-gray-400">Must be 8 to 15 characters</p>
+                    </div>
+                    <div>
+                        <label for="password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" id="password" name="password"
+                            class="bg-gray-700 border border-gray-600 placeholder-gray-400 text-white invalid:border-red-500 invalid:text-red-600 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            required placeholder="••••••••"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$">
+                        <div class="text-xs pt-2 text-gray-400">
+                            <ul>
+                                <li>At least one upper case letter</li>
+                                <li>At least one lower case letter</li>
+                                <li>At least one digit</li>
+                                <li>At least one special letter in this set "!@#$%^&*"</li>
+                                <li>Must be 8 to 20 characters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Additional field for customer -->
+                    <div class="customer-info role-info" id="name-field">
+                        <div class="inputBox">
+                            <label for="name" class="block mb-2 text-sm font-medium text-white">Your
+                                Name</label>
+                            <input type="text"
+                                class="bg-gray-700 border border-gray-600 placeholder-gray-400 text-white invalid:border-red-500 invalid:text-red-600 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                id="name" name="name" placeholder="John Doe" minlength="5">
+                            <p class="text-xs pt-2 text-gray-400">Must be at least 5 characters</p>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-5 text-center">Sign
+                        up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
