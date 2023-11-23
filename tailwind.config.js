@@ -16,6 +16,12 @@ module.exports = {
                     900: "#1e3a8a",
                     950: "#172554",
                 },
+                palette: {
+                    1: '#fafafa',
+                    2: '#1450a3',
+                    3: '#0c4474',
+                    4: '#041c44',
+                }
             },
             fontFamily: {
                 sans: [
