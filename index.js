@@ -36,6 +36,13 @@ app.get('/register', (req, res) => {
         bodyFile: './auth/register',
     });
 });
+app.get('/project-create', (req, res) => {
+    res.render('layout.ejs', {
+        title: 'Create New Project',
+        bodyFile: './project/create',
+    });
+}
+);
 
 // Start the server
 app.listen(port, () => {
