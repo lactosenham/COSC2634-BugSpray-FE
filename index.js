@@ -1,17 +1,27 @@
 const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 const path = require("path");
-const port = 3000;
+const port = 3001;
 
-// view engine setup
+// View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.set("layout", "auth-layout");
 app.use(express.urlencoded({ extended: true }));
 
-// to apply css styles
+// To apply css styles
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Proxy configuration 
+app.use('/api', createProxyMiddleware({
+    target: 'http://localhost:3000', // Backend server address
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api': '', // Rewrites '/api' to '' when forwarding the request
+    },
+}));
 
 // Routes
 /* Route template 
@@ -24,14 +34,15 @@ app.get('<- insert route name here ->', (req, res) => {
 
 */
 app.get('/login', (req, res) => {
-    res.render('authLayout.ejs', {
+    res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/login',
+        scriptFile: '/scripts/loginScripts.js'
     });
 });
 
 app.get('/register', (req, res) => {
-    res.render('authLayout.ejs', {
+    res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/register',
     });

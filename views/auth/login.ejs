@@ -18,16 +18,22 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl text-center">
                     Log in to your account
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="/login" method="post">
+                <form id= "loginForm" class="space-y-4 md:space-y-6">
                     <div>
-                        <input type="text" name="username" id="username"
-                            class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
-                            placeholder="Username" required>
+                        <input type="text" 
+                                name="username" 
+                                id="username"
+                                class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
+                                placeholder="Username" 
+                        required>
                     </div>
                     <div>
-                        <input type="password" name="password" id="password" placeholder="Password"
-                            class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
-                            required>
+                        <input type="password" 
+                                name="password" 
+                                id="password" 
+                                placeholder="Password"
+                                class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
+                        required>
                     </div>
                     <button type=" submit"
                         class="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-palette-2">Log
@@ -46,3 +52,6 @@
         </div>
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="<%= scriptFile %>"></script>
