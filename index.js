@@ -37,6 +37,13 @@ app.get('/register', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    res.render('layout.ejs', {
+        title: 'Home',
+        bodyFile: './dashboard',
+    });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
