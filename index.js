@@ -37,7 +37,7 @@ app.get('/login', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/login',
-        scriptFile: '/scripts/loginScripts.js'
+        scriptFile: '/scripts/loginScript.js'
     });
 });
 
@@ -45,6 +45,7 @@ app.get('/register', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/register',
+        scriptFile: '/scripts/registerScript.js'
     });
 });
 
