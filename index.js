@@ -48,7 +48,7 @@ app.get('/register', (req, res) => {
     });
 });
 app.get('/project-create', (req, res) => {
-    res.render('layout.ejs', {
+    res.render('layout', {
         title: 'Create New Project',
         bodyFile: './project/create',
     });
