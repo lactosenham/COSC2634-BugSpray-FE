@@ -38,9 +38,21 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
          .then(function (response) {
              console.log('Registration successful', response);
              // Redirect or update UI as needed
+
+             var devType = '';
+             if (response.data.role == 'Developer') {
+                devType = '\n Type: ' + response.data.developerType;
+             }
+
+             showPopup('Register', 'User created:' + 
+                                    '\n Username: ' + response.data.username + 
+                                    '\n Role: ' + response.data.role + 
+                                    devType
+                                    );
          })
          .catch(function (error) {
              console.log('Registration error:', error);
              // Handle error (e.g., show error message)
+             showPopup('Register Error', error.response.data)
          });
 });

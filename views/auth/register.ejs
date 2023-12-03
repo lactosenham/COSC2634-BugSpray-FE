@@ -1,3 +1,4 @@
+<link href="/style/popup.css" rel="stylesheet" type="text/css">
 <section class="bg-palette-4 pb-10">
     <!-- App's Logo -->
     <a href="#" class="flex justify-center my-6">
@@ -137,8 +138,22 @@
                 </form>
             </div>
         </div>
+
+        <div id="myPopup" class="popup">
+            <!-- Modal content -->
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <h2 id="popupTitle"></h2>
+                <p id="popBody"></p>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="<%= scriptFile %>"></script>
+<% if(scripts) { %>
+    <% scripts.forEach(function(script) { %>
+        <script src="<%= script %>"></script>
+    <% }); %>
+<% } %>

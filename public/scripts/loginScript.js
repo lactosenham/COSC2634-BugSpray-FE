@@ -11,11 +11,15 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     axios.post('/api/auth/login', loginData)
          .then(function (response) {
-             console.log('Login successful', response);
-             // Redirect or update UI as needed
+            if (response.data && response.data.token) {
+                localStorage.setItem('token', response.data.token);
+                console.log('Login successful', response);
+                showPopup('Login', response.data.message);
+            }
          })
          .catch(function (error) {
              console.log('Login error:', error);
              // Handle error (e.g., show error message)
+             showPopup('Login Error', error.response.data)
          });
 });

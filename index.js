@@ -37,7 +37,7 @@ app.get('/login', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/login',
-        scriptFile: '/scripts/loginScript.js'
+        scripts: ['/scripts/popupScript.js', '/scripts/loginScript.js'],
     });
 });
 
@@ -45,8 +45,19 @@ app.get('/register', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/register',
-        scriptFile: '/scripts/registerScript.js'
+        scripts: ['/scripts/popupScript.js', '/scripts/registerScript.js'],
     });
+});
+
+// 404 Not Found Handler
+app.use((req, res, next) => {
+    res.status(404).send("Sorry, page not found");
+});
+
+// 500 Internal Server Error Handler
+app.use((error, req, res, next) => {
+    console.error(error.stack);
+    res.status(500).send("Something broke!");
 });
 
 // Start the server
