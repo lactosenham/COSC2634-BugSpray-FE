@@ -68,17 +68,12 @@
                 </form>
             </div>
         </div>
-
-        <div id="myPopup" class="popup">
-            <!-- Modal content -->
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <h2 id="popupTitle"></h2>
-                <p id="popBody"></p>
-            </div>
-        </div>
         
+        <div id="myPopup" class="popup">
+            <%- include('../partials/popup'); %>
+        </div>
     </div>
+
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
