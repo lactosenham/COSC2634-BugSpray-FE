@@ -33,6 +33,13 @@ app.get('<- insert route name here ->', (req, res) => {
     });
 
 */
+app.get('/', (req, res) => {
+    res.render('layout.ejs', {
+        title: 'Home',
+        bodyFile: './dashboard',
+    });
+});
+
 app.get('/login', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
@@ -48,6 +55,14 @@ app.get('/register', (req, res) => {
         scripts: ['/scripts/popupScript.js', '/scripts/registerScript.js'],
     });
 });
+app.get('/project-create', (req, res) => {
+    res.render('layout', {
+        title: 'Create New Project',
+        bodyFile: './project/create',
+    });
+}
+);
+
 
 // 404 Not Found Handler
 app.use((req, res, next) => {
