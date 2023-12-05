@@ -8,6 +8,7 @@ const roleInfos = {
 roleSelect.addEventListener('change', function () {
     // hide all role-specific fields
     document.querySelectorAll('.role-info').forEach(info => info.style.display = 'none');
+    document.querySelectorAll
     // show the selected role's fields
     if (this.value in roleInfos) {
         roleInfos[this.value].forEach(info => info.style.display = 'block');
@@ -24,6 +25,10 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     var name = document.getElementById('name').value;
     var role = document.getElementById('role').value;
     var developerType = document.getElementById('developerType').value;
+
+    if (role == "Manager") {
+        developerType = null; 
+    }
 
     var registrationData = {
         username: username,
