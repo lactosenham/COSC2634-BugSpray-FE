@@ -1,42 +1,68 @@
+<link href="/style/popup.css" rel="stylesheet" type="text/css">
 <section class="bg-palette-4 pb-10">
+    <!-- App's Logo -->
     <a href="#" class="flex justify-center my-6">
         <img class="w-40 mr-2" src="img/BugSpray - Dark.png" alt="logo">
     </a>
+
+    <!-- Slogan -->
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-5 px-6 py-8">
         <section class="flex items-center">
             <div class="flex flex-col">
                 <h1
-                    class="mb-4 text-center lg:text-left text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    class="mb-4 text-center lg:text-left text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
                     Unleash the power of seamless collaboration</h1>
                 <p
                     class="mb-8 text-center lg:text-left text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
                     Where every bug finds its fix seamlessly</p>
             </div>
         </section>
+
+        <!-- Registration Form Title -->
         <div class="w-auto bg-palette-3 rounded-lg shadow-2xl">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+                <!-- Registration Link -->
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl text-center">
                     Register for an account
                 </h1>
+
+                <!-- Login Link -->
                 <h2 class="text-md leading-tight tracking-tight text-white text-center">
                     Already have an account? <span><a class="text-yellow-100 hover:underline" href="/login">Log
                             in</a></span>
                 </h2>
-                <form class="space-y-3" action="/register" method="POST">
+
+                <!-- Registration Form -->
+                <form 
+                    id="registerForm" 
+                    class="space-y-3">
+
+                    <!-- Username Field -->
                     <div>
                         <label for="username" class="block mb-2 text-sm font-medium text-white">Username</label>
-                        <input type="text" name="username" id="username"
+                        <input 
+                            type="text" 
+                            name="username" id="username"
                             class="bg-palette-2 border border-gray-300 placeholder-grey-700 text-white invalid:text-red-500 sm:text-sm rounded-lg block w-full p-2.5"
-                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required>
+                            placeholder="userName123" 
+                            pattern="[a-zA-Z0-9]{8,15}" 
+                        required>
                         <p class="text-xs pt-2 text-gray-400">Must be 8 to 15 characters</p>
                     </div>
+
+                    <!-- Password Field -->
                     <div>
                         <label for="password"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" id="password" name="password"
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password"
                             class="bg-palette-2 border border-gray-300 rounded-lg placeholder-gray-400 text-white block w-full p-2.5"
                             required placeholder="••••••••"
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$">
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$"
+                        required>
                         <div class="text-xs pt-2 text-gray-400">
                             <ul>
                                 <li>At least one upper case letter</li>
@@ -47,46 +73,83 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Name Field -->
                     <div id="name-field">
                         <div class="inputBox">
                             <label for="name" class="block mb-2 text-sm font-medium text-white">Your
                                 Name</label>
-                            <input type="text"
+                            <input 
+                                type="text"
                                 class="bg-palette-2 border border-gray-300 placeholder-gray-400 text-white sm:text-sm rounded-lg block w-full p-2.5"
-                                id="name" name="name" placeholder="John Doe" minlength="5">
+                                id="name" 
+                                name="name" 
+                                placeholder="John Doe" 
+                                minlength="5">
                             <p class="text-xs pt-2 text-gray-400">Must be at least 5 characters</p>
                         </div>
                     </div>
+
+                    <!-- Role Selector -->
                     <div>
                         <label for="role" class="block mb-2 text-sm font-medium text-white">Role</label>
-                        <select class="bg-palette-2 border border-gray-300 text-white
+                        <select 
+                            class="bg-palette-2 border border-gray-300 text-white
                             sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block
-                            w-full p-2.5" id="role" name="role" required>
-                            <option value="" disabled selected>Choose your role</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Developer">Developer</option>
+                            w-full p-2.5" 
+                            id="role" 
+                            name="role" 
+                            required>
+                                <option value="" disabled selected>Choose your role</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Developer">Developer</option>
                         </select>
                     </div>
-                    <div class="developer-info role-info hidden">
-                        <label for="developerType" class="block mb-2 text-sm font-medium text-white">What type of
-                            Developer are
-                            you?</label>
-                        <select class="bg-palette-2 border border-gray-300 text-white
+
+                    <!-- Developer Type Selector -->
+                    <div 
+                        class="developer-info role-info hidden">
+                        <label 
+                            for="developerType" 
+                            class="block mb-2 text-sm font-medium text-white">
+                                What type of Developer are you?
+                        </label>
+                        <select 
+                            class="bg-palette-2 border border-gray-300 text-white
                             sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block
-                            w-full p-2.5" id="developerType" name="developerType" required>
-                            <option value="" disabled selected>Choose your Developer Role</option>
-                            <option value="Front-end">Front-end Developer</option>
-                            <option value="Back-end ">Back-end Developer</option>
-                            <option value="Full-stack">Full-stack Developer</option>
-                            <option value="DevOps">DevOps Engineer</option>
-                            <option value="Cloud">Cloud Architect</option>
+                            w-full p-2.5" 
+                            id="developerType" 
+                            name="developerType" 
+                            required>
+                                <option value="" disabled selected>Choose your Developer Role</option>
+                                <option value="Front-end">Front-end Developer</option>
+                                <option value="Back-end ">Back-end Developer</option>
+                                <option value="Full-stack">Full-stack Developer</option>
+                                <option value="DevOps">DevOps Engineer</option>
+                                <option value="Cloud">Cloud Architect</option>
                         </select>
                     </div>
-                    <button type="submit"
-                        class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-5 text-center">Sign
-                        up</button>
+
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit"
+                        class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-5 text-center">Signup
+                    </button>
                 </form>
             </div>
         </div>
+
+        <div id="myPopup" class="popup">
+            <%- include('../partials/popup'); %>
+        </div>
+    </div>
+
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<% if(scripts) { %>
+    <% scripts.forEach(function(script) { %>
+        <script src="<%= script %>"></script>
+    <% }); %>
+<% } %>
