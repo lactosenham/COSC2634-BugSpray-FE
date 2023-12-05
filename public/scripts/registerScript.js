@@ -26,6 +26,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     var role = document.getElementById('role').value;
     var developerType = document.getElementById('developerType').value;
 
+    // Check if selected role is Manager
     if (role == "Manager") {
         developerType = null; 
     }
