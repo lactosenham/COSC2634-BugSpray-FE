@@ -33,6 +33,13 @@ app.get('<- insert route name here ->', (req, res) => {
     });
 
 */
+app.get('/', (req, res) => {
+    res.render('layout.ejs', {
+        title: 'Home',
+        bodyFile: './dashboard',
+    });
+});
+
 app.get('/login', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
@@ -55,12 +62,6 @@ app.get('/project-create', (req, res) => {
 }
 );
 
-app.get('/', (req, res) => {
-    res.render('layout.ejs', {
-        title: 'Home',
-        bodyFile: './dashboard',
-    });
-});
 
 // Start the server
 app.listen(port, () => {
