@@ -1,22 +1,48 @@
-<div class="bg-sky-950 flex items-stretch justify-between h-[100px] pr-10 rounded-b-2xl max-md:flex-wrap max-md:pr-5">
-  <div class="flex items-center gap-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-    <a href="/"><img src="./img/Bugspray - Dark.png"
-        class="aspect-[1.14] object-contain object-center h-[100px] overflow-hidden self-stretch shrink-0 max-w-full" /></a>
-    <div class="text-sky-700 text-center text-xl font-semibold leading-10 my-auto">Dashboard</div>
-    <div class="text-white text-center text-xl font-semibold leading-10 my-auto">Projects</div>
-    <div class="text-white text-center text-xl font-semibold leading-10 my-auto">Bugs</div>
+<div class="bg-sky-950 flex flex-wrap items-center justify-between h-[100px] px-5 md:px-10 relative">
+  <!-- Logo -->
+  <a href="/" class="shrink-0">
+    <img src="./img/Bugspray - Dark.png" class="h-[80px] md:h-[100px] object-contain" />
+  </a>
+
+  <!-- Navigation Links (Visible on medium and larger screens) -->
+  <div class="hidden md:flex items-center gap-8">
+    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Dashboard</a>
+    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Projects</a>
+    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Bugs</a>
   </div>
-  <div class="flex items-center gap-0 my-auto max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-    <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto rounded-l-lg">
-      <!-- Add your content for this part -->
+
+  <!-- Search Bar (Always Visible) -->
+  <div class="flex items-center gap-0 my-auto">
+    <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto">
+      <input type="text" class="pl-4 pr-2 py-2 w-full focus:outline-none" placeholder="Search...">
     </div>
-    <div
-      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 max-w-full my-auto rounded-r-lg">
+    <div class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 my-auto">
       <i class="fa-solid fa-magnifying-glass fa-xl mt-5 ml-2 text-white"></i>
     </div>
-    <div class="flex gap-3 ml-2">
-      <div class="text-white"><i class="fa-regular fa-bell fa-2xl"></i></div>
-      <div class="text-white"><i class="fa-regular fa-user fa-2xl"></i></div>
+  </div>
+
+  <!-- Dropdown Toggle Button (Visible on smaller screens) -->
+  <button id="mobileMenuButton" class="text-white px-3 py-2 rounded-md text-lg font-medium md:hidden">
+    Menu
+  </button>
+
+  <!-- Dropdown Menu (Visible only on smaller screens) -->
+  <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-sky-950 z-20 shadow-md md:hidden">
+    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
+    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
+    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
+    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">
+      <i class="fa-regular fa-bell"></i> Notifications
+    </div>
+    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800">
+      <i class="fa-regular fa-user"></i> Profile
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('mobileMenuButton').addEventListener('click', function() {
+    var mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
