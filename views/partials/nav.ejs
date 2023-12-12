@@ -1,4 +1,5 @@
-<div class="bg-sky-950 flex flex-wrap items-center justify-between h-[100px] px-5 md:px-10 relative">
+<nav class="bg-palette-3 rounded-b-3xl flex flex-wrap items-center justify-between h-[100px] px-5 md:px-10 relative"
+  id="navbar">
   <!-- Logo -->
   <a href="/" class="shrink-0">
     <img src="./img/Bugspray - Dark.png" class="h-[80px] md:h-[100px] object-contain" />
@@ -13,24 +14,28 @@
 
   <!-- Search Bar (Always Visible) -->
   <div class="flex items-center gap-0 my-auto">
-    <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto">
-      <input type="text" class="pl-4 pr-2 py-2 w-full focus:outline-none" placeholder="Search...">
+    <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto rounded-l-xl">
+      <input type="text" class="pl-4 pr-2 py-2 w-full focus:outline-none rounded-l-xl" placeholder="Search...">
     </div>
-    <div class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 my-auto">
+    <div
+      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 my-auto rounded-r-xl">
       <i class="fa-solid fa-magnifying-glass fa-xl mt-5 ml-2 text-white"></i>
     </div>
   </div>
 
   <!-- Dropdown Toggle Button (Visible on smaller screens) -->
   <button id="mobileMenuButton" class="text-white px-3 py-2 rounded-md text-lg font-medium md:hidden">
-    Menu
+    <i class="fa-solid fa-bars fa-xl"></i>
   </button>
 
   <!-- Dropdown Menu (Visible only on smaller screens) -->
-  <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-sky-950 z-20 shadow-md md:hidden">
-    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
-    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
-    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
+  <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-palette-3 z-20 shadow-md md:hidden">
+    <a href="#"
+      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
+    <a href="#"
+      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
+    <a href="#"
+      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
     <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">
       <i class="fa-regular fa-bell"></i> Notifications
     </div>
@@ -38,11 +43,14 @@
       <i class="fa-regular fa-user"></i> Profile
     </div>
   </div>
-</div>
+</nav>
+
 
 <script>
-  document.getElementById('mobileMenuButton').addEventListener('click', function() {
+  document.getElementById('mobileMenuButton').addEventListener('click', function () {
     var mobileMenu = document.getElementById('mobileMenu');
+    var navbar = document.getElementById('navbar');
     mobileMenu.classList.toggle('hidden');
+    navbar.classList.toggle('rounded-b-3xl');
   });
 </script>
