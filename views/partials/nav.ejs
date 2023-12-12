@@ -18,10 +18,17 @@
       <input type="text" class="pl-4 pr-2 py-2 w-full focus:outline-none rounded-l-xl" placeholder="Search...">
     </div>
     <div
-      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 my-auto rounded-r-xl">
+      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] h-[40px] overflow-hidden shrink-0 my-auto rounded-r-xl">
       <i class="fa-solid fa-magnifying-glass fa-xl mt-5 ml-2 text-white"></i>
     </div>
+    <div class="hidden md:flex text-center text-white text-lg font-semibold ml-2 px-3 hover:bg-sky-800 border-white">
+      <i class="fa-regular fa-bell fa-xl"></i>
+    </div>
+    <div class="hidden md:flex text-center text-white text-lg font-semibold px-3 hover:bg-sky-800">
+      <i class="fa-regular fa-user fa-xl"></i>
+    </div>
   </div>
+
 
   <!-- Dropdown Toggle Button (Visible on smaller screens) -->
   <button id="mobileMenuButton" class="text-white px-3 py-2 rounded-md text-lg font-medium md:hidden">
@@ -44,13 +51,3 @@
     </div>
   </div>
 </nav>
-
-
-<script>
-  document.getElementById('mobileMenuButton').addEventListener('click', function () {
-    var mobileMenu = document.getElementById('mobileMenu');
-    var navbar = document.getElementById('navbar');
-    mobileMenu.classList.toggle('hidden');
-    navbar.classList.toggle('rounded-b-3xl');
-  });
-</script>
