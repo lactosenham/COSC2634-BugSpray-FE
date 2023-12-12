@@ -1,4 +1,6 @@
 module.exports = {
+    mode: "jit",
+    purge: ["./views/**/*.{ejs,js}"],  
     content: ["./views/**/*.{ejs,js}"],
     theme: {
         extend: {
