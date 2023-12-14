@@ -44,7 +44,10 @@ app.get('/login', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/login',
-        scripts: ['/scripts/popupScript.js', '/scripts/loginScript.js'],
+        scripts: [
+            '/scripts/popupScript.js', 
+            '/scripts/auth/loginScript.js'
+        ],
     });
 });
 
@@ -52,16 +55,27 @@ app.get('/register', (req, res) => {
     res.render('authLayout', {
         title: 'Home',
         bodyFile: './auth/register',
-        scripts: ['/scripts/popupScript.js', '/scripts/registerScript.js'],
+        scripts: [
+            '/scripts/popupScript.js', 
+            '/scripts/auth/registerScript.js'
+        ],
     });
 });
+
 app.get('/project-create', (req, res) => {
     res.render('layout', {
         title: 'Create New Project',
         bodyFile: './project/create',
+        scripts: [
+            '/scripts/project/addDevsToProject.js', 
+            '/scripts/auth/authInterceptor.js',
+            '/scripts/bug/addBug.js', 
+            '/scripts/project/addProject.js'
+        ],
     });
 }
 );
+
 app.get('/profile', (req, res) => {
     res.render('layout', {
         title: 'Profile',
