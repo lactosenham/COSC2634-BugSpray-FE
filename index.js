@@ -70,6 +70,14 @@ app.get('/profile', (req, res) => {
 }
 );
 
+app.get('/project-dashboard', (req, res) => {
+    res.render('layout', {
+        title: 'Project Dashboard',
+        bodyFile: './project/projectDashboard',
+    });
+}
+);
+
 // 404 Not Found Handler
 app.use((req, res, next) => {
     res.status(404).send("Sorry, page not found");
