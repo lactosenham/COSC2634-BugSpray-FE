@@ -66,6 +66,14 @@ app.get("/bug-detail", (req, res) => {
 }
 );
 
+app.get("/project-detail", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./projectDetail",
+  });
+}
+);
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
