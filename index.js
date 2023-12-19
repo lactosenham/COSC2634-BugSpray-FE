@@ -43,27 +43,42 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/login", (req, res) => {
-  res.render("authLayout", {
-    title: "Home",
-    bodyFile: "./auth/login",
-    scriptFile: "/scripts/loginScripts.js",
-  });
+app.get('/login', (req, res) => {
+    res.render('authLayout', {
+        title: 'Home',
+        bodyFile: './auth/login',
+        scripts: [
+            '/scripts/popupScript.js', 
+            '/scripts/auth/loginScript.js'
+        ],
+    });
 });
 
-app.get("/register", (req, res) => {
-  res.render("authLayout", {
-    title: "Home",
-    bodyFile: "./auth/register",
-  });
+app.get('/register', (req, res) => {
+    res.render('authLayout', {
+        title: 'Home',
+        bodyFile: './auth/register',
+        scripts: [
+            '/scripts/popupScript.js', 
+            '/scripts/auth/registerScript.js'
+        ],
+    });
 });
 
-app.get("/bug-detail", (req, res) => {
-  res.render("layout", {
-    title: "Home",
-    bodyFile: "./bugDetail",
-  });
-});
+app.get('/project-create', (req, res) => {
+    res.render('layout', {
+        title: 'Create New Project',
+        bodyFile: './project/create',
+        scripts: [
+            '/scripts/project/addDevsToProject.js', 
+            '/scripts/auth/authInterceptor.js',
+            '/scripts/bug/addBug.js', 
+            '/scripts/project/addProject.js'
+        ],
+    });
+}
+);
+
 app.get('/profile', (req, res) => {
     res.render('layout', {
         title: 'Profile',

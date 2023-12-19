@@ -1,71 +1,46 @@
-<!-- Modal toggle -->
-<button data-modal-target="developerProject-modal" data-modal-toggle="developerProject-modal"
+<!-- Modal Button -->
+<button data-modal-target="developerProject-modal" 
+    data-modal-toggle="developerProject-modal"
     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     type="button">
     Add Developer
 </button>
 
-<div id="developerProject-modal" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Add Developer
-                </h3>
+<div>
+    <!-- Modal Content -->
+    <div id="developerProject-modal" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900">
+                        Add Developer
+                    </h3>
+                
+                <!-- Close Button -->
                 <button type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                     data-modal-toggle="developerProject-modal">
-                    <i class="fa-solid fa-x"></i>
-                    <span class="sr-only">Close modal</span>
+                        <i class="fa-solid fa-x"></i>
+                        <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <!-- Modal body -->
-            <form class="p-4 md:p-5">
-                <div class="grid gap-4 mb-4 grid-cols-1 md:grid-cols-2">
-                    <div>
-                        <input type="checkbox" id="1" name="developerIds" value="1" class="hidden peer">
-                        <label for="1"
-                            class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 hover:text-gray-600  peer-checked:text-gray-600 hover:bg-gray-50">
-                            <div class="block">
-                                <div class="w-full text-lg font-semibold">Sam Ton</div>
-                                <div class="w-full text-sm">Front-end Developer</div>
-                            </div>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="2" name="developerIds" value="2" class="hidden peer">
-                        <label for="2"
-                            class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 hover:text-gray-600  peer-checked:text-gray-600 hover:bg-gray-50">
-                            <div class="block">
-                                <div class="w-full text-lg font-semibold">Bao Nguyen</div>
-                                <div class="w-full text-sm">Back-end Developer</div>
-                            </div>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="3" name="developerIds" value="3" class="hidden peer">
-                        <label for="3"
-                            class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 hover:text-gray-600  peer-checked:text-gray-600 hover:bg-gray-50">
-                            <div class="block">
-                                <div class="w-full text-lg font-semibold">Sam Ton</div>
-                                <div class="w-full text-sm">Front-end Developer</div>
-                            </div>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="4" name="developerIds" value="4" class="hidden peer">
-                        <label for="4"
-                            class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 hover:text-gray-600  peer-checked:text-gray-600 hover:bg-gray-50">
-                            <div class="block">
-                                <div class="w-full text-lg font-semibold">Bao Nguyen</div>
-                                <div class="w-full text-sm">Back-end Developer</div>
-                            </div>
-                        </label>
+
+            <!-- Modal Body -->
+            <form id="addDevForm" class="p-4 md:p-5">
+                <!-- Loading -->
+                <div id="loading" class=" justify-center items-center h-full text-gray-500 text-xl hidden">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <span class="ml-2">Loading developers...</span>
+                </div>
+                
+                <div id="content" class="hidden">
+                    <div id="devList" class="grid gap-4 mb-4 grid-cols-1 md:grid-cols-2">
                     </div>
                 </div>
+
+                <!-- Submit Button -->
                 <button type="submit"
                     class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <i class="fa-solid fa-plus mr-3"></i>
@@ -75,3 +50,10 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<% if(scripts) { %>
+  <% scripts.forEach(function(script) { %>
+    <script src="<%= script %>"></script>
+  <% }); %>
+<% } %>
