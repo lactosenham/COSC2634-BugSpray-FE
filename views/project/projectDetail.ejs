@@ -4,7 +4,9 @@
     <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
       <div class="w-3/4 pr-10 overflow-x-auto text-base overscroll-auto">
         <div id="project-des" class="pb-1">Description</div>
-        <div class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus libero, cursus at tortor ac, iaculis suscipit urna. Ut velit arcu, tristique sit amet posuere eget, posuere ut tellus.</div>
+        <div class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus libero,
+          cursus at tortor ac, iaculis suscipit urna. Ut velit arcu, tristique sit amet posuere eget, posuere ut tellus.
+        </div>
       </div>
 
       <div class="px-10 text-sm">
@@ -18,8 +20,11 @@
     </div>
 
     <div class="">
-      <button id="back-to-list" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-[5px]">Back to list</button>
-      <button id="edit" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Edit</button>
+      <button id="back-to-list"
+        class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-[5px]">Back to
+        list</button>
+      <button id="edit"
+        class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Edit</button>
     </div>
   </div>
 
@@ -27,15 +32,21 @@
     <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-5">
-          <div class="flex justify-between w-full">
-            <h1 class="text-lg font-medium text-gray-900 ">Assigned Personnel</h1>
-            <button id="add-project-mem" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Add member</button>
+          <div class="flex flex-col justify-between w-full">
+            <div class="flex justify-between w-full">
+              <div>
+                <h1 class="text-lg font-bold text-gray-900 ">Assigned Personnel</h1>
+              </div>
+              <div>
+                <%- include('../partials/modals/addDevelopertoProject') %>
+              </div>
+            </div>
           </div>
-
           <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
               <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full" src="https://dummyimage.com/80x80">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
                 <div class="flex-grow">
                   <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
                   <p id="mem-role" class="text-slate-400">UI Designer</p>
@@ -45,7 +56,8 @@
 
             <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
               <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full" src="https://dummyimage.com/80x80">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
                 <div class="flex-grow">
                   <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
                   <p id="mem-role" class="text-slate-400">UI Designer</p>
@@ -56,7 +68,8 @@
 
             <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
               <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full" src="https://dummyimage.com/80x80">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
                 <div class="flex-grow">
                   <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
                   <p id="mem-role" class="text-slate-400">UI Designer</p>
@@ -75,10 +88,9 @@
         <section class="text-gray-600 body-font">
           <div class="container px-5 py-5">
             <div class="flex justify-between w-full">
-              <h1 class="text-lg font-medium text-gray-900 ">Bugs</h1>
-              <button id="add-project-mem" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Add bug</button>
+              <h1 class="text-lg font-bold text-gray-900 ">Bugs</h1>
+              <%- include('../partials/modals/addBug') %>
             </div>
-
             <div class="-mx-4">
               <div class="w-full px-4 py-2">
                 <div class="flex items-center p-3 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">

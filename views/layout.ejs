@@ -7,17 +7,17 @@
     </title>
 </head>
 
-<body class="bg-palette-1 text-black font-sans flex flex-col h-screen justify-between">
+<body class="flex flex-col justify-between h-screen font-sans text-black bg-palette-1">
   <%- include ('./partials/nav') %>
     <!-- Pass bodyFile as filename -->
-    <div class="flex-grow">
+    <div class="grow">
       <%- include(bodyFile) %>
     </div>
     <%- include ('./partials/footer') %>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Chart line -->
-  <script src="js/script.js"></script>
+      <!-- Chart line -->
+      <script src="js/script.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 

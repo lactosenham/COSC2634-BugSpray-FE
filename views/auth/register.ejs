@@ -1,34 +1,34 @@
 <link href="/style/popup.css" rel="stylesheet" type="text/css">
-<section class="bg-palette-4 pb-10">
+<section class="pb-10 bg-palette-4">
     <!-- App's Logo -->
     <a href="#" class="flex justify-center my-6">
         <img class="w-40 mr-2" src="img/BugSpray - Dark.png" alt="logo">
     </a>
 
     <!-- Slogan -->
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-5 px-6 py-8">
+    <div class="grid grid-cols-1 px-6 py-8 md:grid-cols-2 md:gap-5">
         <section class="flex items-center">
             <div class="flex flex-col">
                 <h1
-                    class="mb-4 text-center lg:text-left text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-center text-white lg:text-left md:text-5xl lg:text-6xl">
                     Unleash the power of seamless collaboration</h1>
                 <p
-                    class="mb-8 text-center lg:text-left text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+                    class="mb-8 text-lg font-normal text-center text-gray-500 lg:text-left lg:text-xl dark:text-gray-400">
                     Where every bug finds its fix seamlessly</p>
             </div>
         </section>
 
         <!-- Registration Form Title -->
-        <div class="w-auto bg-palette-3 rounded-lg shadow-2xl">
+        <div class="w-auto rounded-lg shadow-2xl bg-palette-3">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
                 <!-- Registration Link -->
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl text-center">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-white md:text-2xl">
                     Register for an account
                 </h1>
 
                 <!-- Login Link -->
-                <h2 class="text-md leading-tight tracking-tight text-white text-center">
+                <h2 class="leading-tight tracking-tight text-center text-white text-md">
                     Already have an account? <span><a class="text-yellow-100 hover:underline" href="/login">Log
                             in</a></span>
                 </h2>
@@ -48,7 +48,7 @@
                             placeholder="userName123" 
                             pattern="[a-zA-Z0-9]{8,15}" 
                         required>
-                        <p class="text-xs pt-2 text-gray-400">Must be 8 to 15 characters</p>
+                        <p class="pt-2 text-xs text-gray-400">Must be 8 to 15 characters</p>
                     </div>
 
                     <!-- Password Field -->
@@ -63,7 +63,7 @@
                             required placeholder="••••••••"
                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$"
                         required>
-                        <div class="text-xs pt-2 text-gray-400">
+                        <div class="pt-2 text-xs text-gray-400">
                             <ul>
                                 <li>At least one upper case letter</li>
                                 <li>At least one lower case letter</li>
@@ -86,7 +86,7 @@
                                 name="name" 
                                 placeholder="John Doe" 
                                 minlength="5">
-                            <p class="text-xs pt-2 text-gray-400">Must be at least 5 characters</p>
+                            <p class="pt-2 text-xs text-gray-400">Must be at least 5 characters</p>
                         </div>
                     </div>
 
@@ -105,10 +105,9 @@
                                 <option value="Developer">Developer</option>
                         </select>
                     </div>
-
                     <!-- Developer Type Selector -->
                     <div 
-                        class="developer-info role-info hidden">
+                        class="hidden developer-info role-info">
                         <label 
                             for="developerType" 
                             class="block mb-2 text-sm font-medium text-white">
