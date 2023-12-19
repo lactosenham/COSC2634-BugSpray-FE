@@ -43,36 +43,42 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get('/login', (req, res) => {
-    res.render('authLayout', {
-        title: 'Home',
-        bodyFile: './auth/login',
-        scriptFile: '/scripts/loginScripts.js'
-    });
+app.get("/login", (req, res) => {
+  res.render("authLayout", {
+    title: "Home",
+    bodyFile: "./auth/login",
+    scriptFile: "/scripts/loginScripts.js",
+  });
 });
 
-app.get('/register', (req, res) => {
-    res.render('authLayout', {
-        title: 'Home',
-        bodyFile: './auth/register',
-    });
+app.get("/register", (req, res) => {
+  res.render("authLayout", {
+    title: "Home",
+    bodyFile: "./auth/register",
+  });
 });
 
 app.get("/bug-detail", (req, res) => {
-    res.render("layout", {
-      title: "Home",
-      bodyFile: "./bugDetail",
-    });
-}
-);
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./bugDetail",
+  });
+});
 
 app.get("/project-detail", (req, res) => {
   res.render("layout", {
     title: "Home",
     bodyFile: "./projectDetail",
   });
-}
-);
+});
+
+app.get("/about", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./about",
+  });
+});
+
 
 // Start the server
 app.listen(port, () => {
