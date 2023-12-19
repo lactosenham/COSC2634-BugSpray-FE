@@ -62,7 +62,21 @@ app.get('/project-create', (req, res) => {
     });
 }
 );
+app.get('/profile', (req, res) => {
+    res.render('layout', {
+        title: 'Profile',
+        bodyFile: './profile',
+    });
+}
+);
 
+app.get('/project-dashboard', (req, res) => {
+    res.render('layout', {
+        title: 'Project Dashboard',
+        bodyFile: './project/projectDashboard',
+    });
+}
+);
 
 // 404 Not Found Handler
 app.use((req, res, next) => {
