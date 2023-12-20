@@ -129,6 +129,13 @@ app.get('/bugs', (req, res) => {
   });
 }
 );
+app.get('/bug-detail', (req, res) => {
+  res.render('layout', {
+    title: 'Bug Details',
+    bodyFile: './bugs/bugDetail',
+  });
+}
+);
 // 404 Not Found Handler
 app.use((req, res, next) => {
   res.status(404).send("Sorry, page not found");
