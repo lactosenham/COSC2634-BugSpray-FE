@@ -1,0 +1,109 @@
+<h2 class="my-4 text-3xl font-bold text-center md:text-4xl md:my-8">
+    <%= title %>
+</h2>
+<section class="flex flex-col w-full gap-10 py-10 my-5 content lg:flex-row px-7">
+    <aside
+        class="left-0 hidden w-full p-5 rounded-lg bg-palette-3 md:max-lg:block lg:block lg:sticky top-10 h-5/6 lg:w-1/4 md:max-lg:center-and-half">
+        <h2 class="mb-4 text-xl font-bold text-white">Filter Products</h2>
+
+        <form action="" method="get">
+            <!-- Price Range Filter -->
+            <div class="mb-4">
+                <h3 class="mb-2 text-lg font-semibold text-gray-400">Price Range</h3>
+                <input type="hidden" name="page" value="">
+                <input type="hidden" name="name" value="">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-gray-300">Min Price: </span>
+                    <span id="min-price-label" class="text-gray-300">0</span>
+                </div>
+                <input type="range" id="min-price" name="minp" min="0" max="50000000" value="0"
+                    class="appearance-none bg-white w-full h-2 mb-2 rounded-lg [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4  [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-lg"
+                    step="100000">
+
+                <div class="flex items-center justify-between mb-2">
+                    <span class="dark:text-gray-300">Max Price: </span>
+                    <span id="max-price-label" class="dark:text-gray-300">50000000</span>
+                </div>
+                <input type="range" id="max-price" name="maxp" min="0" max="50000000" value="50000000"
+                    class="appearance-none bg-white w-full h-2 rounded-lg [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4  [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-lg"
+                    step="100000">
+            </div>
+
+            <!-- Filter Button -->
+            <button type="submit"
+                class="w-full py-2 my-4 font-bold text-white transition duration-300 bg-blue-800 rounded-lg shadow-sm hover:brightness-110 hover:scale-105">Apply
+                Filters</button>
+            <input type="reset" id="reset-filters"
+                class="w-full py-2 font-bold text-white transition duration-300 bg-blue-800 rounded-lg shadow-sm hover:brightness-110 hover:scale-105"
+                value="Reset Filters">
+        </form>
+    </aside>
+    <div class="flex flex-col justify-center w-full lg:w-3/4">
+        <section
+            class="grid items-center grid-cols-1 gap-10 mx-auto mb-5 md:grid-cols-2 lg:grid-cols-3 justify-items-center md:max-w-2xl lg:max-w-full lg:mx-0">
+            <div class="flex flex-col justify-between w-auto h-64 gap-4 p-6 bg-white rounded-lg shadow-md">
+                <div class="flex justify-between w-full gap-2">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">
+                            Backend Not Working
+                        </h2>
+                        <p class="line-clamp-3 text-ellipsis"><strong>Description:</strong> Someone pushed some ass code
+                            to prod and now the SQL database is down </p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-full shadow-lg">
+                            Priority: 5
+                        </div>
+                        <div
+                            class="inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full shadow-lg">
+                            Severity: 5
+                        </div>
+                    </div>
+                </div>
+                <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
+            </div>
+            <div class="flex flex-col justify-between w-auto h-64 gap-4 p-6 bg-white rounded-lg shadow-md">
+                <div class="flex justify-between w-full gap-2">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">
+                            Frontend Not Working
+                        </h2>
+                        <p class="line-clamp-3 text-ellipsis"><strong>Description:</strong> Someone used Bootstrap in a
+                            Tailwind project. Now the CSS is not loading</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="px-5 py-2 text-sm font-semibold text-white bg-orange-500 rounded-full shadow-lg">
+                            Priority: 3
+                        </div>
+                        <div
+                            class="inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-full shadow-lg">
+                            Severity: 5
+                        </div>
+                    </div>
+                </div>
+                <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
+            </div>
+            <div class="flex flex-col justify-between w-auto h-64 gap-4 p-6 bg-white rounded-lg shadow-md">
+                <div class="flex justify-between w-full gap-2">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">
+                            Intergration Not Working
+                        </h2>
+                        <p class="line-clamp-3 text-ellipsis"><strong>Description:</strong> Someone used React syntax in
+                            an EJS project. Now nothing is working</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-full shadow-lg">
+                            Priority: 5
+                        </div>
+                        <div
+                            class="inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-full shadow-lg">
+                            Severity: 5
+                        </div>
+                    </div>
+                </div>
+                <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
+            </div>
+        </section>
+    </div>
+</section>

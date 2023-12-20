@@ -102,7 +102,7 @@ app.get("/about", (req, res) => {
 });
 
 
-app.get('/project-dashboard', (req, res) => {
+app.get('/projects', (req, res) => {
   res.render('layout', {
     title: 'Project Dashboard',
     bodyFile: './project/projectDashboard',
@@ -119,6 +119,13 @@ app.get('/project-detail', (req, res) => {
       '/scripts/bug/addBug.js',
       '/scripts/project/addProject.js'
     ],
+  });
+}
+);
+app.get('/bugs', (req, res) => {
+  res.render('layout', {
+    title: 'Bug Dashboard',
+    bodyFile: './bugs/bugDashboard',
   });
 }
 );
