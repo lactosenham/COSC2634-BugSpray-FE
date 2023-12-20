@@ -82,7 +82,7 @@ app.get('/project-create', (req, res) => {
 app.get('/profile', (req, res) => {
   res.render('layout', {
     title: 'Profile',
-    bodyFile: './profile',
+    bodyFile: './user/profile',
   });
 }
 );
