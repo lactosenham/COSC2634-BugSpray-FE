@@ -3,6 +3,7 @@ document.getElementById('mobileMenuButton').addEventListener('click', function()
     mobileMenu.classList.toggle('hidden');
 });
 
+
 const labels = ["January", "February", "March", "April", "May", "June"];
 const data = {
     labels: labels,

@@ -36,10 +36,12 @@ app.get('<- insert route name here ->', (req, res) => {
     });
 
 */
+
+
 app.get("/", (req, res) => {
   res.render("layout.ejs", {
     title: "Home",
-    bodyFile: "./dashboard",
+    bodyFile: "./summary",
   });
 });
 
@@ -104,3 +106,4 @@ app.use((error, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
