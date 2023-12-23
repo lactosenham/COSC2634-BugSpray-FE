@@ -46,60 +46,107 @@ app.get("/", (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('authLayout', {
-        title: 'Home',
-        bodyFile: './auth/login',
-        scriptFile: '/scripts/loginScripts.js'
-    });
+  res.render('authLayout', {
+    title: 'Home',
+    bodyFile: './auth/login',
+    scripts: [
+      '/scripts/popupScript.js',
+      '/scripts/auth/loginScript.js'
+    ],
+  });
 });
 
 app.get('/register', (req, res) => {
-    res.render('authLayout', {
-        title: 'Home',
-        bodyFile: './auth/register',
-    });
+  res.render('authLayout', {
+    title: 'Home',
+    bodyFile: './auth/register',
+    scripts: [
+      '/scripts/popupScript.js',
+      '/scripts/auth/registerScript.js'
+    ],
+  });
 });
 
-app.get("/bug-detail", (req, res) => {
-    res.render("layout", {
-      title: "Home",
-      bodyFile: "./bugDetail",
-    });
+app.get('/project-create', (req, res) => {
+  res.render('layout', {
+    title: 'Create New Project',
+    bodyFile: './project/create',
+    scripts: [
+      '/scripts/project/addDevsToProject.js',
+      '/scripts/auth/authInterceptor.js',
+      '/scripts/bug/addBug.js',
+      '/scripts/project/addProject.js'
+    ],
+  });
 }
 );
+
 app.get('/profile', (req, res) => {
-    res.render('layout', {
-        title: 'Profile',
-        bodyFile: './profile',
-    });
+  res.render('layout', {
+    title: 'Profile',
+    bodyFile: './user/profile',
+  });
 }
 );
 
 app.get('/project-create', (req, res) => {
   res.render('layout', {
-      title: 'Create New Project',
-      bodyFile: './project/create',
+    title: 'Create New Project',
+    bodyFile: './project/create',
+  });
+});
+
+app.get("/about", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./about",
+  });
+});
+
+
+app.get('/projects', (req, res) => {
+  res.render('layout', {
+    title: 'Project Dashboard',
+    bodyFile: './project/projectDashboard',
   });
 }
 );
-
-app.get('/project-dashboard', (req, res) => {
-    res.render('layout', {
-        title: 'Project Dashboard',
-        bodyFile: './project/projectDashboard',
-    });
+app.get('/project-detail', (req, res) => {
+  res.render('layout', {
+    title: 'Project Details',
+    bodyFile: './project/projectDetail',
+    scripts: [
+      '/scripts/project/addDevsToProject.js',
+      '/scripts/auth/authInterceptor.js',
+      '/scripts/bug/addBug.js',
+      '/scripts/project/addProject.js'
+    ],
+  });
 }
 );
-
+app.get('/bugs', (req, res) => {
+  res.render('layout', {
+    title: 'Bug Dashboard',
+    bodyFile: './bugs/bugDashboard',
+  });
+}
+);
+app.get('/bug-detail', (req, res) => {
+  res.render('layout', {
+    title: 'Bug Details',
+    bodyFile: './bugs/bugDetail',
+  });
+}
+);
 // 404 Not Found Handler
 app.use((req, res, next) => {
-    res.status(404).send("Sorry, page not found");
+  res.status(404).send("Sorry, page not found");
 });
 
 // 500 Internal Server Error Handler
 app.use((error, req, res, next) => {
-    console.error(error.stack);
-    res.status(500).send("Something broke!");
+  console.error(error.stack);
+  res.status(500).send("Something broke!");
 });
 
 // Start the server
