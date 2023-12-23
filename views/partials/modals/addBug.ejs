@@ -1,25 +1,24 @@
 <!-- Modal toggle -->
 <button data-modal-target="bug-modal" data-modal-toggle="bug-modal"
-    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    type="button">
+    class="px-4 py-2 text-xs font-bold text-white rounded bg-palette-3 hover:bg-sky-400" type="button">
     Add Bug
 </button>
 
 <div id="bug-modal" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
+    <div class="relative w-full max-w-md max-h-full p-4">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
 
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <div class="flex items-center justify-between p-4 border-b rounded-t md:p-">
                 <h3 class="text-lg font-semibold text-gray-900">
                     Report a Bug
                 </h3>
 
                 <!-- Close Button -->
                 <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    class="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto"
                     data-modal-toggle="bug-modal">
                     <i class="fa-solid fa-x"></i>
                     <span class="sr-only">Close modal</span>
@@ -28,76 +27,75 @@
 
             <!-- Modal body -->
             <form id="addBugForm" class="p-4 md:p-5">
-                <div class="grid gap-4 mb-4 grid-cols-2">
-
+                <div class="grid grid-cols-2 gap-4 mb-4">
                     <!-- Name -->
                     <div class="col-span-2">
-                        <label for="name"
-                            class="block mb-2 text-sm font-bold text-gray-900">Name</label>
+                        <label for="name" class="block mb-2 text-sm font-bold text-gray-900">Name</label>
                         <input type="text" name="name" id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Please give the bug a name" required="">
                     </div>
-
                     <!-- Description -->
                     <div class="col-span-2">
-                        <label  for="description" 
-                                class="block mb-2 text-sm font-bold text-gray-900">Bug
+                        <label for="description" class="block mb-2 text-sm font-bold text-gray-900">Bug
                             Description
                         </label>
-                        <textarea   id="description" 
-                                    name="description" 
-                                    rows="2"
-                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Provide a brief description about the bug">
+                        <textarea id="description" name="description" rows="2"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Provide a brief description about the bug">
                         </textarea>
                     </div>
 
                     <!-- Severity -->
-                    <div class="col-span-2">
-                        <label for="severity" class="block mb-2 text-sm font-medium text-gray-900">Bug
+                    <div class="col-span-1">
+                        <label for="severity" class="block mb-2 text-sm font-bold text-gray-900">Bug
                             Severity</label>
                         <input type="number" id="severity" name="severity" min="1" max="5"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="5" required>
                     </div>
 
                     <!-- Priority -->
-                    <div class="col-span-2">
-                        <label for="priority" class="block mb-2 text-sm font-medium text-gray-900">Bug
+                    <div class="col-span-1">
+                        <label for="priority" class="block mb-2 text-sm font-bold text-gray-900">Bug
                             Priority</label>
                         <input type="number" id="priority" name="priority" min="1" max="5"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="5" required>
                     </div>
 
                     <!-- Steps to Reproduce -->
                     <div class="col-span-2">
-                        <label for="stepsToReproduce"
-                            class="block mb-2 text-sm font-bold text-gray-900">Steps To
+                        <label for="stepsToReproduce" class="block mb-2 text-sm font-bold text-gray-900">Steps To
                             Reproduce</label>
                         <textarea id="stepsToReproduce" name="stepsToReproduce" rows="4"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Please provide the steps to reproduce the bug"></textarea>
                     </div>
 
                     <!-- Deadline -->
-                    <div class="col-span-2">
-                        <label for="deadline"
-                            class="block mb-2 text-sm font-bold text-gray-900">Deadline</label>
-                        <input id="deadline"
-                            name="deadline" 
-                            type="date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    <div class="col-span-1">
+                        <label for="deadline" class="block mb-2 text-sm font-bold text-gray-900">Deadline</label>
+                        <input id="deadline" name="deadline" type="date"
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Select date">
                     </div>
                     <input type="text" name="status" value="Open" hidden>
+                    <div class="col-span-1">
+                        <label for="projectId" class="block mb-2 text-sm font-bold text-gray-900">Project</label>
+                        <select name="projectId" id="projectId" required
+                            class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="" disabled selected>Choose project</option>
+                            <option value="BugSpray">BugSpray</option>
+                            <option value="Petly">Petly</option>
+                            <option value="1080p Technology">1080p Technology</option>
+                        </select>
+                    </div>
                 </div>
-
                 <!-- Submit -->
                 <button type="submit"
                     class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <i class="fa-solid fa-plus mr-3"></i>
+                    <i class="mr-3 fa-solid fa-plus"></i>
                     Create
                 </button>
             </form>

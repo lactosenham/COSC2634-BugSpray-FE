@@ -1,3 +1,8 @@
+document.getElementById('mobileMenuButton').addEventListener('click', function() {
+    var mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('hidden');
+});
+
 const labels = ["January", "February", "March", "April", "May", "June"];
 const data = {
     labels: labels,
@@ -22,48 +27,56 @@ var chartLine = new Chart(
 
 
 
-const dataRadar = {
-    labels: [
-        "Reservation 1",
-        "Reservation 2",
-        "Reservation 3",
-        "Reservation 4",
-        "Reservation 5",
-        "Reservation 6",
-        "Reservation 7",
-    ],
+const dataPie = {
     datasets: [{
-        label: "My First Dataset",
-        data: [65, 59, 90, 81, 56, 55, 40],
-        fill: true,
-        backgroundColor: "rgba(255,105,180)",
-        borderColor: "rgb(255,20,147)",
-        pointBackgroundColor: "rgb(133, 105, 241)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(133, 105, 241)",
-    },
-    {
-        label: "My Second Dataset",
-        data: [28, 48, 40, 19, 96, 27, 100],
-        fill: true,
-        backgroundColor: "rgba(255,105,180)",
-        borderColor: "rgb(0,191,255)",
-        pointBackgroundColor: "rgb(54, 162, 235)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(54, 162, 235)",
-    },
+        data: [2, 3, 5],
+        backgroundColor: [
+            'rgb(253, 140, 0)',
+            'rgb(253, 197, 0)',
+            'rgb(0, 172, 70)',
+          ],
+    }
     ],
+    labels: ["High", "Medium", "Low"],
 };
 
 const configRadarChart = {
-    type: "radar",
-    data: dataRadar,
-    options: {},
+    type: 'doughnut',
+    data: dataPie,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Tickets by severity'
+            },
+            datalabels: {
+                formatter: (value) => {
+                    return value;
+                },
+            },
+            doughnutabel: {
+                labels: [
+                    {
+                        text: '10',
+                        font: {
+                            size:20,
+                            weight: 'bold',
+                        },
+                    },
+                    {
+                        text: 'total',
+                    }
+                ],
+            },
+        },
+    },
 };
 
 var chartBar = new Chart(
-    document.getElementById("chartRadar"),
+    document.getElementById("chartPie"),
     configRadarChart
 );

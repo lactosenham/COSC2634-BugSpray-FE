@@ -6,51 +6,50 @@
   </a>
 
   <!-- Navigation Links (Visible on medium and larger screens) -->
-  <div class="hidden md:flex items-center gap-8">
-    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Dashboard</a>
-    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Projects</a>
-    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Bugs</a>
+  <div class="items-center hidden gap-8 md:flex">
+    <a href="/" class="text-lg font-semibold text-white hover:text-sky-700">Dashboard</a>
+    <a href="/projects" class="text-lg font-semibold text-white hover:text-sky-700">Projects</a>
+    <a href="/bugs" class="text-lg font-semibold text-white hover:text-sky-700">Bugs</a>
   </div>
 
   <!-- Search Bar (Always Visible) -->
   <div class="flex items-center gap-0 my-auto">
     <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto rounded-l-xl">
-      <input type="text" class="pl-4 pr-2 py-2 w-full focus:outline-none rounded-l-xl" placeholder="Search...">
+      <input type="text" class="w-full py-2 pl-4 pr-2 focus:outline-none rounded-l-xl" placeholder="Search...">
     </div>
     <div
-      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] overflow-hidden shrink-0 my-auto rounded-r-xl">
-      <i class="fa-solid fa-magnifying-glass fa-xl mt-5 ml-2 text-white"></i>
+      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] h-[40px] overflow-hidden shrink-0 my-auto rounded-r-xl">
+      <i class="mt-5 ml-2 text-white fa-solid fa-magnifying-glass fa-xl"></i>
+    </div>
+    <div class="hidden px-3 ml-2 text-lg font-semibold text-center text-white md:flex">
+      <button>
+        <i class="fa-regular fa-bell fa-xl"></i>
+      </button>
+    </div>
+    <div class="hidden px-3 text-lg font-semibold text-center text-white md:flex ">
+      <a href="/profile"><i class="fa-regular fa-user fa-xl"></i></a>
     </div>
   </div>
 
+
   <!-- Dropdown Toggle Button (Visible on smaller screens) -->
-  <button id="mobileMenuButton" class="text-white px-3 py-2 rounded-md text-lg font-medium md:hidden">
+  <button id="mobileMenuButton" class="flex px-3 py-2 text-lg font-medium text-white rounded-md md:hidden">
     <i class="fa-solid fa-bars fa-xl"></i>
   </button>
 
   <!-- Dropdown Menu (Visible only on smaller screens) -->
-  <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-palette-3 z-20 shadow-md md:hidden">
+  <div id="mobileMenu" class="absolute left-0 z-20 w-full shadow-md top-full bg-palette-3 md:hidden">
     <a href="#"
-      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
+      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Dashboard</a>
     <a href="#"
-      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
+      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Projects</a>
     <a href="#"
-      class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
-    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">
+      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Bugs</a>
+    <div class="py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">
       <i class="fa-regular fa-bell"></i> Notifications
     </div>
-    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800">
+    <div class="py-2 text-lg font-semibold text-center text-white hover:bg-sky-800">
       <i class="fa-regular fa-user"></i> Profile
     </div>
   </div>
 </nav>
-
-
-<script>
-  document.getElementById('mobileMenuButton').addEventListener('click', function () {
-    var mobileMenu = document.getElementById('mobileMenu');
-    var navbar = document.getElementById('navbar');
-    mobileMenu.classList.toggle('hidden');
-    navbar.classList.toggle('rounded-b-3xl');
-  });
-</script>
