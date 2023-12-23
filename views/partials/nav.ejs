@@ -6,10 +6,11 @@
   </a>
 
   <!-- Navigation Links (Visible on medium and larger screens) -->
-  <div class="items-center hidden gap-8 md:flex">
-    <a href="/" class="text-lg font-semibold text-white hover:text-sky-700">Dashboard</a>
-    <a href="/projects" class="text-lg font-semibold text-white hover:text-sky-700">Projects</a>
-    <a href="/bugs" class="text-lg font-semibold text-white hover:text-sky-700">Bugs</a>
+
+  <div class="hidden md:flex items-center gap-8">
+    <a href="/project-dashboard" class="text-white text-lg font-semibold hover:text-sky-700">Dashboard</a>
+    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Projects</a>
+    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Bugs</a>
   </div>
 
   <!-- Search Bar (Always Visible) -->
@@ -21,13 +22,12 @@
       class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] h-[40px] overflow-hidden shrink-0 my-auto rounded-r-xl">
       <i class="mt-5 ml-2 text-white fa-solid fa-magnifying-glass fa-xl"></i>
     </div>
-    <div class="hidden px-3 ml-2 text-lg font-semibold text-center text-white md:flex">
+
+    <div class="hidden md:flex text-center text-white text-lg font-semibold px-3 ">
       <button>
-        <i class="fa-regular fa-bell fa-xl"></i>
+        <i class="fa-regular fa-user fa-xl"></i>
       </button>
-    </div>
-    <div class="hidden px-3 text-lg font-semibold text-center text-white md:flex ">
-      <a href="/profile"><i class="fa-regular fa-user fa-xl"></i></a>
+
     </div>
   </div>
 
@@ -38,17 +38,13 @@
   </button>
 
   <!-- Dropdown Menu (Visible only on smaller screens) -->
-  <div id="mobileMenu" class="absolute left-0 z-20 w-full shadow-md top-full bg-palette-3 md:hidden">
-    <a href="#"
-      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Dashboard</a>
-    <a href="#"
-      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Projects</a>
-    <a href="#"
-      class="block py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">Bugs</a>
-    <div class="py-2 text-lg font-semibold text-center text-white border-b border-white hover:bg-sky-800">
-      <i class="fa-regular fa-bell"></i> Notifications
-    </div>
-    <div class="py-2 text-lg font-semibold text-center text-white hover:bg-sky-800">
+
+  <div id="mobileMenu" class="absolute top-full left-0 w-full bg-palette-3 z-20 shadow-md md:hidden">
+    <a href="/project-dashboard" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
+    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
+    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
+    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800">
+
       <i class="fa-regular fa-user"></i> Profile
     </div>
   </div>
