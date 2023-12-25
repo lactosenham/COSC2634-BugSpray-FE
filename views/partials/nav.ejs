@@ -1,51 +1,51 @@
-<nav class="bg-palette-3 rounded-b-3xl flex flex-wrap items-center justify-between h-[100px] px-5 md:px-10 relative"
-  id="navbar">
-  <!-- Logo -->
-  <a href="/" class="shrink-0">
-    <img src="./img/Bugspray - Dark.png" class="h-[80px] md:h-[100px] object-contain" />
-  </a>
-
-  <!-- Navigation Links (Visible on medium and larger screens) -->
-
-  <div class="hidden md:flex items-center gap-8">
-    <a href="/project-dashboard" class="text-white text-lg font-semibold hover:text-sky-700">Dashboard</a>
-    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Projects</a>
-    <a href="#" class="text-white text-lg font-semibold hover:text-sky-700">Bugs</a>
-  </div>
-
-  <!-- Search Bar (Always Visible) -->
-  <div class="flex items-center gap-0 my-auto">
-    <div class="bg-white flex w-[268px] h-[40px] flex-col my-auto rounded-l-xl">
-      <input type="text" class="w-full py-2 pl-4 pr-2 focus:outline-none rounded-l-xl" placeholder="Search...">
-    </div>
-    <div
-      class="bg-sky-700 aspect-[1.07] object-contain object-center w-[43px] h-[40px] overflow-hidden shrink-0 my-auto rounded-r-xl">
-      <i class="mt-5 ml-2 text-white fa-solid fa-magnifying-glass fa-xl"></i>
-    </div>
-
-    <div class="hidden md:flex text-center text-white text-lg font-semibold px-3 ">
-      <button>
-        <i class="fa-regular fa-user fa-xl"></i>
+<nav class="border-gray-200 px-4 py-2 lg:px-6 bg-palette-4 rounded-b-3xl transition duration-300">
+  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl space-x-4">
+    <a href="/" class="flex items-center">
+      <img src="./img/Bugspray - Dark.png" class="mr-3 w-32 block" alt="Logo" />
+    </a>
+    <div class="flex items-center gap-3 lg:order-2">
+      <button id="searchBtn" class="flex items-center justify-center p-2">
+        <i class="fa fa-search text-2xl text-white hover:text-gray-200"></i>
       </button>
+        <a href="/profile"><i class="fa-solid fa-user fa-2xl text-white hover:text-gray-200"></i></a>
+        <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false" id="navBarButton">
+          <i class="fa-solid fa-bars fa-2x"></i>
+        </button>
+    </div>
+    <div class="hidden flex-grow justify-center items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+      <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-2 lg:space-y-0 space-y-4 lg:mt-0">
 
+          <li>
+            <a href="/project-dashboard" class="block py-2 px-2 rounded bg-palette-2 text-white">DASHBOARD</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-2 rounded bg-transparent text-gray-400 hover:text-white">PROJECTS</a>
+          </li>
+          <li>
+            <a href="/bugs" class="block py-2 px-2 rounded bg-transparent text-gray-400 hover:text-white">BUGS</a>
+          </li>
+      </ul>
     </div>
   </div>
-
-
-  <!-- Dropdown Toggle Button (Visible on smaller screens) -->
-  <button id="mobileMenuButton" class="flex px-3 py-2 text-lg font-medium text-white rounded-md md:hidden">
-    <i class="fa-solid fa-bars fa-xl"></i>
-  </button>
-
-  <!-- Dropdown Menu (Visible only on smaller screens) -->
-
-  <div id="mobileMenu" class="absolute top-full left-0 w-full bg-palette-3 z-20 shadow-md md:hidden">
-    <a href="/project-dashboard" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Dashboard</a>
-    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Projects</a>
-    <a href="#" class="block text-center text-white text-lg font-semibold py-2 hover:bg-sky-800 border-b border-white">Bugs</a>
-    <div class="text-center text-white text-lg font-semibold py-2 hover:bg-sky-800">
-
-      <i class="fa-regular fa-user"></i> Profile
+  <form method="get">
+    <div id="searchBar"
+      class="hidden w-full px-4 py-4 rounded-b-3xl transition-opacity duration-300 delay-150">
+      <div class="mx-auto max-w-screen-xl flex items-center">
+        <input type="text" id="searchInput"
+          class="outline-none border-none flex-grow rounded-l-lg text-sm h-12 pl-4 text-black bg-zinc-100"
+          placeholder="Search..." name="name" />
+        <button
+          class="bg-palette-2 hover:bg-palette-3 text-white h-12 w-24 text-sm font-medium rounded-r-lg py-2.5 focus:outline-none focus:ring-blue-800"
+          type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
+        </button>
+        <button id="closeSearchBtn" class="hidden md:flex items-center justify-center p-2 ml-4 
+        text-white bg-rose-500 rounded-lg border-none shadow-md shadow-rose-800
+        h-10 w-10" type="button">
+          <i class="fas fa-times text-2xl hover:text-gray-200" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
-  </div>
+  </form>
 </nav>
