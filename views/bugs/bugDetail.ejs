@@ -1,4 +1,4 @@
-<div class="flex justify-center pt-5 pb-10 mt-5">
+<!-- <div class="flex justify-center pt-5 pb-10 mt-5">
   <div class="w-5/6 h-full py-10 border-2 border-[#082f49] rounded-lg">
     <div class="flex justify-between">
       <div class="flex gap-2">
@@ -76,5 +76,63 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+<link href="/style/bugs/bugDetails.css" rel="stylesheet" type="text/css">
+
+<div class="bug-container">
+  <div class="bug-card">
+      <div class="bug-header">
+          <div class="bug-title-area">
+              <i class="bug-icon fa-solid fa-bug"></i>
+              <h1 class="bug-title" id="name">Bug Name</h1>
+          </div>
+          <button class="close-button">
+              <i class="fa-solid fa-x"></i>
+          </button>
+      </div>
+
+      <div class="bug-content">
+          <div class="description-area">
+              <h1 class="section-title">Description</h1>
+              <div class="description-box">
+                  <div id="text" class="description-text">
+                      <!-- Long description text -->
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                      nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                      anim id est laborum.
+                  </div>
+              </div>
+          </div>
+
+          <div class="details-area">
+              <div class="status-selector">
+                  <select id="status">
+                      <option value="open">Open</option>
+                      <option value="closed">Closed</option>
+                  </select>
+              </div>
+
+              <div class="bug-details">
+                  <h1 class="section-title">Details</h1>
+                  <div class="details-content">
+                      <div class="detail-item">
+                          <h1>Reporter</h1>
+                          <a href="" id="r-name">Name</a>
+                      </div>
+                      <div class="detail-item">
+                          <h1>Assignee</h1>
+                          <a href="" id="r-name">Name</a>
+                      </div>
+                      <div class="detail-item">
+                          <h1>Date reported</h1>
+                          <h1 id="date">Date</h1>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 </div>

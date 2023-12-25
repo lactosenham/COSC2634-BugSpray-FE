@@ -1,0 +1,209 @@
+.dashboard-container {
+  position: relative;
+  max-width: 90%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.project-info-container, .project-stats-container, .modal-button-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.modal-button-container {
+  border-right: none; 
+}
+
+#project-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.project-description {
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.project-stats {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.project-section, .personnel-section, .bugs-section {
+  background-color: var(--palette-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.sections-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.personnel-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.personnel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.personnel-section-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bugs-section {
+  width: 40%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.manager-list, .developer-list {
+  width: 50%;
+  flex: 1;
+}
+
+.personnel-list {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--palette-secondary-text);
+  margin-bottom: 15px;
+}
+
+.sub-section-title {
+  font-size: 1.0rem;
+  color: var(--palette-secondary-text);
+  margin-bottom: 5px;
+}
+
+.personnel-cards .card, .bugs-cards .bug-card {
+  padding: 15px;
+  border-radius: 10px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.personnel-card {
+  background-color: var(--palette-secondary-background);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-image img {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  margin-right: 10px; 
+}
+
+.personnel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name {
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  margin-bottom: 5px; 
+}
+
+.developer-type {
+  font-size: 0.9rem; 
+  font-weight: 600;
+  font-style: italic; 
+}
+
+.bug-card {
+  background-color: var(--palette-secondary-background);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #333;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 400px; 
+  margin-bottom: 15px;
+  padding-right: 10px; 
+}
+
+.bug-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bug-description {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.bug-severity-priority {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.severity, .priority {
+  font-weight: bold;
+  color: #D3D3D3; /* Default color, dynamically change based on value */
+}
+
+/*Dynamic color coding */
+.severity-1, .priority-1 { color: #FF0000; } /* Red for highest severity/priority */
+.severity-3, .priority-3 { color: #FFA500; } /* Yellow for mid-level severity/priority */
+.severity-5, .priority-5 { color: #008000; } /* Green for lowest severity/priority */
+
+.bug-assigned-status {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.assigned-personnel {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.bug-status {
+  font-style: italic;
+  margin-right: 15px;
+}
+
+.bug-deadline {
+  color: #555;
+}
+
+
+
+  

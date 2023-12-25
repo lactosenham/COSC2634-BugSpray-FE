@@ -1,80 +1,60 @@
+<link href="/style/authentication/login.css" rel="stylesheet" type="text/css">
+<link href="/style/buttons/mainButtons.css" rel="stylesheet" type="text/css">
 <link href="/style/popup.css" rel="stylesheet" type="text/css">
-<section class="bg-palette-4 pb-10">
+
+<section class="login-section">
     <!-- App Logo -->
-    <a href="#" class="flex justify-center my-6">
-        <img class="w-40 mr-2" src="img/BugSpray - Dark.png" alt="logo">
+    <a href="#" class="logo-container">
+        <img class="logo-image" src="img/BugSpray - Dark.png" alt="logo">
     </a>
 
-    <!-- Slogan -->
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-5 px-6 py-8">
-        <section class="flex items-center">
-            <div class="flex flex-col">
-                <h1
-                    class="mb-4 text-center lg:text-left text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                    Transform your development experience</h1>
-                <p class="mb-8 text-center lg:text-left text-lg font-normal text-gray-400 lg:text-xl">
-                    Where bugs meet their
-                    match, and teamwork takes the lead!</p>
+    <!-- Content Section -->
+    <div class="content-grid">
+        <!-- Slogan Section -->
+        <section class="slogan-section">
+            <div class="slogan-content">
+                <h1 class="slogan-title">Transform your development experience</h1>
+                <p class="slogan-text">Where bugs meet their match, and teamwork takes the lead!</p>
             </div>
         </section>
 
-        <!-- Login Form Title -->
-        <div class="w-auto bg-palette-3 rounded-lg shadow-2xl">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl text-center">
-                    Log in to your account
-                </h1>
+        <!-- Login Form Section -->
+        <div class="login-form-container">
+            <div class="form-content">
+                <h1 class="form-title">Log in to your account</h1>
 
                 <!-- Login Form -->
-                <form id= "loginForm" class="space-y-4 md:space-y-6">
+                <form id="loginForm" class="login-form">
 
                     <!-- Username Field -->
-                    <div>
-                        <input type="text" 
-                                name="username" 
-                                id="username"
-                                class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
-                                placeholder="Username" 
-                        required>
+                    <div class="form-field">
+                        <input type="text" name="username" id="username" class="input-field" placeholder="Username" required>
                     </div>
 
                     <!-- Password Field -->
-                    <div>
-                        <input type="password" 
-                                name="password" 
-                                id="password" 
-                                placeholder="Password"
-                                class="sm:text-sm rounded-lg block w-full p-2.5 bg-palette-2 placeholder-white text-white"
-                        required>
+                    <div class="form-field">
+                        <input type="password" name="password" id="password" class="input-field" placeholder="Password" required>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type=" submit"
-                        class="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-palette-2">Log
-                        in</button>
-                    <div>
-                        <p class="text-sm font-light text-white">
-                            Ready to start boosting productivity?
-                        </p>
-
-                        <!-- Registration Link -->
-                        <a href="./register" class="font-medium text-yellow-100 hover:underline">
-                            Sign
-                            up
-                            for an
-                            account
-                        </a>
+                    <button type="submit" class="menu-button">Log in</button>
+                    
+                    <!-- Additional Info -->
+                    <div class="additional-info">
+                        <p class="info-text">Ready to start boosting productivity?</p>
+                        <a href="./register" class="register-link">Sign up for an account</a>
                     </div>
                 </form>
             </div>
         </div>
-        
+
+        <!-- Popup Section -->
         <div id="myPopup" class="popup">
             <%- include('../partials/popup'); %>
         </div>
     </div>
-
 </section>
+
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <% if(scripts) { %>

@@ -1,0 +1,155 @@
+/* Flex Container */
+.flex-auto {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Grid */
+  .grid {
+    display: grid;
+  }
+  
+  /* Gap Spacing */
+  .gap-10 {
+    gap: 2.5rem; /* Adjust the value as needed */
+  }
+  
+  .gap-3 {
+    gap: 0.75rem; /* Adjust the value as needed */
+  }
+  
+  /* Padding */
+  .p-4 {
+    padding: 1rem; /* Adjust the value as needed */
+  }
+  
+  .p-8 {
+    padding: 2rem; /* Adjust the value as needed */
+  }
+  
+  /* Margin */
+  .mt-4 {
+    margin-top: 1rem; /* Adjust the value as needed */
+  }
+  
+  /* Background Color */
+  .bg-blue-50 {
+    background-color: #f0f4ff; /* Adjust the color as needed */
+  }
+  
+  .bg-white {
+    background-color: #ffffff; /* Adjust the color as needed */
+  }
+  
+  .bg-blue-700 {
+    background-color: #1e40af; /* Adjust the color as needed */
+  }
+  
+  /* Text */
+  .text-sm {
+    font-size: 0.875rem; /* Adjust the font size as needed */
+    color: #6b7280; /* Adjust the color as needed */
+  }
+  
+  .text-3xl {
+    font-size: 2rem; /* Adjust the font size as needed */
+  }
+  
+  .text-gray-400 {
+    color: #6b7280; /* Adjust the color as needed */
+  }
+  
+  .text-gray-500 {
+    color: #6b7280; /* Adjust the color as needed */
+  }
+  
+  .text-gray-600 {
+    color: #4b5563; /* Adjust the color as needed */
+  }
+  
+  .text-white {
+    color: #ffffff; /* Adjust the color as needed */
+  }
+  
+  /* Font */
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  /* Flexbox */
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .flex-row {
+    flex-direction: row;
+  }
+  
+  .flex-auto {
+    flex: 1;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  /* Card Styles */
+  .bug-stat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: #ffffff;
+    border-radius: 0.375rem; /* Adjust the radius as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bug-stat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 0.5rem; /* Adjust the margin as needed */
+  }
+  
+  .bug-stat-content {
+    flex: 1;
+  }
+  
+  /* Chart Styles */
+  .bug-chart-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 0.375rem; /* Adjust the radius as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-title {
+    display: flex;
+    flex-direction: row;
+    color: #6b7280; /* Adjust the color as needed */
+  }
+  
+  .chart-canvas {
+    padding: 1.25rem;
+  }
+  
+  /* Icon Styles */
+  .fa-lg {
+    font-size: 1.25rem; /* Adjust the font size as needed */
+  }
+  
+  /* Utility Classes */
+  .col-span-2 {
+    grid-column: span 2;
+  }
+  

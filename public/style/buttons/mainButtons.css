@@ -1,0 +1,29 @@
+.modal-button button{
+    background-color: #0C4474;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-button button:hover {
+    background-color: #007BFF;
+  }
+
+  .menu-button {
+    background-color: #0C4474;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-button:hover {
+    background-color: #007BFF;
+  }

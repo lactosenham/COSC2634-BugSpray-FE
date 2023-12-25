@@ -1,0 +1,111 @@
+/* Bug Container */
+.bug-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    margin-top: 1.25rem;
+}
+
+/* Bug Card */
+.bug-card {
+    width: 83.33%; /* Equivalent to w-5/6 */
+    border: 2px solid #082f49;
+    border-radius: 0.75rem; /* Equivalent to rounded-lg */
+    padding: 2.5rem;
+}
+
+/* Bug Header */
+.bug-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bug-title-area {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bug-icon {
+    margin-top: 1rem;
+}
+
+.bug-title {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    padding-top: 0.25rem;
+    font-weight: 300;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #E2E8F0; /* Equivalent to hover:bg-slate-300 */
+}
+
+/* Bug Content */
+.bug-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 0.75rem;
+}
+
+/* Description Area */
+.description-area {
+    padding-left: 1.25rem;
+}
+
+.section-title {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: 600;
+}
+
+.description-box {
+    margin-top: 0.75rem;
+    border: 2px solid #E2E8F0; /* Equivalent to border-slate-300 */
+    border-radius: 0.75rem; /* Equivalent to rounded-lg */
+}
+
+.description-text {
+    padding: 0.5rem 1rem;
+    overflow-x: auto;
+    max-height: 24rem; /* Equivalent to h-96 */
+}
+
+/* Details Area */
+.details-area {
+    padding-right: 1.75rem;
+}
+
+.status-selector select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+}
+
+.bug-details {
+    margin-top: 0.5rem;
+    border: 2px solid #E2E8F0; /* Border color */
+    border-radius: 0.75rem; /* Rounded corners */
+    padding: 1rem; /* Increased padding around the entire details area */
+}
+
+.details-content {
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 0.5rem 0; /* Padding on top and bottom of each item */
+    gap: 0.5rem; /* Space between label and content */
+}
+
+.detail-item h1, .detail-item a {
+    margin: 0 0.5rem; /* Margin around labels and content */
+}

@@ -1,0 +1,180 @@
+/* Main Title */
+.main-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.875rem; /* 3xl */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Main Section */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2.5rem; /* 10 */
+    padding: 2.5rem 1.75rem; /* py-10 px-7 */
+    margin-top: 1.25rem; /* my-5 */
+}
+
+/* Side Panel */
+.side-panel {
+    position: sticky;
+    top: 2.5rem; /* 10 */
+    width: 100%;
+    padding: 1.25rem; /* p-5 */
+    border-radius: 0.5rem;
+    background-color: #334155; /* bg-palette-3, adjust as needed */
+}
+
+/* Panel Title */
+.panel-title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* Sort and Filter Sections */
+.sort-section, .filter-section {
+    margin-bottom: 1rem;
+}
+
+.section-heading {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: bold;
+    color: #d1d5db; /* text-gray-200 */
+}
+
+/* Grid Layout for Sort Options */
+.sort-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem; /* gap-2 */
+}
+
+/* Category and Order Selectors */
+.sort-category, .sort-order, .status-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Select Input */
+.select-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem; /* text-sm */
+    color: #1f2937; /* text-gray-900 */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #f9fafb; /* bg-gray-50 */
+}
+
+/* Apply Button */
+.apply-button {
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #2563eb; /* bg-palette-2, adjust as needed */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.apply-button:hover {
+    filter: brightness(110%);
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Bug Grid */
+.bug-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem; /* gap-10 */
+    overflow-y: auto; /* Scrollbar will appear if content overflows */
+    max-height: 400px; /* Height for two rows of bugs, adjust as needed */
+}
+
+/* Individual Issue Block */
+.bug-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    gap: 1rem; /* gap-4 */
+    padding: 1.5rem; /* p-6 */
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.bug-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.bug-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.bug-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold;
+    color: #1f2937; /* text-gray-800 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status, .description {
+    font-size: 0.875rem; /* text-sm */
+}
+
+.bug-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.priority, .severity {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: semibold;
+    color: white;
+    text-align: center;
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.priority {
+    background-color: #ef4444; /* bg-red-500 */
+}
+
+.severity {
+    background-color: #22c55e; /* bg-green-500 */
+}
+
+.details-link {
+    color: #3b82f6; /* text-blue-500 */
+    cursor: pointer;
+}
+
+.details-link:hover {
+    color: #2563eb; /* hover:text-blue-700 */
+}

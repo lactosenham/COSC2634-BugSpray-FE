@@ -1,8 +1,3 @@
-document.getElementById('mobileMenuButton').addEventListener('click', function() {
-    var mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('hidden');
-});
-
 
 const labels = ["January", "February", "March", "April", "May", "June"];
 const data = {

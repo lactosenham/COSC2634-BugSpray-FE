@@ -1,0 +1,12 @@
+:root {
+    --palette-primary: #041c44;
+    --palette-secondary: #EBEFF3;
+    --palette-accent: #00b4d8;
+    --palette-input: #D1D5DB;
+    --palette-link: #FFD700;
+    --palette-background: #d1d5db;
+    --palette-secondary-background: #F5F5F5;
+    --palette-text: #ffffff;
+    --palette-secondary-text: #000000;
+    --palette-error: #ef4444;
+}

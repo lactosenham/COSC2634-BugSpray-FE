@@ -37,7 +37,7 @@ app.get('<- insert route name here ->', (req, res) => {
 
 */
 
-
+// Home
 app.get("/", (req, res) => {
   res.render("layout.ejs", {
     title: "Home",
@@ -45,42 +45,46 @@ app.get("/", (req, res) => {
   });
 });
 
+// Log in
 app.get('/login', (req, res) => {
   res.render('authLayout', {
     title: 'Home',
     bodyFile: './auth/login',
     scripts: [
-      '/scripts/popupScript.js',
+      '/scripts/other/popupScript.js',
       '/scripts/auth/loginScript.js'
     ],
   });
 });
 
+//Register
 app.get('/register', (req, res) => {
   res.render('authLayout', {
     title: 'Home',
     bodyFile: './auth/register',
     scripts: [
-      '/scripts/popupScript.js',
+      '/scripts/other/popupScript.js',
       '/scripts/auth/registerScript.js'
     ],
   });
 });
 
-app.get('/project-create', (req, res) => {
-  res.render('layout', {
-    title: 'Create New Project',
-    bodyFile: './project/create',
-    scripts: [
-      '/scripts/project/addDevsToProject.js',
-      '/scripts/auth/authInterceptor.js',
-      '/scripts/bug/addBug.js',
-      '/scripts/project/addProject.js'
-    ],
-  });
-}
-);
+// Create Project
+// app.get('/project-create', (req, res) => {
+//   res.render('layout', {
+//     title: 'Create New Project',
+//     bodyFile: './project/create',
+//     scripts: [
+//       '/scripts/project/addDevsToProject.js',
+//       '/scripts/auth/authInterceptor.js',
+//       '/scripts/bug/addBug.js',
+//       '/scripts/project/addProject.js'
+//     ],
+//   });
+// }
+// );
 
+// User Profile
 app.get('/profile', (req, res) => {
   res.render('layout', {
     title: 'Profile',
@@ -89,13 +93,16 @@ app.get('/profile', (req, res) => {
 }
 );
 
-app.get('/project-create', (req, res) => {
-  res.render('layout', {
-    title: 'Create New Project',
-    bodyFile: './project/create',
-  });
-});
+// Create Project
+// app.get('/project-create', (req, res) => {
+//   res.render('layout', {
+//     title: 'Create New Project',
+//     bodyFile: './project/create',
+//   });
+// });
 
+
+// About
 app.get("/about", (req, res) => {
   res.render("layout", {
     title: "Home",
@@ -103,13 +110,15 @@ app.get("/about", (req, res) => {
   });
 });
 
-
+// Project Dashboard
 app.get('/projects', (req, res) => {
   res.render('layout', {
     title: 'Project Dashboard',
     bodyFile: './project/projectDashboard',
   });
 }
+
+// Project Details
 );
 app.get('/project-detail', (req, res) => {
   res.render('layout', {
@@ -124,6 +133,8 @@ app.get('/project-detail', (req, res) => {
   });
 }
 );
+
+// Bugs Dashboard
 app.get('/bugs', (req, res) => {
   res.render('layout', {
     title: 'Bug Dashboard',
@@ -131,6 +142,8 @@ app.get('/bugs', (req, res) => {
   });
 }
 );
+
+// Bug Details
 app.get('/bug-detail', (req, res) => {
   res.render('layout', {
     title: 'Bug Details',
@@ -138,6 +151,7 @@ app.get('/bug-detail', (req, res) => {
   });
 }
 );
+
 // 404 Not Found Handler
 app.use((req, res, next) => {
   res.status(404).send("Sorry, page not found");
