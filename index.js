@@ -55,7 +55,6 @@ app.get('/login', (req, res) => {
     title: 'Home',
     bodyFile: './auth/login',
     scripts: [
-      '/scripts/other/popupScript.js',
       '/scripts/auth/loginScript.js'
     ],
   });
@@ -67,7 +66,6 @@ app.get('/register', (req, res) => {
     title: 'Home',
     bodyFile: './auth/register',
     scripts: [
-      '/scripts/other/popupScript.js',
       '/scripts/auth/registerScript.js'
     ],
   });
@@ -176,4 +174,5 @@ app.get('/bug-detail', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
 
