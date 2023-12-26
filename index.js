@@ -108,7 +108,7 @@ app.get('/profile', (req, res) => {
 app.get("/about", (req, res) => {
   res.render("layout", {
     title: "Home",
-    bodyFile: "./about",
+    bodyFile: "./others/about",
   });
 });
 
