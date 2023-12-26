@@ -1,10 +1,12 @@
 <html lang="en">
 
 <head>
+  <base href="/">
   <%- include ('./partials/head') %>
     <title>
       <%= title %> | BugSpray
     </title>
+    <link href="/style/color palette/color.css" rel="stylesheet">
 </head>
 
 <body class="flex flex-col justify-between h-screen font-sans text-black bg-palette-1">
@@ -13,12 +15,31 @@
     <div class="grow">
       <%- include(bodyFile) %>
     </div>
+
     <%- include ('./partials/footer') %>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <!-- Chart line -->
       <script src="js/script.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+      <!-- Mobile Navigation control script -->
+      <script src="/scripts/other/mobileNavMenu.js"></script>
+
+      <!-- Popup Control Script -->
+      <script src="/scripts/other/popupScript.js"></script>
+
+      <!-- Close Modal Script -->
+      <script src="/scripts/other/closeModal.js"></script>
+
+      <!-- Axios -->
+      <!-- Load all scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <% if(scripts) { %>
+          <% scripts.forEach(function(script) { %>
+              <script src="<%= script %>"></script>
+          <% }); %>
+      <% } %>
 </body>
 
 </html>
