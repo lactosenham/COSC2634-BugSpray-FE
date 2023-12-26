@@ -1,72 +1,69 @@
-<!-- Style Sheet -->
-<link href="/style/summary.css" rel="stylesheet" type="text/css">
-
 <div class="flex-auto">
   <div class="flex flex-col">
     <div class="min-h-screen bg-blue-50">
-      <!-- Grid for Bug Statistics -->
       <div class="grid gap-10 p-4 lg:grid-cols-3 sm:grid-cols-2">
-        <!-- Bug Stat Card (Total Bugs) -->
-        <div class="bug-stat-card">
-          <div class="bug-stat-content">
-            <div class="bug-stat-label">Total Bugs</div>
-            <div class="bug-stat-number">34</div>
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Total Bugs</div>
+            <div class="text-3xl font-medium text-gray-600">
+              34
+            </div>
           </div>
-          <div class="bug-stat-icon bg-blue-700">
-            <i class="fa-solid fa-bug fa-lg text-white"></i>
-          </div>
-        </div>
-        
-        <!-- Bug Stat Card (Open Bugs) -->
-        <div class="bug-stat-card">
-          <div class="bug-stat-content">
-            <div class="bug-stat-label">Open Bugs</div>
-            <div class="bug-stat-number">34</div>
-          </div>
-          <div class="bug-stat-icon bg-blue-700">
-            <i class="fa-solid fa-screwdriver-wrench fa-lg text-white"></i>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[15px] ml-[5px]">
+              <i class="fa-solid fa-bug fa-lg"></i>
+            </div>
           </div>
         </div>
-        
-        <!-- Bug Stat Card (Done Bugs) -->
-        <div class="bug-stat-card">
-          <div class="bug-stat-content">
-            <div class="bug-stat-label">Done Bugs</div>
-            <div class="bug-stat-number">34</div>
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Open Bugs</div>
+            <div class="text-3xl font-medium text-gray-600">
+              34
+            </div>
           </div>
-          <div class="bug-stat-icon bg-blue-700">
-            <i class="fa-solid fa-check fa-lg text-white"></i>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[15px] ml-[6px]">
+              <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+            </div>
           </div>
+        </div>
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Done Bugs</div>
+            <div class="text-3xl font-medium text-gray-600">
+              34
+            </div>
+          </div>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[15px] ml-[6px]">
+              <i class="fa-solid fa-check fa-lg"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Another grid starts here -->
+
+      </div>
+      <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
+        <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Total Bugs Reported</b>
+          <canvas id="chartLine" class="p-5"></canvas>
+        </div>
+
+        <div class="flex flex-col p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Bugs By Severity</b>
+          <canvas class="p-5" id="chartPie"></canvas>
         </div>
       </div>
-      
-      <!-- Grid for Bug Charts -->
       <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
-        <!-- Chart (Total Bugs Reported) -->
-        <div class="bug-chart-card col-span-2">
-          <b class="chart-title">Total Bugs Reported</b>
-          <canvas id="chartLine" class="chart-canvas"></canvas>
+        <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Recently Solved Bugs</b>
+          <canvas id="chartLine" class="p-5"></canvas>
         </div>
-        
-        <!-- Chart (Bugs By Severity) -->
-        <div class="bug-chart-card">
-          <b class="chart-title">Bugs By Severity</b>
-          <canvas id="chartPie" class="chart-canvas"></canvas>
-        </div>
-      </div>
-      
-      <!-- Grid for Recently Solved Bugs and Bugs By Priority -->
-      <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
-        <!-- Chart (Recently Solved Bugs) -->
-        <div class="bug-chart-card col-span-2">
-          <b class="chart-title">Recently Solved Bugs</b>
-          <canvas id="chartLine" class="chart-canvas"></canvas>
-        </div>
-        
-        <!-- Chart (Bugs By Priority) -->
-        <div class="bug-chart-card">
-          <b class="chart-title">Bugs By Priority</b>
-          <canvas id="chartPie" class="chart-canvas"></canvas>
+
+        <div class="flex flex-col p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Bugs By Priority</b>
+          <canvas class="p-5" id="chartPie"></canvas>
         </div>
       </div>
     </div>

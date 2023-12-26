@@ -1,112 +1,112 @@
-<link href="/style/projects/projectDetails.css" rel="stylesheet" type="text/css">
-<link href="/style/buttons/mainButtons.css" rel="stylesheet" type="text/css">
-
-<div class="dashboard-container">
-
-  <!-- Back to Project List -->
-  <button id="back-to-list" class="menu-button">Back to list</button>
-
-  <!-- Project Header -->
-  <div class="project-section">
-    <div class="project-header">
-      <!-- Project Info -->
-      <div class="project-info-container">
-        <div class="project-info">
-          <h1 id="project-name">Project name</h1>
-          <p id="project-des" class="project-description">Lorem ipsum dolor...</p>
+<div class="w-5/6 mx-auto mt-5">
+  <div class="p-5 bg-[#EBEFF3] rounded-lg">
+    <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
+    <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
+      <div class="w-3/4 pr-10 overflow-x-auto text-base overscroll-auto">
+        <div id="project-des" class="pb-1">Description</div>
+        <div class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus libero,
+          cursus at tortor ac, iaculis suscipit urna. Ut velit arcu, tristique sit amet posuere eget, posuere ut tellus.
         </div>
       </div>
 
-      <!-- Project Stats -->
-      <div class="project-stats-container">
-        <div class="project-stats">
-          <span id="incomplete-ticket">10</span> / <span id="total-ticket">20</span> Total bugs
+      <div class="px-10 text-sm">
+        <div class="">Total bugs</div>
+        <div class="text-lg">
+          <span id="incomplete-ticket">10</span> /
+          <span id="total-ticket">20</span>
         </div>
       </div>
 
-      <!-- Modal Button Container -->
-      <div class="modal-button-container">
-        <div class="modal-button">
-          <%- include('../partials/modals/editProject') %>
-        </div>
+    </div>
+
+    <div class="flex gap-1">
+      <div>
+        <button id="back-to-list"
+          class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-[5px]">Back to
+          list</button>
+      </div>
+      <div>
+        <%- include('../partials/modals/editProject') %>
       </div>
     </div>
   </div>
 
-  <!-- Personnel Section -->
-  <div class="sections-container">
-
-    <!-- Personnel Section -->
-    <div class="personnel-section">
-
-      <h2 class="section-title">Assigned Personnel</h2>
-      <div class="modal-button">
-        <%- include('../partials/modals/addDevelopertoProject') %>
-      </div>
-
-      <div class="personnel-section-body">
-        <!-- Managers -->
-        <div class="manager-list">
-          <h3 class="sub-section-title">Managers</h3>
-          <div class="personnel-list">
-            <!-- Manager cards here -->
-            <!-- Example of a manager card -->
-            <div class="personnel-card manager-card">
-              <div class="profile-image">
-                <img src="manager-profile.jpg" alt="Manager Name">
+  <div class="flex my-5 space-x-4">
+    <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-5">
+          <div class="flex flex-col justify-between w-full">
+            <div class="flex justify-between w-full">
+              <div>
+                <h1 class="text-lg font-bold text-gray-900 ">Assigned Personnel</h1>
               </div>
-              <div class="personnel-info">
-                <div class="name">Alice Smith</div>
-                <div class="developer-type">Manager</div>
+              <div>
+                <%- include('../partials/modals/addDevelopertoProject') %>
               </div>
             </div>
-            <!-- More manager cards... -->
           </div>
-        </div>
-
-        <!-- Developers -->
-        <div class="developer-list">
-          <h3 class="sub-section-title">Developers</h3>
-          <div class="personnel-list">
-            <!-- Developer cards here -->
-            <!-- Example of a developer card -->
-            <div class="personnel-card developer-card">
-              <div class="profile-image">
-                <img src="developer-profile.jpg" alt="Developer Name">
-              </div>
-              <div class="personnel-info">
-                <div class="name">Bob Johnson</div>
-                <div class="developer-type">Front End</div>
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
+              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
+                <div class="flex-grow">
+                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
+                  <p id="mem-role" class="text-slate-400">UI Designer</p>
+                </div>
               </div>
             </div>
-            <!-- More developer cards... -->
+
+            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
+              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
+                <div class="flex-grow">
+                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
+                  <p id="mem-role" class="text-slate-400">UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
+              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
+                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
+                  src="https://dummyimage.com/80x80">
+                <div class="flex-grow">
+                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
+                  <p id="mem-role" class="text-slate-400">UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
+      </section>
+    </div>
+
+    <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
+      <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 py-5">
+            <div class="flex justify-between w-full">
+              <h1 class="text-lg font-bold text-gray-900 ">Bugs</h1>
+              <%- include('../partials/modals/addBug') %>
+            </div>
+            <div class="-mx-4">
+              <div class="w-full px-4 py-2">
+                <div class="flex items-center p-3 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
+                  <div class="flex justify-between w-full">
+                    <h2 id="bug-number" class="font-medium text-white title-font">Bug number</h2>
+                    <h2 id="bug-status" class="font-medium text-white title-font">Status</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
-
-  <!-- Bug Section -->
-  <div class="bugs-section">
-    <h2 class="section-title">Bugs</h2>
-    <div class="modal-button">
-      <%- include('../partials/modals/addBug') %>
-    </div>
-    <div class="bugs-cards">
-      <!-- Bug cards here -->
-      <!-- Example of a bug card -->
-      <div class="bug-card">
-        <h3 class="bug-name">Bug Name</h3>
-        <p class="bug-description">This is a brief description of the bug...</p>
-        <p class="bug-severity-priority">Severity <span class="severity-1">1</span> - Priority <span class="priority-1">1</span></p>
-        <div class="bug-assigned-status">
-          <span class="assigned-personnel">John Doe</span>
-          <span class="bug-status">Open</span>
-          <span class="bug-deadline">Deadline: 2024-01-10</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
-
