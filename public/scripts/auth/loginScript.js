@@ -10,16 +10,20 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     };
 
     axios.post('/api/auth/login', loginData)
-         .then(function (response) {
-            if (response.data && response.data.token) {
-                localStorage.setItem('token', response.data.token);
-                console.log('Login successful', response);
-                showPopup('Login', response.data.message);
-            }
-         })
-         .catch(function (error) {
-             console.log('Login error:', error);
-             // Handle error (e.g., show error message)
-             showPopup('Login Error', error.response.data)
-         });
+    .then(function (response) {
+        if (response.data && response.data.token) {
+            localStorage.setItem('token', response.data.token);
+            console.log('Login successful', response);
+
+            // Pass a callback function to redirect after the popup is closed
+            showPopup('Login', response.data.message, function() {
+                window.location.href = '/';
+            });
+        }
+    })
+    .catch(function (error) {
+        console.log('Login error:', error);
+        showPopup('Login Error', error.response.data, function(){});
+    });
 });
+
