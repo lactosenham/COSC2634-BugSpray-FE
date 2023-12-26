@@ -109,6 +109,33 @@ app.get("/about", (req, res) => {
   res.render("layout", {
     title: "Home",
     bodyFile: "./others/about",
+    scripts: null,
+  });
+});
+
+// Copyright
+app.get("/copyright", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/copyright",
+    scripts: null,
+  });
+});
+// Privacy
+app.get("/privacy", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/privacy",
+    scripts: null,
+  });
+});
+
+// Terms
+app.get("/terms", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/terms",
+    scripts: null,
   });
 });
 
