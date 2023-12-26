@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const projectId = extractProjectIdFromUrl();
-    fetchProjectDetails(projectId);
-});
+// Define a global flag to track if the event listener has already been added
+let isInitialized = false;
 
-function extractProjectIdFromUrl() {
-    const urlSegments = window.location.pathname.split('/');
-    return urlSegments[urlSegments.length - 1];
-}
+document.addEventListener('DOMContentLoaded', function() {
+    if (!isInitialized) {
+        // Set the flag to true to prevent future execution
+        isInitialized = true;
+
+        // Place your existing code here
+        const projectId = extractIdFromUrl();
+        fetchProjectDetails(projectId);
+    }
+});
 
 function fetchProjectDetails(projectId) {
     axiosInstance.get(`/api/projects/${projectId}`)

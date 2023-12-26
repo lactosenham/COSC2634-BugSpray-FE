@@ -44,7 +44,6 @@ app.get("/", (req, res) => {
     title: "Home",
     bodyFile: "./summary",
     scripts: [
-      '/scripts/auth/authInterceptor.js',
     ]
   });
 });
@@ -78,7 +77,7 @@ app.get('/register', (req, res) => {
 //     bodyFile: './project/create',
 //     scripts: [
 //       '/scripts/project/addDevsToProject.js',
-//       '/scripts/auth/authInterceptor.js',
+//   
 //       '/scripts/bug/addBug.js',
 //       '/scripts/project/addProject.js'
 //     ],
@@ -118,7 +117,6 @@ app.get('/projects', (req, res) => {
     title: 'Project Dashboard',
     bodyFile: './project/projectDashboard',
     scripts: [
-      '/scripts/auth/authInterceptor.js',
       '/scripts/project/addProject.js',
       '/scripts/project/projectDashboard.js'
     ]
@@ -133,7 +131,6 @@ app.get('/project-details/:projectId', (req, res) => {
     scripts: [
       '/scripts/project/projectDetails.js',
       '/scripts/project/addDevsToProject.js',
-      '/scripts/auth/authInterceptor.js',
       '/scripts/bug/addBug.js'
     ],
   });
