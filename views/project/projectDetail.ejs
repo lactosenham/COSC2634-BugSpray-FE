@@ -1,4 +1,4 @@
-<div class="w-5/6 mx-auto mt-5">
+<!-- <div class="w-5/6 mx-auto mt-5">
   <div class="p-5 bg-[#EBEFF3] rounded-lg">
     <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
     <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
@@ -23,7 +23,7 @@
           list</button>
       </div>
       <div>
-        <%- include('../partials/modals/editProject') %>
+        editProject modal here
       </div>
     </div>
   </div>
@@ -38,7 +38,9 @@
                 <h1 class="text-lg font-bold text-gray-900 ">Assigned Personnel</h1>
               </div>
               <div>
-                <%- include('../partials/modals/addDevelopertoProject') %>
+
+                addDevelopertoProject here
+  
               </div>
             </div>
           </div>
@@ -89,7 +91,9 @@
           <div class="container px-5 py-5">
             <div class="flex justify-between w-full">
               <h1 class="text-lg font-bold text-gray-900 ">Bugs</h1>
-              <%- include('../partials/modals/addBug') %>
+
+               Add Bug modal here
+
             </div>
             <div class="-mx-4">
               <div class="w-full px-4 py-2">
@@ -106,4 +110,65 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="w-5/6 mx-auto mt-5">
+  <div class="p-5 bg-[#EBEFF3] rounded-lg">
+    <!-- Project Information -->
+    <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
+    <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
+      <div class="w-3/4 pr-10 overflow-x-auto text-base overscroll-auto">
+        <div id="project-des" class="pb-1 text-justify">Description</div>
+      </div>
+      <div class="px-10 text-sm">
+        <div>Total bugs</div>
+        <div class="text-lg">
+          <span id="incomplete-ticket">10</span> / <span id="total-ticket">20</span>
+        </div>
+      </div>
+    </div>
+    <!-- Action Buttons -->
+    <div class="flex gap-1">
+      <button id="back-to-list" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-[5px]">Back to list</button>
+      <div><%- include('../partials/modals/editProject') %></div>
+    </div>
+  </div>
+
+  <!-- Personnel and Bugs Sections -->
+  <div class="flex my-5 space-x-4">
+    <!-- Personnel Section -->
+    <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-5">
+          <!-- Title and Modal Button -->
+          <div class="mb-4">
+            <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
+            <div class="mt-2"><%- include('../partials/modals/addDevelopertoProject') %></div>
+          </div>
+          <!-- Personnel Cards -->
+          <div class="developers-container flex flex-wrap -mx-4">
+            <!-- Repeat for each personnel -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+      <!-- Bugs Section -->
+      <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 py-5">
+            <!-- Title and Modal Button -->
+            <div class="mb-4">
+              <h1 class="text-lg font-bold text-gray-900">Bugs</h1>
+              <div class="mt-2"><%- include('../partials/modals/addBug') %></div>
+            </div>
+            <!-- Bug Cards -->
+            <div class="bugs-container space-y-4">
+              <!-- Repeat for each bug -->
+            </div>
+          </div>
+        </section>
+      </div>
+  </div>
 </div>
+
