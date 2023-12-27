@@ -169,7 +169,7 @@ app.get('/bugs', (req, res) => {
     title: 'Bug Dashboard',
     bodyFile: './bugs/bugDashboard',
     scripts: [
-      
+        '/scripts/bug/bugDashboard.js'
     ]
   });
 }
