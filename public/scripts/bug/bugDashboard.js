@@ -102,6 +102,15 @@ function displayBugs(bugs) {
     const bugGrid = document.querySelector('.bug-grid');
     bugGrid.innerHTML = ''; // Clear existing bugs
 
+    if (bugs.length === 0) {
+        // Display a centered message when no bugs meet the criteria
+        bugGrid.innerHTML = `
+        <div class="flex justify-center items-center h-full">
+            <h2 class="text-2xl font-bold text-gray-800 text-center">No bugs meet your requirement(s).</h2>
+        </div>`;
+        return; // Exit the function early
+    }
+
     bugs.forEach(bug => {
         const bugCard = `
         <div class="flex flex-col justify-between w-auto gap-4 p-6 bg-white rounded-lg shadow-md h-70">
@@ -131,3 +140,4 @@ function displayBugs(bugs) {
         bugGrid.innerHTML += bugCard;
     });
 }
+
