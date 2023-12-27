@@ -1,21 +1,21 @@
-// Function to fetch developers
-async function fetchDevelopers() {
+// Function to fetch members
+async function fetchmembers() {
     try {
         const res = await axios.get('api/projects/getAllDeveloper')
-        const developers = res.data;
+        const members = res.data;
         const devListElement = document.getElementById('devList');
         // Hide loading element and show content element
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('content').classList.remove('hidden');
-        // Check for developers data
-        if (developers.length === 0) {
-            devListElement.innerHTML = '<p class="text-red-500">No developers found.</p>';
+        // Check for members data
+        if (members.length === 0) {
+            devListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
             return;
         }
         // Initialize an empty array to store selected IDs
-        const developerIds = [];
-        // Pass developers data to the partial template
-        renderDeveloperList(devListElement, developers, developerIds);
+        const memberIds = [];
+        // Pass members data to the partial template
+        renderDeveloperList(devListElement, members, memberIds);
 
         // Handle form submission
         const addDevForm = document.getElementById('addDevForm');
@@ -23,43 +23,43 @@ async function fetchDevelopers() {
             addDevForm.addEventListener('submit', async (event) => {
                 event.preventDefault(); 
                 // Place holder project
-                var projectId = "657ab93d72fd30ada0105ba7";
+                var projectId = extractIdFromUrl();
                 var addDevData = {
                     projectId: projectId,
-                    developerIds: developerIds
+                    memberIds: memberIds
                 }
-                addSelectedDevelopers(addDevData);
-                // Clear selected developers list
-                developerIds.length = 0;
-                console.log('Currently selected: ' + developerIds);
+                addSelectedMembers(addDevData);
+                // Clear selected members list
+                memberIds.length = 0;
+                console.log('Currently selected: ' + memberIds);
             }
         )};
     } catch (error) {
-        console.error('Error fetching developers: ', error);
-        document.getElementById('devList').innerHTML = '<p class="text-red-500">An error occurred while fetching developers.</p>';
+        console.error('Error fetching members: ', error);
+        document.getElementById('devList').innerHTML = '<p class="text-red-500">An error occurred while fetching members.</p>';
     }
 }
 
 
-// FUNCTION to add selected developers
-async function addSelectedDevelopers(addDevData) {
-    await axiosInstance.post('/api/projects/add-developer', addDevData, {
+// FUNCTION to add selected members
+async function addSelectedMembers(addDevData) {
+    await axiosInstance.post('/api/projects/add-member', addDevData, {
     })
     .then((response) => {
-        console.log('Developers added successfully!', response);
+        console.log('members added successfully!', response);
     })
     .catch((error) => {
-        console.error('Error adding developers:', error.response.data);
+        console.error('Error adding members:', error.response.data);
     });
 }
 
 
 // FUNCTION to render developer list with checkboxes and event handling
-function renderDeveloperList(element, developers, developerIds) {
+function renderDeveloperList(element, members, memberIds) {
     // Clear existing element
     element.innerHTML = '';
 
-    for (const developer of developers) {
+    for (const developer of members) {
         const {_id, name, developerType} = developer;
         // Create checkbox
         const checkbox = document.createElement('input');
@@ -116,19 +116,19 @@ function renderDeveloperList(element, developers, developerIds) {
 
             // Update selected IDs array based on checkbox state
             if (isChecked) {
-                developerIds.push(developerId);
+                memberIds.push(developerId);
             } else {
-                const index = developerIds.indexOf(developerId);
+                const index = memberIds.indexOf(developerId);
                 if (index > -1) {
-                    developerIds.splice(index, 1);
+                    memberIds.splice(index, 1);
                 }
             }
-            console.log(`Selected IDs: ${developerIds}`);
+            console.log(`Selected IDs: ${memberIds}`);
         });
         element.appendChild(label);
     }
 }
 
 // Trigger script on load
-fetchDevelopers();
+fetchmembers();
 

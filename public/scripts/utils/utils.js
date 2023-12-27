@@ -4,3 +4,8 @@ function closeModal(modalId) {
         modal.click();
     }
 }
+
+function extractIdFromUrl() {
+    const urlSegments = window.location.pathname.split('/');
+    return urlSegments[urlSegments.length - 1];
+}
