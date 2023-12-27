@@ -1,61 +1,119 @@
 // Function to fetch members
 async function fetchmembers() {
     try {
-        const res = await axios.get('api/projects/getAllDeveloper')
-        const members = res.data;
-        const devListElement = document.getElementById('devList');
+        // Get current project's ID
+        const projectId = extractIdFromUrl();
+
+        // Load Member list
+        const allRes = await axios.get('api/projects/getAllDeveloper') // All members 
+        const currentRes = await axiosInstance.get(`api/projects/dev/${projectId}`) // Only members in this project
+
+        const allMembers = allRes.data;
+        const currentMembers = currentRes.data;
+
+        const allMemListElement = document.getElementById('allMemList');
+        const currentMemListElement = document.getElementById('currentMemList');
+
         // Hide loading element and show content element
         document.getElementById('loading').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
-        // Check for members data
-        if (members.length === 0) {
-            devListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
-            return;
-        }
+        document.getElementById('allContent').classList.remove('hidden');
+        document.getElementById('currentContent').classList.remove('hidden');
+
         // Initialize an empty array to store selected IDs
         const memberIds = [];
-        // Pass members data to the partial template
-        renderDeveloperList(devListElement, members, memberIds);
 
-        // Handle form submission
-        const addDevForm = document.getElementById('addDevForm');
-        if (addDevForm) {
-            addDevForm.addEventListener('submit', async (event) => {
+        // Check for members data
+        if (allMembers.length === 0) {
+            allMemListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
+        } else {
+            renderMemberList(allMemListElement, allMembers, memberIds);
+        }
+        
+        if (currentMembers.length === 0) {
+            currentMemListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
+        } else {
+            renderMemberList(currentMemListElement, currentMembers, memberIds);
+        }
+
+        // Handle add member form submission
+        const removeMemberForm = document.getElementById('removeMemberForm');
+        const addMemberForm = document.getElementById('addMemberForm');
+        if (addMemberForm) {
+            addMemberForm.addEventListener('submit', async (event) => {
                 event.preventDefault(); 
-                // Place holder project
-                var projectId = extractIdFromUrl();
-                var addDevData = {
+                var addMemberData = {
                     projectId: projectId,
                     memberIds: memberIds
                 }
-                addSelectedMembers(addDevData);
+                addSelectedMembers(addMemberData);
                 // Clear selected members list
-                memberIds.length = 0;
                 console.log('Currently selected: ' + memberIds);
+                memberIds.length = 0;
             }
         )};
+
+        // Handle remove form submission
+        if (removeMemberForm) {
+            removeMemberForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                var removeMemberData = {
+                    projectId: projectId,
+                    memberIds: memberIds
+                }
+                removeSelectedMembers(removeMemberData);
+                // Clear selected members list
+                console.log('Removing members:' + memberIds);
+                memberIds.length = 0;
+            })
+        };
     } catch (error) {
         console.error('Error fetching members: ', error);
-        document.getElementById('devList').innerHTML = '<p class="text-red-500">An error occurred while fetching members.</p>';
+        document.getElementById('allMemList').innerHTML = '<p class="text-red-500">An error occurred while fetching members.</p>';
+        document.getElementById('currentMemList').innerHTML = '<p class="text-red-500">An error occurred while fetching members.</p>';
     }
 }
 
 
 // FUNCTION to add selected members
-async function addSelectedMembers(addDevData) {
-    await axiosInstance.post('/api/projects/add-member', addDevData, {
-    })
-    .then((response) => {
-        console.log('members added successfully!', response);
-    })
-    .catch((error) => {
+async function addSelectedMembers(addMemberData) {
+    try {
+        const response = await axiosInstance.post('/api/projects/add-member', addMemberData);
+        console.log('Members added successfully!', response);
+
+        // Close the modal with 'developerProject-modal' as the ID
+        closeModal('developerProject-modalAdd Member');
+
+        // Show the popup with a callback to reload the current page
+        showPopup('Adding Member', 'Members Added Successfully', function() {
+            window.location.reload();
+        });
+    } catch (error) {
         console.error('Error adding members:', error.response.data);
-    });
+    }
+}
+
+
+// FUNCTION to remove selected members
+async function removeSelectedMembers(removeMemberData) {
+    try {
+        const response = await axiosInstance.post('/api/projects/remove-member', removeMemberData);
+        console.log('Members removed successfully!', response);
+
+        // Close the modal with 'developerProject-modal' as the ID
+        closeModal('developerProject-modalRemove Member');
+
+        // Show the popup with a callback to reload the current page
+        showPopup('Removing Member From Project', 'Members Removed Successfully', function() {
+            window.location.reload();
+        });
+    } catch (error) {
+        console.error('Error removing members:', error.response.data);
+    }
 }
 
 
 // FUNCTION to render developer list with checkboxes and event handling
-function renderDeveloperList(element, members, memberIds) {
+function renderMemberList(element, members, memberIds) {
     // Clear existing element
     element.innerHTML = '';
 
@@ -130,5 +188,8 @@ function renderDeveloperList(element, members, memberIds) {
 }
 
 // Trigger script on load
-fetchmembers();
+document.addEventListener('DOMContentLoaded', function() {
+    fetchmembers();
+});
+
 

@@ -35,16 +35,18 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Please give the bug a name" required="">
                     </div>
+
                     <!-- Description -->
                     <div class="col-span-2">
-                        <label for="description" class="block mb-2 text-sm font-bold text-gray-900">Bug
-                            Description
-                        </label>
-                        <textarea id="bugDescription" name="bugDescription" rows="2"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                        <label for="bugDescription" class="block mb-2 text-sm font-bold text-gray-900">Bug Description</label>
+                        <textarea id="bugDescription" 
+                            name="bugDescription" 
+                            rows="2" 
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
                             placeholder="Provide a brief description about the bug">
                         </textarea>
                     </div>
+
 
                     <!-- Severity -->
                     <div class="col-span-1">
@@ -81,16 +83,6 @@
                             placeholder="Select date">
                     </div>
                     <input type="text" name="status" value="Open" hidden>
-                    <div class="col-span-1">
-                        <label for="projectId" class="block mb-2 text-sm font-bold text-gray-900">Project</label>
-                        <select name="projectId" id="projectId" required
-                            class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="" disabled selected>Choose project</option>
-                            <option value="BugSpray">BugSpray</option>
-                            <option value="Petly">Petly</option>
-                            <option value="1080p Technology">1080p Technology</option>
-                        </select>
-                    </div>
                 </div>
                 <!-- Submit -->
                 <button type="submit"

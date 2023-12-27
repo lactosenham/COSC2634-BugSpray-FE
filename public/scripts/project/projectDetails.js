@@ -42,7 +42,7 @@ function fetchAndDisplayDevelopers(projectId) {
     axiosInstance.get(`/api/projects/dev/${projectId}`)
         .then(response => {
             const developers = response.data;
-            const developersContainer = document.querySelector('.developers-container'); // Add this class to the div where developers will be displayed
+            const developersContainer = document.querySelector('.members-container'); // Add this class to the div where developers will be displayed
             developersContainer.innerHTML = '';
             developers.forEach(dev => {
                 developersContainer.innerHTML += createPersonnelCard(dev, 'Developer');
