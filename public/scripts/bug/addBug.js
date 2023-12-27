@@ -1,7 +1,6 @@
 document.getElementById('addBugForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // var projectId = document.getElementById('projectId').value;
     var priority = document.getElementById('priority').value;
     var severity = document.getElementById('severity').value;
     var name = document.getElementById('bugName').value;

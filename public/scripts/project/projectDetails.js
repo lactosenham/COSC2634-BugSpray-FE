@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Place your existing code here
         const projectId = extractIdFromUrl();
         fetchProjectDetails(projectId);
+
+        var backToListButton = document.getElementById('back-to-list');
+        if (backToListButton) {
+            backToListButton.addEventListener('click', function() {
+                window.location.href = '/projects';
+            });
+        }
     }
 });
 
