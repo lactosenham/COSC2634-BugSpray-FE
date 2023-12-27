@@ -6,7 +6,7 @@
         class="left-0 w-full p-5 rounded-lg bg-palette-3 md:max-lg:block lg:block lg:sticky top-10 h-5/6 lg:w-1/4 md:max-lg:center-and-half">
         <h2 class="mb-4 text-xl font-bold text-center text-white">Sort/Filter</h2>
 
-        <form action="" method="get">
+        <form action="" method="get" id="sortingForm">
             <!-- Sort Priority and Severity -->
             <div class="mb-4">
                 <h3 class="mb-2 text-lg font-bold text-gray-200">Sort</h3>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-span-1">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="font-semibold text-white">Order</span> 
+                            <span class="font-semibold text-white">Order</span>
                         </div>
                         <select name="sortOrder" id="sortOrder"
                             class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
@@ -62,19 +62,21 @@
                     </select>
                 </div>
             </div>
-            <!-- Filter Button -->
+            <!-- Apply and Clear Buttons -->
             <button type="submit"
                 class="w-full py-2 mt-4 font-bold text-white transition duration-300 rounded-lg shadow-sm bg-palette-2 hover:brightness-110 hover:scale-105">Apply</button>
+            <button type="button" onclick="clearForm()"
+                class="w-full py-2 mt-2 font-bold text-white transition duration-300 rounded-lg shadow-sm bg-red-500 hover:brightness-110 hover:scale-105">Clear</button>
         </form>
     </aside>
     <div class="flex flex-col justify-center w-full lg:w-3/4">
         <section
             class=" bug-grid grid items-center grid-cols-1 gap-10 mx-auto mb-5 md:grid-cols-2 lg:grid-cols-3 justify-items-center md:max-w-2xl lg:max-w-full lg:mx-0">
-                                    <!-- Begin card -->
+            <!-- Begin card -->
             <div class="flex flex-col justify-between w-auto gap-4 p-6 bg-white rounded-lg shadow-md h-70">
                 <div class="flex justify-between w-full gap-2">
                     <div class="flex flex-col gap-5">
-                        <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">   
+                        <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">
                             Backend Not Working
                         </h2>
                         <p><strong>Status:</strong> To-do</p>
@@ -93,8 +95,8 @@
                 </div>
                 <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
             </div>
-                                    <!-- End card -->
-                                    <!-- Begin card -->
+            <!-- End card -->
+            <!-- Begin card -->
             <div class="flex flex-col justify-between w-auto gap-4 p-6 bg-white rounded-lg shadow-md h-70">
                 <div class="flex justify-between w-full gap-2">
                     <div class="flex flex-col gap-5">
@@ -117,8 +119,8 @@
                 </div>
                 <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
             </div>
-                                    <!-- End card -->
-                                    <!-- Begin card -->
+            <!-- End card -->
+            <!-- Begin card -->
             <div class="flex flex-col justify-between w-auto gap-4 p-6 bg-white rounded-lg shadow-md h-70">
                 <div class="flex justify-between w-full gap-2">
                     <div class="flex flex-col gap-5">
@@ -141,7 +143,7 @@
                 </div>
                 <div class="text-blue-500 cursor-pointer hover:text-blue-700"><a href="">Details →</a></div>
             </div>
-                                    <!-- End card -->
+            <!-- End card -->
         </section>
     </div>
 </section>
