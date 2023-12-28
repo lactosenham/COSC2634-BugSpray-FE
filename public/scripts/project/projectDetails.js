@@ -20,23 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchProjectDetails(projectId) {
-    axiosInstance.get(`/api/projects/${projectId}`)
-        .then(response => {
-            const project = response.data;
-            displayProjectDetails(project);
-            fetchAndDisplayDevelopers(projectId);
-            fetchAndDisplayManagers(projectId);
-            fetchAndDisplayBugs(projectId);
-        })
-        .catch(error => {
-            console.error('Error fetching project details:', error);
-        });
+
+    fetchAndDisplayProjectDetails(projectId);
+    fetchAndDisplayDevelopers(projectId);
+    fetchAndDisplayManagers(projectId);
+    fetchAndDisplayBugs(projectId);
+
 }
 
-function displayProjectDetails(project) {
-    document.getElementById('project-name').innerText = project.name;
-    document.getElementById('project-des').innerText = project.description;
+async function fetchAndDisplayProjectDetails(projectId) {
+    try {
+        const response = await axiosInstance.get(`/api/projects/${projectId}`);
+        const project = response.data;
+
+        // Display the project details
+        document.getElementById('project-name').innerText = project.name;
+        document.getElementById('project-des').innerText = project.description;
+
+    } catch (error) {
+        console.error('Error fetching project details:', error);
+    }
 }
+
 
 function fetchAndDisplayDevelopers(projectId) {
     axiosInstance.get(`/api/projects/dev/${projectId}`)
@@ -63,15 +68,22 @@ function fetchAndDisplayBugs(projectId) {
         .then(response => {
             const bugs = response.data;
             const bugsContainer = document.querySelector('.bugs-container');
+            
+            // Clear the existing content in the container
             bugsContainer.innerHTML = '';
+
+            // Populate with new data
             bugs.forEach(bug => {
                 bugsContainer.innerHTML += createBugCard(bug);
             });
         })
         .catch(error => {
             console.error('Error fetching bugs:', error);
+            // Optionally, you could update the container to show an error message
+            bugsContainer.innerHTML = '<p>Error loading bugs.</p>';
         });
 }
+
 
 function createPersonnelCard(person, role) {
     return `

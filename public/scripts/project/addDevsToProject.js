@@ -85,7 +85,8 @@ async function addSelectedMembers(addMemberData) {
 
         // Show the popup with a callback to reload the current page
         showPopup('Adding Member', 'Members Added Successfully', function() {
-            window.location.reload();
+            fetchAndDisplayDevelopers(addMemberData.projectId);
+            fetchmembers();
         });
     } catch (error) {
         console.error('Error adding members:', error.response.data);
@@ -104,7 +105,8 @@ async function removeSelectedMembers(removeMemberData) {
 
         // Show the popup with a callback to reload the current page
         showPopup('Removing Member From Project', 'Members Removed Successfully', function() {
-            window.location.reload();
+            fetchAndDisplayDevelopers(removeMemberData.projectId);
+            fetchmembers();
         });
     } catch (error) {
         console.error('Error removing members:', error.response.data);

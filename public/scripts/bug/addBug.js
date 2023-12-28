@@ -1,6 +1,8 @@
 document.getElementById('addBugForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const projectId = extractIdFromUrl();
+
     var priority = document.getElementById('priority').value;
     var severity = document.getElementById('severity').value;
     var name = document.getElementById('bugName').value;
@@ -11,7 +13,7 @@ document.getElementById('addBugForm').addEventListener('submit', function(e) {
     var bugData = {
 
         // Place holder projectId
-        projectId: extractIdFromUrl(),
+        projectId: projectId,
         priority: priority,
         severity: severity,
         name: name,
@@ -28,7 +30,7 @@ document.getElementById('addBugForm').addEventListener('submit', function(e) {
 
         // Show the popup with a callback to reload the current page
         showPopup('Add Bug', 'Bug' + bugData.na, function() {
-            window.location.reload();
+            fetchAndDisplayBugs(projectId);
         });
     })
     .catch (function (error) {
