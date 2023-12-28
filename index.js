@@ -38,49 +38,54 @@ app.get('<- insert route name here ->', (req, res) => {
 */
 
 
+// Home
 app.get("/", (req, res) => {
   res.render("layout.ejs", {
     title: "Home",
     bodyFile: "./summary",
+    scripts: [
+    ]
   });
 });
 
+// Log in
 app.get('/login', (req, res) => {
   res.render('authLayout', {
     title: 'Home',
     bodyFile: './auth/login',
     scripts: [
-      '/scripts/popupScript.js',
       '/scripts/auth/loginScript.js'
     ],
   });
 });
 
+//Register
 app.get('/register', (req, res) => {
   res.render('authLayout', {
     title: 'Home',
     bodyFile: './auth/register',
     scripts: [
-      '/scripts/popupScript.js',
       '/scripts/auth/registerScript.js'
     ],
   });
 });
 
-app.get('/project-create', (req, res) => {
-  res.render('layout', {
-    title: 'Create New Project',
-    bodyFile: './project/create',
-    scripts: [
-      '/scripts/project/addDevsToProject.js',
-      '/scripts/auth/authInterceptor.js',
-      '/scripts/bug/addBug.js',
-      '/scripts/project/addProject.js'
-    ],
-  });
-}
-);
+// Create Project
+// app.get('/project-create', (req, res) => {
+//   res.render('layout', {
+//     title: 'Create New Project',
+//     bodyFile: './project/create',
+//     scripts: [
+//       '/scripts/project/addDevsToProject.js',
+//   
+//       '/scripts/bug/addBug.js',
+//       '/scripts/project/addProject.js'
+//     ],
+//   });
+// }
+// );
 
+// User Profile
 app.get('/profile', (req, res) => {
   res.render('layout', {
     title: 'Profile',
@@ -89,48 +94,88 @@ app.get('/profile', (req, res) => {
 }
 );
 
-app.get('/project-create', (req, res) => {
-  res.render('layout', {
-    title: 'Create New Project',
-    bodyFile: './project/create',
-  });
-});
+// Create Project
+// app.get('/project-create', (req, res) => {
+//   res.render('layout', {
+//     title: 'Create New Project',
+//     bodyFile: './project/create',
+//   });
+// });
 
+
+// About
 app.get("/about", (req, res) => {
   res.render("layout", {
     title: "Home",
-    bodyFile: "./about",
+    bodyFile: "./others/about",
+    scripts: null,
   });
 });
 
+// Copyright
+app.get("/copyright", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/copyright",
+    scripts: null,
+  });
+});
+// Privacy
+app.get("/privacy", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/privacy",
+    scripts: null,
+  });
+});
 
+// Terms
+app.get("/terms", (req, res) => {
+  res.render("layout", {
+    title: "Home",
+    bodyFile: "./others/terms",
+    scripts: null,
+  });
+});
+
+// Project Dashboard
 app.get('/projects', (req, res) => {
   res.render('layout', {
     title: 'Project Dashboard',
     bodyFile: './project/projectDashboard',
+    scripts: [
+      '/scripts/project/addProject.js',
+      '/scripts/project/projectDashboard.js'
+    ]
   });
-}
-);
-app.get('/project-detail', (req, res) => {
+});
+
+// Project Details
+app.get('/project-details/:projectId', (req, res) => {
   res.render('layout', {
     title: 'Project Details',
     bodyFile: './project/projectDetail',
     scripts: [
+      '/scripts/project/projectDetails.js',
       '/scripts/project/addDevsToProject.js',
-      '/scripts/auth/authInterceptor.js',
-      '/scripts/bug/addBug.js',
-      '/scripts/project/addProject.js'
+      '/scripts/bug/addBug.js'
     ],
   });
-}
-);
+});
+
+// Bugs Dashboard
 app.get('/bugs', (req, res) => {
   res.render('layout', {
     title: 'Bug Dashboard',
     bodyFile: './bugs/bugDashboard',
+    scripts: [
+      
+    ]
   });
 }
 );
+
+// Bug Details
 app.get('/bug-detail', (req, res) => {
   res.render('layout', {
     title: 'Bug Details',
@@ -138,19 +183,21 @@ app.get('/bug-detail', (req, res) => {
   });
 }
 );
+
 // 404 Not Found Handler
-app.use((req, res, next) => {
-  res.status(404).send("Sorry, page not found");
-});
+// app.use((req, res, next) => {
+//   res.status(404).send("Sorry, page not found");
+// });
 
 // 500 Internal Server Error Handler
-app.use((error, req, res, next) => {
-  console.error(error.stack);
-  res.status(500).send("Something broke!");
-});
+// app.use((error, req, res, next) => {
+//   console.error(error.stack);
+//   res.status(500).send("Something broke!");
+// });
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
 

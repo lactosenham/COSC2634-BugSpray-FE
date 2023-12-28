@@ -7,15 +7,30 @@ document.getElementById('addProjectForm').addEventListener('submit', function(e)
     var newProjectData = {
         name: name,
         description: description
-    }
+    };
 
     axiosInstance.post('/api/projects/create', newProjectData)
         .then(function (response) {
             if (response.data) {
                 console.log('Project ' + name + ' added');
+
+                // Close the modal with 'project-modal' as the ID
+                closeModal('project-modal');
+
+                // Show the popup with a callback to reload the current page
+                showPopup('Create new Project', 'Project ' + name + ' added', function() {
+                    window.location.reload();
+                });
             }
         })
         .catch(function (error) {
             console.log('Error Adding Project', error);
+            // Close the modal with 'project-modal' as the ID
+            closeModal('project-modal');
+
+            // Show the popup with a callback to reload the current page
+            showPopup('Error Adding Project', error.response.data, function() {
+                window.location.reload();
+            });
         });
 });

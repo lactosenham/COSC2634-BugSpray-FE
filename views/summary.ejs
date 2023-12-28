@@ -1,13 +1,15 @@
 <div class="flex-auto">
   <div class="flex flex-col">
     <div class="min-h-screen bg-blue-50">
+
+      <!-- Top Metrics Section -->
       <div class="grid gap-10 p-4 lg:grid-cols-3 sm:grid-cols-2">
+
+        <!-- Total Bugs Card -->
         <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
           <div>
             <div class="text-sm text-gray-400">Total Bugs</div>
-            <div class="text-3xl font-medium text-gray-600">
-              34
-            </div>
+            <div class="text-3xl font-medium text-gray-600">34</div>
           </div>
           <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
             <div class="text-white mt-[15px] ml-[5px]">
@@ -15,12 +17,12 @@
             </div>
           </div>
         </div>
+
+        <!-- Open Bugs Card -->
         <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
           <div>
             <div class="text-sm text-gray-400">Open Bugs</div>
-            <div class="text-3xl font-medium text-gray-600">
-              34
-            </div>
+            <div class="text-3xl font-medium text-gray-600">34</div>
           </div>
           <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
             <div class="text-white mt-[15px] ml-[6px]">
@@ -28,12 +30,12 @@
             </div>
           </div>
         </div>
+
+        <!-- Done Bugs Card -->
         <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
           <div>
             <div class="text-sm text-gray-400">Done Bugs</div>
-            <div class="text-3xl font-medium text-gray-600">
-              34
-            </div>
+            <div class="text-3xl font-medium text-gray-600">34</div>
           </div>
           <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
             <div class="text-white mt-[15px] ml-[6px]">
@@ -41,31 +43,43 @@
             </div>
           </div>
         </div>
-        <!-- Another grid starts here -->
 
-      </div>
+      </div> <!-- End of Top Metrics Section -->
+
+      <!-- Charts Section -->
       <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
+
+        <!-- Total Bugs Reported Chart -->
         <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Total Bugs Reported</b>
           <canvas id="chartLine" class="p-5"></canvas>
         </div>
 
+        <!-- Bugs By Severity Chart -->
         <div class="flex flex-col p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Bugs By Severity</b>
           <canvas class="p-5" id="chartPie"></canvas>
         </div>
-      </div>
+
+      </div> <!-- End of Charts Section -->
+
+      <!-- Additional Charts Section (if needed) -->
       <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
+        
+        <!-- Recently Solved Bugs Chart -->
         <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Recently Solved Bugs</b>
           <canvas id="chartLine" class="p-5"></canvas>
         </div>
 
+        <!-- Bugs By Priority Chart -->
         <div class="flex flex-col p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Bugs By Priority</b>
           <canvas class="p-5" id="chartPie"></canvas>
         </div>
-      </div>
+
+      </div> <!-- End of Additional Charts Section -->
+
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <base href="/">
   <%- include ('./partials/head') %>
     <title>
       <%= title %> | BugSpray
@@ -13,12 +15,32 @@
     <div class="grow">
       <%- include(bodyFile) %>
     </div>
+
     <%- include ('./partials/footer') %>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <!-- Chart line -->
       <script src="js/script.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+      <!-- Axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <!-- Popup Control Script -->
+      <script src="/scripts/utils/popupScript.js"></script>
+
+      <!-- Close Modal Script -->
+      <script src="/scripts/utils/utils.js"></script>
+
+      <!-- Auth Interceptor -->
+      <script src="/scripts/auth/authInterceptor.js"></script>
+
+      <!-- Load all scripts -->
+      <% if(scripts) { %>
+          <% scripts.forEach(function(script) { %>
+              <script src="<%= script %>"></script>
+          <% }); %>
+      <% } %>
 </body>
 
 </html>

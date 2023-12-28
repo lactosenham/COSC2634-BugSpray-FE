@@ -1,38 +1,38 @@
-<nav class="border-gray-200 px-4 py-2 lg:px-6 bg-palette-3 rounded-b-3xl transition duration-300">
-  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl space-x-4">
+<nav class="px-4 py-2 transition duration-300 border-gray-200 lg:px-6 bg-palette-3 rounded-b-3xl">
+  <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto space-x-4">
     <a href="/" class="flex items-center">
-      <img src="./img/Bugspray - Dark.png" class="mr-3 w-32 block" alt="Logo" />
+      <img src="./img/Bugspray - Dark.png" class="block w-32 mr-3" alt="Logo" />
     </a>
     <div class="flex items-center gap-3 lg:order-2">
       <button id="searchBtn" class="flex items-center justify-center p-2">
-        <i class="fa fa-search text-2xl text-white hover:text-gray-200"></i>
+        <i class="text-2xl text-white fa fa-search hover:text-gray-200"></i>
       </button>
-        <a href="/profile"><i class="fa-solid fa-user fa-2xl text-white hover:text-gray-200"></i></a>
-        <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false" id="navBarButton">
-          <i class="fa-solid fa-bars fa-2x"></i>
-        </button>
+      <a href="/profile"><i class="text-white fa-solid fa-user fa-2xl hover:text-gray-200"></i></a>
+      <button data-collapse-toggle="mobile-menu-2" type="button"
+        class="inline-flex items-center p-2 ml-1 text-sm text-gray-400 rounded-lg lg:hidden focus:outline-none focus:ring-2 hover:bg-palette-2 focus:ring-gray-600"
+        aria-controls="mobile-menu-2" aria-expanded="false" id="navBarButton">
+        <i class="fa-solid fa-bars fa-2x"></i>
+      </button>
     </div>
-    <div class="hidden flex-grow justify-center items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-      <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-2 lg:space-y-0 space-y-4 lg:mt-0">
-
-          <li>
-            <a href="/project-dashboard" class="block py-2 px-2 rounded bg-palette-2 text-white">DASHBOARD</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-2 rounded bg-transparent text-gray-400 hover:text-white">PROJECTS</a>
-          </li>
-          <li>
-            <a href="/bugs" class="block py-2 px-2 rounded bg-transparent text-gray-400 hover:text-white">BUGS</a>
-          </li>
+    <div class="items-center justify-center flex-grow hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+      <ul class="flex flex-col mt-4 space-y-4 font-medium lg:flex-row lg:space-x-2 lg:space-y-0 lg:mt-0">
+        <li>
+          <a href="/" class="block px-2 py-2 text-white rounded bg-palette-2">DASHBOARD</a>
+        </li>
+        <li>
+          <a href="/projects" class="block px-2 py-2 text-gray-400 bg-transparent rounded hover:text-white">PROJECTS</a>
+        </li>
+        <li>
+          <a href="/bugs" class="block px-2 py-2 text-gray-400 bg-transparent rounded hover:text-white">BUGS</a>
+        </li>
       </ul>
     </div>
   </div>
   <form method="get">
-    <div id="searchBar"
-      class="hidden w-full px-4 py-4 rounded-b-3xl transition-opacity duration-300 delay-150">
-      <div class="mx-auto max-w-screen-xl flex items-center">
+    <div id="searchBar" class="hidden w-full px-4 py-4 transition-opacity duration-300 delay-150 rounded-b-3xl">
+      <div class="flex items-center max-w-screen-xl mx-auto">
         <input type="text" id="searchInput"
-          class="outline-none border-none flex-grow rounded-l-lg text-sm h-12 pl-4 text-black bg-zinc-100"
+          class="flex-grow h-12 pl-4 text-sm text-black border-none rounded-l-lg outline-none bg-zinc-100"
           placeholder="Search..." name="name" />
         <button
           class="bg-palette-2 text-white h-12 w-24 text-sm font-medium rounded-r-lg py-2.5 focus:outline-none focus:ring-blue-800"
@@ -40,10 +40,10 @@
           <i class="fa-solid fa-magnifying-glass"></i>
           Search
         </button>
-        <button id="closeSearchBtn" class="hidden md:flex items-center justify-center p-2 ml-4 
-        text-white bg-rose-500 rounded-lg border-none shadow-md shadow-rose-800
-        h-10 w-10" type="button">
-          <i class="fas fa-times text-2xl hover:text-gray-200" aria-hidden="true"></i>
+        <button id="closeSearchBtn"
+          class="items-center justify-center hidden w-10 h-10 p-2 ml-4 text-white border-none rounded-lg shadow-md md:flex bg-rose-500 shadow-rose-800"
+          type="button">
+          <i class="text-2xl fas fa-times hover:text-palette-2" aria-hidden="true"></i>
         </button>
       </div>
     </div>
