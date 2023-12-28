@@ -158,7 +158,8 @@ app.get('/project-details/:projectId', (req, res) => {
     scripts: [
       '/scripts/project/projectDetails.js',
       '/scripts/project/addDevsToProject.js',
-      '/scripts/bug/addBug.js'
+      '/scripts/bug/addBug.js',
+      '/scripts/project/editProject.js'
     ],
   });
 });
@@ -169,7 +170,7 @@ app.get('/bugs', (req, res) => {
     title: 'Bug Dashboard',
     bodyFile: './bugs/bugDashboard',
     scripts: [
-      
+        '/scripts/bug/bugDashboard.js'
     ]
   });
 }

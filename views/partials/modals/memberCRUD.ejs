@@ -28,18 +28,17 @@
                     </div>
 
                     <!-- Modal Body -->
-                    <form id="addDevForm" class="p-4 md:p-5">
+                    <form id=<%= form %> class="p-4 md:p-5">
                         <!-- Loading -->
                         <div id="loading" class="items-center justify-center hidden h-full text-xl text-gray-500 ">
                             <i class="fa-solid fa-spinner fa-spin"></i>
                             <span class="ml-2">Loading developers...</span>
                         </div>
 
-                        <div id="content" class="hidden">
-                            <div id="devList" class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
+                        <div id=<%= content %> class="hidden">
+                            <div id=<%= list %> class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
                             </div>
                         </div>
-                        <input type="hidden" name="projectId" value="<projectId>">
                         <!-- Submit Button -->
                         <button type="submit"
                             class="text-white inline-flex items-center <%= color %> focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -50,12 +49,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <% if(scripts) { %>
-            <% scripts.forEach(function(script) { %>
-                <script src="<%= script %>"></script>
-                <% }); %>
-                    <% } %>
     </div>
 </div>

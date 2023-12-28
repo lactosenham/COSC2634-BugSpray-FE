@@ -22,6 +22,14 @@ document.getElementById('addBugForm').addEventListener('submit', function(e) {
     axiosInstance.post('/api/bugs/report', bugData)
     .then (function (response) {
         console.log('Bug Report: ', response.data.message);
+
+        // Close the modal
+        closeModal('bug-modal');
+
+        // Show the popup with a callback to reload the current page
+        showPopup('Add Bug', 'Bug' + bugData.na, function() {
+            window.location.reload();
+        });
     })
     .catch (function (error) {
         console.log('Error Reporting Bug: ', error.response.data);

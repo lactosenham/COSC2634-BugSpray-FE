@@ -1,95 +1,65 @@
 <div class="w-5/6 mx-auto mt-5">
+  <!-- Project Information Section -->
   <div class="p-5 bg-[#EBEFF3] rounded-lg">
-    <!-- Project Information -->
-    <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
-    <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
-      <div class="w-3/4 pr-10 overflow-x-auto text-base overscroll-auto">
-        <div id="project-des" class="pb-1 text-justify">Description</div>
+      <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
+      <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
+          <div class="w-3/4 pr-10 text-base overflow-x-auto overscroll-auto">
+              <div id="project-des" class="pb-1 text-justify">Description</div>
+          </div>
+          <div class="px-10 text-sm">
+              <div>Total bugs</div>
+              <div class="text-lg">
+                  <span id="incomplete-ticket">10</span> / <span id="total-ticket">20</span>
+              </div>
+          </div>
       </div>
-      <div class="px-10 text-sm">
-        <div>Total bugs</div>
-        <div class="text-lg">
-          <span id="incomplete-ticket">10</span> / <span id="total-ticket">20</span>
-        </div>
+      <div class="flex gap-1">
+          <button id="back-to-list" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-5">Back to list</button>
+          <div><%- include('../partials/modals/editProject') %></div>
       </div>
-    </div>
-    <!-- Action Buttons -->
-    <div class="flex gap-1">
-      <button id="back-to-list" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-[5px]">Back to list</button>
-      <div><%- include('../partials/modals/editProject') %></div>
-    </div>
   </div>
 
   <!-- Personnel and Bugs Sections -->
   <div class="flex my-5 space-x-4">
-    <!-- Personnel Section -->
-    <div class="flex-1 rounded-lg bg-[#EBEFF3]">
-      <section class="text-gray-600 body-font">
-        <div class="container p-5">
-          <div class="flex justify-between w-full">
-            <div>
-              <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
-            </div>
-            <div class="flex gap-2">
-              <%- include('../partials/modals/memberCRUD', {title: 'Add Member ' , submit: 'Add' ,
-                icon: 'fa-solid fa-plus' , color: 'bg-blue-700 hover:bg-blue-800' }) %>
-                <%- include('../partials/modals/memberCRUD', {title: 'Remove Member ' , submit: 'Remove' ,
-                  icon: 'fa-solid fa-xmark' , color: 'bg-red-500 hover:bg-red-600' }) %>
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-4">
-            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
-              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
-                  src="https://dummyimage.com/80x80">
-                <div class="flex-grow">
-                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
-                  <p id="mem-role" class="text-slate-400">UI Designer</p>
-                </div>
+      <!-- Personnel Section -->
+      <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+          <section class="text-gray-600 body-font">
+              <div class="container p-5">
+                  <div class="flex justify-between">
+                      <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
+                      <div class="flex gap-2">
+                          <%- include('../partials/modals/memberCRUD', { form: 'addMemberForm', title: 'Add Member', submit: 'Add', icon: 'fa-solid fa-plus', list: 'allMemList', content: 'allContent' ,color: 'bg-blue-700 hover:bg-blue-800' }) %>
+                          <%- include('../partials/modals/memberCRUD', { form: 'removeMemberForm', title: 'Remove Member', submit: 'Remove', icon: 'fa-solid fa-xmark', list: 'currentMemList', content: 'currentContent', color: 'bg-red-500 hover:bg-red-600' }) %>
+                      </div>
+                  </div>
+                  <div  class="members-container flex flex-wrap -mx-4">
+                      <!-- Personnel Cards Here -->
+                      <!-- Repeat for each personnel -->
+                  </div>
               </div>
-            </div>
-            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
-              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
-                  src="https://dummyimage.com/80x80">
-                <div class="flex-grow">
-                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
-                  <p id="mem-role" class="text-slate-400">UI Designer</p>
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
-              <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full"
-                  src="https://dummyimage.com/80x80">
-                <div class="flex-grow">
-                  <h2 id="mem-name" class="font-medium text-white title-font">Holden Caulfield</h2>
-                  <p id="mem-role" class="text-slate-400">UI Designer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+          </section>
+      </div>
 
-    <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
-      <div class="flex-1 rounded-lg bg-[#EBEFF3] ">
-
-        <section class="text-gray-600 body-font">
-          <div class="container px-5 py-5">
-            <!-- Title and Modal Button -->
-            <div class="mb-4">
-              <h1 class="text-lg font-bold text-gray-900">Bugs</h1>
-              <div class="mt-2"><%- include('../partials/modals/addBug') %></div>
-            </div>
-            <!-- Bug Cards -->
-            <div class="bugs-container space-y-4">
-              <!-- Repeat for each bug -->
-            </div>
-          </div>
-        </section>
+      <!-- Bugs Section -->
+      <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+          <section class="text-gray-600 body-font">
+              <div class="container px-5 py-5">
+                  <div class="mb-4">
+                      <h1 class="text-lg font-bold text-gray-900">Bugs</h1>
+                      <div class="mt-2"><%- include('../partials/modals/addBug') %></div>
+                  </div>
+                  <div class="bugs-container space-y-4">
+                      <!-- Bug Cards Here -->
+                      <!-- Repeat for each bug -->
+                  </div>
+              </div>
+          </section>
       </div>
   </div>
+      <!-- Popup Section -->
+      <div id="myPopup" class="popup">
+        <%- include('../partials/popup'); %>
+    </div>
 </div>
+
 
