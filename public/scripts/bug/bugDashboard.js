@@ -2,7 +2,7 @@ let allBugs = [];  // Store all bugs here
 let assignedBugs = [];  // Store assigned bugs here
 let currentDisplay = 'all';  // Track the current display state
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (!isUserAuthenticated()) {
         // Redirect to login page if not authenticated
         window.location.href = '/login';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Attach event listener to the sorting form
     const sortingForm = document.getElementById('sortingForm');
     if (sortingForm) {
-        sortingForm.addEventListener('submit', function(event) {
+        sortingForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
             const displayBugsOption = document.getElementById('displayBugs').value;
             const sortField = document.getElementById('sortField').value;
@@ -59,23 +59,23 @@ function fetchBugs(displayOption = 'all', sortField, sortOrder, status) {
             'Authorization': `Bearer ${token}`
         }
     })
-    .then(function (response) {
-        const bugs = response.data;
+        .then(function (response) {
+            const bugs = response.data;
 
-        if (displayOption === 'all') {
-            allBugs = bugs;
-        } else {
-            assignedBugs = bugs;
-        }
-        filterAndSortBugs(sortField, sortOrder, status, displayOption);
-    })
-    .catch(function (error) {
-        console.error('Error fetching bugs:', error);
-        if (error.response && error.response.status === 401) {
-            // Redirect to login if unauthorized
-            window.location.href = '/login';
-        }
-    });
+            if (displayOption === 'all') {
+                allBugs = bugs;
+            } else {
+                assignedBugs = bugs;
+            }
+            filterAndSortBugs(sortField, sortOrder, status, displayOption);
+        })
+        .catch(function (error) {
+            console.error('Error fetching bugs:', error);
+            if (error.response && error.response.status === 401) {
+                // Redirect to login if unauthorized
+                window.location.href = '/login';
+            }
+        });
 }
 
 function filterAndSortBugs(sortField, sortOrder, status, displayOption) {
@@ -113,7 +113,7 @@ function displayBugs(bugs) {
 
     bugs.forEach(bug => {
         const bugCard = `
-        <div class="flex flex-col justify-between w-auto gap-4 p-6 bg-white rounded-lg shadow-md h-70">
+        <div class="flex flex-col justify-between w-full gap-4 p-6 bg-white rounded-lg shadow-md h-full">
             <div class="flex justify-between w-full gap-2">
                 <div class="flex flex-col gap-5">
                     <h2 class="block w-full text-2xl font-bold text-gray-800 line-clamp-1 text-ellipsis">
@@ -121,14 +121,13 @@ function displayBugs(bugs) {
                     </h2>
                     <p><strong>Status:</strong> ${bug.status}</p>
                     <p class="line-clamp-3 text-ellipsis"><strong>Description:</strong> ${bug.description || 'No description provided'}</p>
-                    <p class="line-clamp-3 text-ellipsis"><strong>Steps to Reproduce:</strong> ${bug.stepsToReproduce || 'Not provided'}</p>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <div class="px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-full shadow-lg">
-                        Priority: ${bug.priority}
+                    <div class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-xl shadow-lg">
+                    <p>Priority: ${bug.priority}</p>
                     </div>
-                    <div class="inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full shadow-lg">
-                        Severity: ${bug.severity}
+                    <div class="px-3 py-2 text-sm font-semibold text-white bg-green-500 rounded-xl shadow-lg">
+                    <p>Severity: ${bug.severity}</p>
                     </div>
                 </div>
             </div>
