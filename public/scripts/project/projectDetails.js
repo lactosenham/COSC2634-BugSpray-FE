@@ -36,12 +36,12 @@ async function fetchAndDisplayProjectDetails(projectId) {
         // Display the project details
         document.getElementById('project-name').innerText = project.name;
         document.getElementById('project-des').innerText = project.description;
+        document.getElementById('total-ticket').innerText = project.bugs.length;
 
     } catch (error) {
         console.error('Error fetching project details:', error);
     }
 }
-
 
 function fetchAndDisplayDevelopers(projectId) {
     axiosInstance.get(`/api/projects/dev/${projectId}`)
@@ -68,14 +68,21 @@ function fetchAndDisplayBugs(projectId) {
         .then(response => {
             const bugs = response.data;
             const bugsContainer = document.querySelector('.bugs-container');
+            const bugsTotal = document.getElementById('total-ticket');
+            const bugsIncomplete = document.getElementById('incomplete-ticket');
             
-            // Clear the existing content in the container
+            // Clear the existing content 
             bugsContainer.innerHTML = '';
+            bugsTotal.innerText = '';
+            bugsIncomplete.innerText = '';
 
             // Populate with new data
             bugs.forEach(bug => {
                 bugsContainer.innerHTML += createBugCard(bug);
             });
+
+            bugsTotal.innerText = bugs.length;
+            bugsIncomplete.innerText = getIncompleteNum(bugs);
         })
         .catch(error => {
             console.error('Error fetching bugs:', error);
@@ -118,6 +125,18 @@ function createBugCard(bug) {
           </div>
         </div>
     `;
+}
+
+function getIncompleteNum(bugs) {
+    var incompleteNum = 0;
+
+    bugs.forEach(bug => {
+        if (bug.status !== 'Closed') {
+            incompleteNum ++;
+        }
+    });
+
+    return incompleteNum;
 }
 
 function getColorForSeverity(severity) {

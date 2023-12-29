@@ -94,15 +94,6 @@ app.get('/profile', (req, res) => {
 }
 );
 
-// Create Project
-// app.get('/project-create', (req, res) => {
-//   res.render('layout', {
-//     title: 'Create New Project',
-//     bodyFile: './project/create',
-//   });
-// });
-
-
 // About
 app.get("/about", (req, res) => {
   res.render("layout", {
