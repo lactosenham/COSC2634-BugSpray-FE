@@ -28,7 +28,7 @@ async function fetchmembers() {
         } else {
             renderMemberList(allMemListElement, allMembers, memberIds);
         }
-        
+
         if (currentMembers.length === 0) {
             currentMemListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
         } else {
@@ -40,7 +40,7 @@ async function fetchmembers() {
         const addMemberForm = document.getElementById('addMemberForm');
         if (addMemberForm) {
             addMemberForm.addEventListener('submit', async (event) => {
-                event.preventDefault(); 
+                event.preventDefault();
                 var addMemberData = {
                     projectId: projectId,
                     memberIds: memberIds
@@ -50,7 +50,8 @@ async function fetchmembers() {
                 console.log('Currently selected: ' + memberIds);
                 memberIds.length = 0;
             }
-        )};
+            )
+        };
 
         // Handle remove form submission
         if (removeMemberForm) {
@@ -84,7 +85,7 @@ async function addSelectedMembers(addMemberData) {
         closeModal('developerProject-modalAdd Member');
 
         // Show the popup with a callback to reload the current page
-        showPopup('Adding Member', 'Members Added Successfully', function() {
+        showPopup('Adding Member', 'Members Added Successfully', function () {
             fetchAndDisplayDevelopers(addMemberData.projectId);
             fetchmembers();
         });
@@ -104,7 +105,7 @@ async function removeSelectedMembers(removeMemberData) {
         closeModal('developerProject-modalRemove Member');
 
         // Show the popup with a callback to reload the current page
-        showPopup('Removing Member From Project', 'Members Removed Successfully', function() {
+        showPopup('Removing Member From Project', 'Members Removed Successfully', function () {
             fetchAndDisplayDevelopers(removeMemberData.projectId);
             fetchmembers();
         });
@@ -120,7 +121,7 @@ function renderMemberList(element, members, memberIds) {
     element.innerHTML = '';
 
     for (const developer of members) {
-        const {_id, name, developerType} = developer;
+        const { _id, name, developerType } = developer;
         // Create checkbox
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -130,13 +131,14 @@ function renderMemberList(element, members, memberIds) {
         checkbox.classList.add('hidden', 'peer');
 
         // Create label
-        const label = document.createElement('label');
-        label.setAttribute('for', _id);
-        label.classList.add(
+        const memberLabel = document.createElement('label');
+        memberLabel.setAttribute('for', _id);
+        memberLabel.classList.add(
             'inline-flex',
             'items-center',
             'justify-between',
             'w-full',
+            'h-full',
             'p-2',
             'text-gray-500',
             'bg-white',
@@ -166,8 +168,12 @@ function renderMemberList(element, members, memberIds) {
         // Add elements to content container and label
         contentDiv.appendChild(nameElement);
         contentDiv.appendChild(developerTypeElement);
-        label.appendChild(contentDiv);
-        label.appendChild(checkbox);
+        memberLabel.appendChild(contentDiv);
+        const labelDiv = document.createElement('div');
+        labelDiv.classList.add('w-full', 'flex', 'items-center', 'h-full');
+        labelDiv.appendChild(checkbox);
+        labelDiv.appendChild(memberLabel);
+
 
         // Add event listener for checkbox selection
         checkbox.addEventListener('change', (event) => {
@@ -185,12 +191,12 @@ function renderMemberList(element, members, memberIds) {
             }
             console.log(`Selected IDs: ${memberIds}`);
         });
-        element.appendChild(label);
+        element.appendChild(labelDiv);
     }
 }
 
 // Trigger script on load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     fetchmembers();
 });
 
