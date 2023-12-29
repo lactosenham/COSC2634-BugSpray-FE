@@ -52,13 +52,13 @@
         <!-- Total Bugs Reported Chart -->
         <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Total Bugs Reported</b>
-          <canvas id="chartLine" class="p-5"></canvas>
+          <canvas id="totalBugs" class="p-5"></canvas>
         </div>
 
         <!-- Bugs By Severity Chart -->
         <div class="flex flex-col p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Bugs By Severity</b>
-          <canvas class="p-5" id="chartPie"></canvas>
+          <canvas class="p-5" id="bugsBySeverity"></canvas>
         </div>
 
       </div> <!-- End of Charts Section -->
@@ -69,17 +69,25 @@
         <!-- Recently Solved Bugs Chart -->
         <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Recently Solved Bugs</b>
-          <canvas id="chartLine" class="p-5"></canvas>
+          <canvas id="recentlySolved" class="p-5"></canvas>
         </div>
 
         <!-- Bugs By Priority Chart -->
         <div class="flex flex-col p-8 bg-white rounded shadow-sm">
           <b class="flex flex-row text-gray-500">Bugs By Priority</b>
-          <canvas class="p-5" id="chartPie"></canvas>
+          <canvas class="p-5" id="bugsByPriority"></canvas>
         </div>
 
       </div> <!-- End of Additional Charts Section -->
 
     </div>
   </div>
+
+  <!-- Load all scripts -->
+  <% if(scripts) { %>
+    <% scripts.forEach(function(script) { %>
+        <script src="<%= script %>"></script>
+    <% }); %>
+  <% } %>
+
 </div>

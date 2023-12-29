@@ -44,6 +44,7 @@ app.get("/", (req, res) => {
     title: "Home",
     bodyFile: "./summary",
     scripts: [
+      '/scripts/summary/chart.js'
     ]
   });
 });
@@ -70,26 +71,14 @@ app.get('/register', (req, res) => {
   });
 });
 
-// Create Project
-// app.get('/project-create', (req, res) => {
-//   res.render('layout', {
-//     title: 'Create New Project',
-//     bodyFile: './project/create',
-//     scripts: [
-//       '/scripts/project/addDevsToProject.js',
-//   
-//       '/scripts/bug/addBug.js',
-//       '/scripts/project/addProject.js'
-//     ],
-//   });
-// }
-// );
-
 // User Profile
 app.get('/profile', (req, res) => {
   res.render('layout', {
     title: 'Profile',
     bodyFile: './user/profile',
+    scripts: [
+      '/scripts/user/profile.js'
+    ],
   });
 }
 );
