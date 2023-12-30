@@ -8,8 +8,11 @@ async function fetchmembers() {
         const allRes = await axios.get('api/projects/getAllDeveloper') // All members 
         const currentRes = await axiosInstance.get(`api/projects/dev/${projectId}`) // Only members in this project
 
-        const allMembers = allRes.data;
+        let allMembers = allRes.data;
         const currentMembers = currentRes.data;
+
+        // Filter out members already in the project
+        allMembers = allMembers.filter(member => !currentMembers.some(currMember => currMember._id === member._id));
 
         const allMemListElement = document.getElementById('allMemList');
         const currentMemListElement = document.getElementById('currentMemList');
