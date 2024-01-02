@@ -11,7 +11,7 @@
                     <div class="w-3/5">
                         <input type="text" name="username" id="username"
                             class="bg-palette-2 border border-gray-300 placeholder-grey-700 text-white invalid:text-red-500 sm:text-sm rounded-lg block w-full p-2.5"
-                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required >
+                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required>
                     </div>
                 </div>
                 <div class="flex flex-row w-96">
@@ -22,7 +22,7 @@
                     <div class="w-3/5">
                         <input type="text"
                             class="bg-palette-2 border border-gray-300 placeholder-gray-400 text-white sm:text-sm rounded-lg block w-full p-2.5"
-                            id="name" name="name" placeholder="John Doe" minlength="5" >
+                            id="name" name="name" placeholder="John Doe" minlength="5">
                     </div>
                 </div>
                 <div class="flex flex-row w-96">
@@ -53,15 +53,21 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit"
-                    class="text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 px-5 py-2.5">Save
-                    changes</button>
+                <div class="grid grid-cols-2 gap-5">
+                    <button type="submit"
+                        class="text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 px-5 py-2.5">Save
+                        changes</button>
+                    <a href=""
+                        class="focus:outline-none text-white bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:ring-red-300 font-medium text-center rounded-lg text-sm px-5 py-2.5 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-red-900"
+                        id="logout">Logout</a>
+                </div>
+
             </div>
         </form>
     </div>
-</div>
-<!-- Popup Section -->
-<div id="myPopup" class="popup">
-  <%- include('../partials/popup'); %>
-</div>
+    </div>
+    <!-- Popup Section -->
+    <div id="myPopup" class="popup">
+        <%- include('../partials/popup'); %>
+    </div>
 </section>

@@ -1,7 +1,7 @@
 // Define a global flag to track if the event listener has already been added
 let isInitialized = false;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (!isInitialized) {
         // Set the flag to true to prevent future execution
         isInitialized = true;
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var backToListButton = document.getElementById('back-to-list');
         if (backToListButton) {
-            backToListButton.addEventListener('click', function() {
+            backToListButton.addEventListener('click', function () {
                 window.location.href = '/projects';
             });
         }
@@ -70,7 +70,7 @@ function fetchAndDisplayBugs(projectId) {
             const bugsContainer = document.querySelector('.bugs-container');
             const bugsTotal = document.getElementById('total-ticket');
             const bugsIncomplete = document.getElementById('incomplete-ticket');
-            
+
             // Clear the existing content 
             bugsContainer.innerHTML = '';
             bugsTotal.innerText = '';
@@ -96,10 +96,9 @@ function createPersonnelCard(person, role) {
     return `
         <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
             <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
-                <img alt="team" class="flex-shrink-0 object-cover object-center w-16 h-16 mr-4 bg-gray-100 rounded-full" src="https://dummyimage.com/80x80">
                 <div class="flex-grow">
                     <h2 class="font-medium text-white title-font">${person.name}</h2>
-                    <p class="text-slate-400">${role === 'Manager' ? 'Manager' : person.developerType}</p>
+                    <p class="font-bold text-white">${role === 'Manager' ? 'Manager' : person.developerType}</p>
                 </div>
             </div>
         </div>
@@ -109,19 +108,25 @@ function createPersonnelCard(person, role) {
 function createBugCard(bug) {
     return `
         <div class="p-4 bg-white shadow-md rounded-lg">
+        <div class="flex justify-between">
           <h3 class="text-xl font-bold text-gray-800">${bug.name}</h3>
+          <span class="ml-auto italic text-gray-600">${bug.status}</span>
+        </div>
           <p class="mt-2 text-gray-600">${bug.description || 'No description provided'}</p>
-          <p class="mt-2">
+          <p class="py-5">
             <span class="text-sm font-semibold text-gray-700">Severity:</span>
             <span class="ml-1" style="background-color:${getColorForSeverity(bug.severity)}; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;">${bug.severity}</span> -
             <span class="text-sm font-semibold text-gray-700">Priority:</span>
             <span class="ml-1" style="background-color:${getColorForPriority(bug.priority)}; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;">${bug.priority}</span>
           </p>
-          <div class="flex mt-3 items-center">
-            <span class="font-semibold text-gray-800 mr-3">Assigned to:</span>
-            <span class="text-gray-700">${bug.assignedTo ? bug.assignedTo.username : 'Unassigned'}</span>
-            <span class="ml-auto italic text-gray-600">${bug.status}</span>
-            <span class="ml-3 text-gray-600">Deadline: ${new Date(bug.deadline).toLocaleDateString()}</span>
+          <div class="flex justify-between">
+            <div>
+                <span class="font-semibold text-gray-800 mr-3">Assigned to:</span>
+                <span class="text-gray-700">${bug.assignedTo ? bug.assignedTo.username : 'Unassigned'}</span>
+            </div>
+            <div class="text-blue-500 cursor-pointer hover:text-blue-700">
+                <a href="/bugs/${bug._id}">Details →</a>
+            </div>
           </div>
         </div>
     `;
@@ -133,7 +138,7 @@ function getIncompleteNum(bugs) {
 
     bugs.forEach(bug => {
         if (bug.status !== 'Closed') {
-            incompleteNum ++;
+            incompleteNum++;
         }
     });
 
@@ -144,35 +149,35 @@ function getColorForSeverity(severity) {
     // Return hex color based on severity level
     switch (severity) {
         case 1:
-            return '#780000'; 
+            return '#780000';
         case 2:
-            return '#dc0000'; 
+            return '#dc0000';
         case 3:
-            return '#fd8c00'; 
+            return '#fd8c00';
         case 4:
             return '#fdc500';
         case 5:
             return '#00ac46';
         default:
-            return '#000000'; 
+            return '#000000';
     }
 }
 
 
 function getColorForPriority(priority) {
-        // Return hex color based on priority level
-        switch (priority) {
-            case 1:
-                return '#780000'; 
-            case 2:
-                return '#dc0000'; 
-            case 3:
-                return '#fd8c00'; 
-            case 4:
-                return '#fdc500';
-            case 5:
-                return '#00ac46';
-            default:
-                return '#000000'; 
-        }
+    // Return hex color based on priority level
+    switch (priority) {
+        case 1:
+            return '#780000';
+        case 2:
+            return '#dc0000';
+        case 3:
+            return '#fd8c00';
+        case 4:
+            return '#fdc500';
+        case 5:
+            return '#00ac46';
+        default:
+            return '#000000';
+    }
 }
