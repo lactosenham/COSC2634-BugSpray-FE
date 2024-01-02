@@ -17,13 +17,13 @@
     <div class="items-center justify-center flex-grow hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
       <ul class="flex flex-col mt-4 space-y-4 font-medium lg:flex-row lg:space-x-2 lg:space-y-0 lg:mt-0">
         <li>
-          <a href="/" class="block px-2 py-2 text-white rounded bg-palette-2">DASHBOARD</a>
+          <a href="/" class="block px-2 py-2 rounded <%= activePage === 'summary' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">SUMMARY</a>
         </li>
         <li>
-          <a href="/projects" class="block px-2 py-2 text-gray-400 bg-transparent rounded hover:text-white">PROJECTS</a>
+          <a href="/projects" class="block px-2 py-2 rounded <%= activePage === 'projects' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">PROJECTS</a>
         </li>
         <li>
-          <a href="/bugs" class="block px-2 py-2 text-gray-400 bg-transparent rounded hover:text-white">BUGS</a>
+          <a href="/bugs" class="block px-2 py-2 rounded <%= activePage === 'bugs' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">BUGS</a>
         </li>
       </ul>
     </div>
