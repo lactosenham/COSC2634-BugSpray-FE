@@ -35,6 +35,18 @@
       <!-- Auth Interceptor -->
       <script src="/scripts/auth/authInterceptor.js"></script>
 
+      <!-- Redirect to login page if there are no tokens in localStorage -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the token exists in localStorage
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // Redirect to the login page if token is not found
+                window.location.href = '/login';
+            }
+        });
+      </script>
+
       <!-- Load all scripts -->
       <% if(scripts) { %>
           <% scripts.forEach(function(script) { %>

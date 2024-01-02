@@ -2,7 +2,7 @@
     <div
         class="flex flex-col items-center justify-center p-10 mx-auto my-10 text-white shadow-xl bg-palette-3 rounded-3xl">
         <h1 class="my-4 text-3xl font-bold text-center">My Profile</h1>
-        <form action="">
+        <form id="profileForm">
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row w-96">
                     <div class="w-2/5">
@@ -11,7 +11,7 @@
                     <div class="w-3/5">
                         <input type="text" name="username" id="username"
                             class="bg-palette-2 border border-gray-300 placeholder-grey-700 text-white invalid:text-red-500 sm:text-sm rounded-lg block w-full p-2.5"
-                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required value="VNOsST6170">
+                            placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required >
                     </div>
                 </div>
                 <div class="flex flex-row w-96">
@@ -22,7 +22,7 @@
                     <div class="w-3/5">
                         <input type="text"
                             class="bg-palette-2 border border-gray-300 placeholder-gray-400 text-white sm:text-sm rounded-lg block w-full p-2.5"
-                            id="name" name="name" placeholder="John Doe" minlength="5" value="Sam Ton">
+                            id="name" name="name" placeholder="John Doe" minlength="5" >
                     </div>
                 </div>
                 <div class="flex flex-row w-96">
@@ -59,4 +59,9 @@
             </div>
         </form>
     </div>
+</div>
+<!-- Popup Section -->
+<div id="myPopup" class="popup">
+  <%- include('../partials/popup'); %>
+</div>
 </section>

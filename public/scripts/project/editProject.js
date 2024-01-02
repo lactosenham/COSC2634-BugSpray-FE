@@ -17,7 +17,7 @@ async function updateProject() {
 
         // Show the popup with a callback to reload the current page
         showPopup('Editing Project', 'Project Successfully Edited', function() {
-            window.location.reload();
+            fetchAndDisplayProjectDetails(projectId);
         });
     } catch (error) {
         console.error('Error updating project: ', error);

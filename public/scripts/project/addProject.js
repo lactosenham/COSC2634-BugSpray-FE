@@ -19,7 +19,7 @@ document.getElementById('addProjectForm').addEventListener('submit', function(e)
 
                 // Show the popup with a callback to reload the current page
                 showPopup('Create new Project', 'Project ' + name + ' added', function() {
-                    window.location.reload();
+                    fetchAndDisplayProjects();
                 });
             }
         })
@@ -30,7 +30,7 @@ document.getElementById('addProjectForm').addEventListener('submit', function(e)
 
             // Show the popup with a callback to reload the current page
             showPopup('Error Adding Project', error.response.data, function() {
-                window.location.reload();
+                fetchAndDisplayProjects();
             });
         });
 });
