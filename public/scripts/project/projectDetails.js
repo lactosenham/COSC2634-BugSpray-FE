@@ -113,9 +113,9 @@ function createBugCard(bug) {
           <p class="mt-2 text-gray-600">${bug.description || 'No description provided'}</p>
           <p class="mt-2">
             <span class="text-sm font-semibold text-gray-700">Severity:</span>
-            <span class="ml-1 ${getColorForSeverity(bug.severity)}">${bug.severity}</span> -
+            <span class="ml-1" style="background-color:${getColorForSeverity(bug.severity)}; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;">${bug.severity}</span> -
             <span class="text-sm font-semibold text-gray-700">Priority:</span>
-            <span class="ml-1 ${getColorForPriority(bug.priority)}">${bug.priority}</span>
+            <span class="ml-1" style="background-color:${getColorForPriority(bug.priority)}; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;">${bug.priority}</span>
           </p>
           <div class="flex mt-3 items-center">
             <span class="font-semibold text-gray-800 mr-3">Assigned to:</span>
@@ -126,6 +126,7 @@ function createBugCard(bug) {
         </div>
     `;
 }
+
 
 function getIncompleteNum(bugs) {
     var incompleteNum = 0;
@@ -140,13 +141,38 @@ function getIncompleteNum(bugs) {
 }
 
 function getColorForSeverity(severity) {
-    // Return color class based on severity level
-    // You can define classes like 'text-red-500' for different severity levels
-    // For example:
-    if (severity === 1) return 'text-red-500';
-    // Add more conditions for other severity levels
+    // Return hex color based on severity level
+    switch (severity) {
+        case 1:
+            return '#780000'; 
+        case 2:
+            return '#dc0000'; 
+        case 3:
+            return '#fd8c00'; 
+        case 4:
+            return '#fdc500';
+        case 5:
+            return '#00ac46';
+        default:
+            return '#000000'; 
+    }
 }
 
+
 function getColorForPriority(priority) {
-    // Similar to getColorForSeverity, but for priority
+        // Return hex color based on priority level
+        switch (priority) {
+            case 1:
+                return '#780000'; 
+            case 2:
+                return '#dc0000'; 
+            case 3:
+                return '#fd8c00'; 
+            case 4:
+                return '#fdc500';
+            case 5:
+                return '#00ac46';
+            default:
+                return '#000000'; 
+        }
 }
