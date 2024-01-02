@@ -1,65 +1,70 @@
 <div class="w-5/6 mx-auto mt-5">
-  <!-- Project Information Section -->
-  <div class="p-5 bg-[#EBEFF3] rounded-lg">
-      <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
-      <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
-          <div class="w-3/4 pr-10 text-base overflow-x-auto overscroll-auto">
-              <div id="project-des" class="pb-1 text-justify">Description</div>
-          </div>
-          <div class="px-10 text-sm">
-              <div>Unresolved Bugs/Total Bugs</div>
-              <div class="text-lg">
-                  <span id="incomplete-ticket">0</span> / <span id="total-ticket">0</span>
-              </div>
-          </div>
-      </div>
-      <div class="flex gap-1">
-          <button id="back-to-list" class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded mr-5">Back to list</button>
-          <div><%- include('../partials/modals/editProject') %></div>
-      </div>
-  </div>
+    <!-- Project Information Section -->
+    <div class="p-5 bg-[#EBEFF3] rounded-lg">
+        <div id="project-name" class="pb-2 text-2xl font-medium">Project name</div>
+        <div class="flex divide-x-[1.5px] divide-gray-300 h-36">
+            <div class="w-3/4 pr-10 overflow-x-auto text-base overscroll-auto">
+                <div id="project-des" class="pb-1 text-justify">Description</div>
+            </div>
+            <div class="px-10 text-sm">
+                <div>Unresolved Bugs/Total Bugs</div>
+                <div class="text-lg">
+                    <span id="incomplete-ticket">0</span> / <span id="total-ticket">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <button id="back-to-list"
+                class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Back to
+                list</button>
+            <div><%- include('../partials/modals/editProject') %></div>
+        </div>
+    </div>
 
-  <!-- Personnel and Bugs Sections -->
-  <div class="flex my-5 space-x-4">
-      <!-- Personnel Section -->
-      <div class="flex-1 rounded-lg bg-[#EBEFF3]">
-          <section class="text-gray-600 body-font">
-              <div class="container p-5">
-                  <div class="flex justify-between">
-                      <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
-                      <div class="flex gap-2">
-                          <%- include('../partials/modals/memberCRUD', { form: 'addMemberForm', title: 'Add Member', submit: 'Add', icon: 'fa-solid fa-plus', list: 'allMemList', content: 'allContent' ,color: 'bg-blue-700 hover:bg-blue-800' }) %>
-                          <%- include('../partials/modals/memberCRUD', { form: 'removeMemberForm', title: 'Remove Member', submit: 'Remove', icon: 'fa-solid fa-xmark', list: 'currentMemList', content: 'currentContent', color: 'bg-red-500 hover:bg-red-600' }) %>
-                      </div>
-                  </div>
-                  <div  class="members-container flex flex-wrap -mx-4">
-                      <!-- Personnel Cards Here -->
-                      <!-- Repeat for each personnel -->
-                  </div>
-              </div>
-          </section>
-      </div>
+    <!-- Personnel and Bugs Sections -->
+    <div class="flex my-5 space-x-4">
+        <!-- Personnel Section -->
+        <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+            <section class="text-gray-600 body-font">
+                <div class="container p-5">
+                    <div class="flex justify-between">
+                        <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
+                        <div class="flex gap-2">
+                            <%- include('../partials/modals/memberCRUD', { form: 'addMemberForm' , title: 'Add Member' ,
+                                submit: 'Add' , icon: 'fa-solid fa-plus' , list: 'allMemList' , content: 'allContent'
+                                ,color: 'bg-blue-700 hover:bg-blue-800' }) %>
+                                <%- include('../partials/modals/memberCRUD', { form: 'removeMemberForm' ,
+                                    title: 'Remove Member' , submit: 'Remove' , icon: 'fa-solid fa-xmark' ,
+                                    list: 'currentMemList' , content: 'currentContent' ,
+                                    color: 'bg-red-500 hover:bg-red-600' }) %>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-4 members-container">
+                        <!-- Personnel Cards Here -->
+                        <!-- Repeat for each personnel -->
+                    </div>
+                </div>
+            </section>
+        </div>
 
-      <!-- Bugs Section -->
-      <div class="flex-1 rounded-lg bg-[#EBEFF3]">
-          <section class="text-gray-600 body-font">
-              <div class="container px-5 py-5">
-                  <div class="mb-4">
-                      <h1 class="text-lg font-bold text-gray-900">Bugs</h1>
-                      <div class="mt-2"><%- include('../partials/modals/addBug') %></div>
-                  </div>
-                  <div class="bugs-container space-y-4">
-                      <!-- Bug Cards Here -->
-                      <!-- Repeat for each bug -->
-                  </div>
-              </div>
-          </section>
-      </div>
-  </div>
-      <!-- Popup Section -->
-      <div id="myPopup" class="popup">
+        <!-- Bugs Section -->
+        <div class="flex-1 rounded-lg bg-[#EBEFF3]">
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-5">
+                    <div class="flex justify-between mb-5">
+                        <h1 class="text-lg font-bold text-gray-900">Bugs</h1>
+                        <div><%- include('../partials/modals/addBug') %></div>
+                    </div>
+                    <div class="space-y-4 bugs-container">
+                        <!-- Bug Cards Here -->
+                        <!-- Repeat for each bug -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Popup Section -->
+    <div id="myPopup" class="popup">
         <%- include('../partials/popup'); %>
     </div>
 </div>
-
-

@@ -43,6 +43,7 @@ app.get("/", (req, res) => {
   res.render("layout.ejs", {
     title: "Home",
     bodyFile: "./summary",
+    activePage: "summary",
     scripts: [
       '/scripts/summary/chart.js'
     ]
@@ -123,6 +124,7 @@ app.get('/projects', (req, res) => {
   res.render('layout', {
     title: 'Project Dashboard',
     bodyFile: './project/projectDashboard',
+    activePage: "projects",
     scripts: [
       '/scripts/project/addProject.js',
       '/scripts/project/projectDashboard.js'
@@ -149,6 +151,7 @@ app.get('/bugs', (req, res) => {
   res.render('layout', {
     title: 'Bug Dashboard',
     bodyFile: './bugs/bugDashboard',
+    activePage: "bugs",
     scripts: [
         '/scripts/bug/bugDashboard.js'
     ]
