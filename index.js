@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 // Log in
 app.get('/login', (req, res) => {
   res.render('authLayout', {
-    title: 'Home',
+    title: 'Login',
     bodyFile: './auth/login',
     scripts: [
       '/scripts/auth/loginScript.js'
@@ -64,7 +64,7 @@ app.get('/login', (req, res) => {
 //Register
 app.get('/register', (req, res) => {
   res.render('authLayout', {
-    title: 'Home',
+    title: 'Register',
     bodyFile: './auth/register',
     scripts: [
       '/scripts/auth/registerScript.js'
@@ -77,6 +77,7 @@ app.get('/profile', (req, res) => {
   res.render('layout', {
     title: 'Profile',
     bodyFile: './user/profile',
+    activePage: "profile",
     scripts: [
       '/scripts/user/profile.js'
     ],
@@ -87,8 +88,9 @@ app.get('/profile', (req, res) => {
 // About
 app.get("/about", (req, res) => {
   res.render("layout", {
-    title: "Home",
+    title: "About Us",
     bodyFile: "./others/about",
+    activePage: "about",
     scripts: null,
   });
 });
@@ -96,7 +98,8 @@ app.get("/about", (req, res) => {
 // Copyright
 app.get("/copyright", (req, res) => {
   res.render("layout", {
-    title: "Home",
+    title: "Copyright",
+    activePage: "copy",
     bodyFile: "./others/copyright",
     scripts: null,
   });
@@ -104,7 +107,8 @@ app.get("/copyright", (req, res) => {
 // Privacy
 app.get("/privacy", (req, res) => {
   res.render("layout", {
-    title: "Home",
+    title: "Privacy Policy",
+    activePage: "privacy",
     bodyFile: "./others/privacy",
     scripts: null,
   });
@@ -113,7 +117,8 @@ app.get("/privacy", (req, res) => {
 // Terms
 app.get("/terms", (req, res) => {
   res.render("layout", {
-    title: "Home",
+    title: "Terms & Conditions",
+    activePage: "terms",
     bodyFile: "./others/terms",
     scripts: null,
   });
@@ -137,6 +142,7 @@ app.get('/project-details/:projectId', (req, res) => {
   res.render('layout', {
     title: 'Project Details',
     bodyFile: './project/projectDetail',
+    activePage: "projects",
     scripts: [
       '/scripts/project/projectDetails.js',
       '/scripts/project/addDevsToProject.js',
@@ -153,7 +159,7 @@ app.get('/bugs', (req, res) => {
     bodyFile: './bugs/bugDashboard',
     activePage: "bugs",
     scripts: [
-        '/scripts/bug/bugDashboard.js'
+      '/scripts/bug/bugDashboard.js'
     ]
   });
 }
@@ -163,6 +169,7 @@ app.get('/bugs', (req, res) => {
 app.get('/bug-detail', (req, res) => {
   res.render('layout', {
     title: 'Bug Details',
+    activePage: "bugs",
     bodyFile: './bugs/bugDetail',
   });
 }
