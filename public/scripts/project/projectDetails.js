@@ -23,7 +23,6 @@ function fetchProjectDetails(projectId) {
 
     fetchAndDisplayProjectDetails(projectId);
     fetchAndDisplayDevelopers(projectId);
-    fetchAndDisplayManagers(projectId);
     fetchAndDisplayBugs(projectId);
 
 }
@@ -56,11 +55,6 @@ function fetchAndDisplayDevelopers(projectId) {
         .catch(error => {
             console.error('Error fetching developers:', error);
         });
-}
-
-function fetchAndDisplayManagers(projectId) {
-    // Similar to fetchAndDisplayDevelopers but fetch and display managers
-    // Assuming you have an endpoint to fetch managers, similar to developers
 }
 
 function fetchAndDisplayBugs(projectId) {

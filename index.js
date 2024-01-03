@@ -1,4 +1,5 @@
 const express = require("express");
+const jwt = require('jsonwebtoken');
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 const path = require("path");
@@ -55,7 +56,7 @@ app.get('/login', (req, res) => {
     title: 'Home',
     bodyFile: './auth/login',
     scripts: [
-      '/scripts/auth/loginScript.js'
+      '/scripts/auth/loginScript.js',
     ],
   });
 });
