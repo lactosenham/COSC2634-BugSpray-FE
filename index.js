@@ -46,7 +46,9 @@ app.get("/", (req, res) => {
     bodyFile: "./summary",
     activePage: "summary",
     scripts: [
-      '/scripts/summary/chart.js'
+      '/scripts/summary/chart.js',
+      '/scripts/summary/recentlySolvedBugs.js',
+      '/scripts/summary/bugsNum.js'
     ]
   });
 });
@@ -80,7 +82,8 @@ app.get('/profile', (req, res) => {
     bodyFile: './user/profile',
     activePage: "profile",
     scripts: [
-      '/scripts/user/profile.js'
+      '/scripts/user/profile.js',
+      '/scripts/auth/logoutScript.js'
     ],
   });
 }
