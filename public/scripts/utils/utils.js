@@ -10,15 +10,30 @@ function extractIdFromUrl() {
     return urlSegments[urlSegments.length - 1];
 }
 
-function hideFromDev(element) {
+function hideFrom(elementId, role) {
     const userRole = localStorage.getItem('role');
-          
-    if (userRole === 'Developer') {
-        document.getElementById(element).style.display = 'none';
+
+    // Find the element by its ID
+    var element = document.getElementById(elementId);
+    if (!element) return; // Exit if the element doesn't exist
+
+    if (userRole === role) {
+        element.style.display = 'none';
+        // Also hide the label if it exists
+        var label = document.querySelector(`label[for="${elementId}"]`);
+        if (label) {
+            label.style.display = 'none';
+        }
     } else {
-        document.getElementById(element).style.display = 'block';
+        element.style.display = 'block';
+        // Also show the label if it exists
+        var label = document.querySelector(`label[for="${elementId}"]`);
+        if (label) {
+            label.style.display = 'block';
+        }
     }
-  }
+}
+
 
   function createPersonnelCard(person, role) {
     return `

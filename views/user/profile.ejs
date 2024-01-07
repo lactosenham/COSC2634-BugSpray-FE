@@ -4,7 +4,7 @@
         <h1 class="my-4 text-3xl font-bold text-center">My Profile</h1>
         <form id="profileForm">
             <div class="flex flex-col gap-5">
-                <div class="flex flex-row w-96">
+                <div id="usernameContainer"  class="flex flex-row w-96">
                     <div class="w-2/5">
                         <label for="username" class="block mb-2 font-bold text-white text-md">Username</label>
                     </div>
@@ -25,7 +25,7 @@
                             id="name" name="name" placeholder="John Doe" minlength="5">
                     </div>
                 </div>
-                <div class="flex flex-row w-96">
+                <div id="roleContainer" class="flex flex-row w-96">
                     <div class="w-2/5">
                         <label for="role" class="block mb-2 font-bold text-white text-md">Role</label>
                     </div>
@@ -35,7 +35,7 @@
                             id="role" name="role" value="Developer" disabled>
                     </div>
                 </div>
-                <div class="flex flex-row w-96">
+                <div  class="flex flex-row w-96">
                     <div class="w-2/5">
                         <label for="developerType" class="block mb-2 text-sm font-bold text-white">
                             Type
@@ -65,9 +65,5 @@
             </div>
         </form>
     </div>
-    </div>
-    <!-- Popup Section -->
-    <div id="myPopup" class="popup">
-        <%- include('../partials/popup'); %>
     </div>
 </section>

@@ -25,11 +25,11 @@ document.getElementById('addProjectForm').addEventListener('submit', function(e)
         })
         .catch(function (error) {
             console.log('Error Adding Project', error);
-            // Close the modal with 'project-modal' as the ID
-            closeModal('project-modal');
 
             // Show the popup with a callback to reload the current page
             showPopup('Error Adding Project', error.response.data, function() {
+                // Close the modal with 'project-modal' as the ID
+                closeModal('project-modal');
                 fetchAndDisplayProjects();
             });
         });

@@ -14,6 +14,10 @@
     <!-- Pass bodyFile as filename -->
     <div class="grow">
       <%- include(bodyFile) %>
+      <!-- Popup -->
+      <div id="myPopup" class="popup">
+        <%- include('./partials/popup'); %>
+      </div> 
     </div>
 
     <%- include ('./partials/footer') %>
@@ -26,11 +30,11 @@
       <!-- Axios -->
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      <!-- Popup Control Script -->
-      <script src="/scripts/utils/popupScript.js"></script>
-
       <!-- Utils Script -->
       <script src="/scripts/utils/utils.js"></script>
+
+      <!-- Popup Control Script -->
+      <script src="/scripts/utils/popupScript.js"></script>
 
       <!-- Auth Interceptor -->
       <script src="/scripts/auth/authInterceptor.js"></script>
@@ -56,6 +60,7 @@
               <script src="<%= script %>"></script>
           <% }); %>
       <% } %>
+
 </body>
 
 </html>
