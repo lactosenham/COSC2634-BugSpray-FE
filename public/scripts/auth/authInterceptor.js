@@ -28,6 +28,7 @@ axiosInstance.interceptors.request.use(
         // Redirect to login page
         window.location.href = '/login';
       }
+      hideLoadingPopup();
       return Promise.reject(error);
     }
   );

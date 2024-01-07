@@ -2,9 +2,18 @@
 var popupCallback = null;
 
 function showPopup(title, message, callback) {
+    var modal = document.getElementById('myPopup');
+    
     // Set the title and message of the modal
     document.getElementById('popupTitle').innerText = title;
     document.getElementById('popBody').innerText = message;
+
+    // Conditionally apply the loading variant class
+    if (title === 'Loading...') {
+        modal.classList.add('popup-loading');
+    } else {
+        modal.classList.remove('popup-loading');
+    }
 
     // Display the modal
     document.getElementById('myPopup').style.display = 'block';
