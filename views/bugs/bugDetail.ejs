@@ -15,58 +15,57 @@
       <div class="ml-5">
         <h1 class="text-xl font-semibold">Description</h1>
         <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
-
           <div id="text" class="px-2 py-5 overflow-x-auto overscroll-auto h-96">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <!-- Bug Description Here -->
+          </div>
+        </div>
+
+        <h1 class="text-xl font-semibold mt-4">Steps to Reproduce</h1>
+        <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
+          <div id="steps" class="px-2 py-5 overflow-x-auto overscroll-auto h-48">
+            <!-- Steps to Reproduce Here -->
           </div>
         </div>
       </div>
-
       <div class="mr-7">
         <div class="pb-4">
-          <select id="status" action="" class="px-4 py-2 rounded-lg">
-            <option value="open">Open</option>
-            <option value="closed">Closed</option>
+          <select id="status" class="px-4 py-2 rounded-lg">
+            <option value="Open">Open</option>
+            <option value="To-do">To-do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="In-Review">In-Review</option>
+            <option value="Closed">Closed</option>
           </select>
         </div>
+      </div>
 
         <div class="px-4 mt-2 border-2 rounded-lg border-slate-300">
           <h1 class="pt-5 text-xl font-semibold">Details</h1>
           <div class="pt-3 pb-5">
             <div class="flex pb-5">
               <h1 class="w-1/2">Reporter</h1>
-              <a href="" id="r-name">Name</a>
+              <a href="" id="reporter-name">Name</a>
             </div>
             <div class="flex pb-5">
               <h1 class="w-1/2">Assignee</h1>
-              <a href="" id="r-name">Name</a>
+              <a href="" id="assignee-name">Name</a>
+            </div>
+            <div class="flex pb-5">
+              <h1 class="w-1/2">Priority</h1>
+              <h1 id="priority">Priority Level</h1>
+            </div>
+            <div class="flex pb-5">
+              <h1 class="w-1/2">Severity</h1>
+              <h1 id="severity">Severity Level</h1>
+            </div>
+            <div class="flex pb-5">
+              <h1 class="w-1/2">Deadline</h1>
+              <h1 id="deadline">Deadline Date</h1>
+            </div>
+            <div class="flex pb-5">
+              <h1 class="w-1/2">Status</h1>
+              <h1 id="status">Status Level</h1>
             </div>
             <div class="flex">
               <h1 class="w-1/2">Date reported</h1>
