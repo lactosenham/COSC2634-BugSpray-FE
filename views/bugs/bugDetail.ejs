@@ -5,7 +5,6 @@
         <i class="mt-4 ml-5 fa-solid fa-bug fa-xl"></i>
         <h1 class="text-xl pt-[1px] font-light" id="name">Bug Name</h1>
       </div>
-
       <button class="hover:bg-slate-300 transition-colors rounded-lg w-[32px] mr-[28px]">
         <i class="fa-solid fa-x"></i>
       </button>
@@ -13,6 +12,7 @@
 
     <div class="grid grid-cols-2 gap-4 pt-3">
       <div class="ml-5">
+        <!-- Description Section -->
         <h1 class="text-xl font-semibold">Description</h1>
         <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
           <div id="text" class="px-2 py-5 overflow-x-auto overscroll-auto h-96">
@@ -20,6 +20,7 @@
           </div>
         </div>
 
+        <!-- Steps to Reproduce Section -->
         <h1 class="text-xl font-semibold mt-4">Steps to Reproduce</h1>
         <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
           <div id="steps" class="px-2 py-5 overflow-x-auto overscroll-auto h-48">
@@ -27,7 +28,9 @@
           </div>
         </div>
       </div>
+
       <div class="mr-7">
+        <!-- Status Dropdown -->
         <div class="pb-4">
           <select id="status" class="px-4 py-2 rounded-lg">
             <option value="Open">Open</option>
@@ -38,11 +41,15 @@
             <option value="Closed">Closed</option>
           </select>
         </div>
-      </div>
 
+        <!-- Details Section -->
         <div class="px-4 mt-2 border-2 rounded-lg border-slate-300">
           <h1 class="pt-5 text-xl font-semibold">Details</h1>
           <div class="pt-3 pb-5">
+            <div class="flex pb-5">
+              <h1 class="w-1/2">Current Status</h1>
+              <h1 id="status-level" class="w-1/2">Status Level</h1>
+            </div>
             <div class="flex pb-5">
               <h1 class="w-1/2">Reporter</h1>
               <a href="" id="reporter-name">Name</a>
@@ -62,10 +69,6 @@
             <div class="flex pb-5">
               <h1 class="w-1/2">Deadline</h1>
               <h1 id="deadline">Deadline Date</h1>
-            </div>
-            <div class="flex pb-5">
-              <h1 class="w-1/2">Status</h1>
-              <h1 id="status">Status Level</h1>
             </div>
             <div class="flex">
               <h1 class="w-1/2">Date reported</h1>
