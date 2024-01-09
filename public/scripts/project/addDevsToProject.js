@@ -152,7 +152,7 @@ function renderMemberList(element, members, memberIds) {
             'cursor-pointer',
             'hover:text-gray-600',
             'peer-checked:border-blue-600',
-            'peer-checked:text-gray-600',
+            'peer-checked:text-gray-600',   
             'hover:bg-gray-50'
         );
         // Create content container
