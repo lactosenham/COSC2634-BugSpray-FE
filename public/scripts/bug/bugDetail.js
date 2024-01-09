@@ -1,33 +1,41 @@
+let selectedDeveloperId = "";
+let selectedDeveloperName = "";
+
 document.addEventListener("DOMContentLoaded", function () {
-  const bugId = getBugIdFromURL();
+  const bugId = extractIdFromUrl();
   fetchAndDisplayBugDetails(bugId);
   setupEventListeners();
 });
 
-function fetchAndDisplayBugDetails(bugId) {
-  axiosInstance.get(`/api/bugs/${bugId}`)
-      .then(function (response) {
-          const bug = response.data;
-          updateBugDetailsUI(bug);
-          fetchAndDisplayDevelopers(bug.projectId);
-      })
-      .catch(function (error) {
-          console.error("Error fetching bug details:", error);
-      });
+async function fetchAndDisplayBugDetails(bugId) {
+  try {
+      const response = await axiosInstance.get(`/api/bugs/${bugId}`);
+      const bug = response.data;
+      updateBugDetailsUI(bug);
+      fetchAndDisplayDevelopers(bug.projectId);
+  } catch (error) {
+      console.error("Error fetching bug details:", error);
+      // Optionally, update the UI to show an error message
+  }
 }
 
 function updateBugDetailsUI(bug) {
+
+  if( bug.assignedTo != null) {
+    document.querySelector("#assignee-name").textContent = bug.assignedTo.name;
+  }
+
   document.querySelector("#name").textContent = bug.name;
   document.querySelector("#text").textContent = bug.description;
-  setStatusDropdown(document.querySelector("#status"), bug.status);
   document.querySelector("#status-level").textContent = bug.status;
   document.querySelector("#reporter-name").textContent = bug.reportedBy.name;
-  document.querySelector("#assignee-name").textContent = bug.assignedTo.name;
   document.querySelector("#date").textContent = new Date(bug.reportTime).toLocaleDateString();
   document.querySelector("#steps").textContent = bug.stepsToReproduce;
-  document.querySelector("#deadline").textContent = new Date(bug.deadline).toLocaleDateString();
-  document.querySelector("#priority").textContent = bug.priority;
-  document.querySelector("#severity").textContent = bug.severity;
+  document.getElementById("deadline").textContent = new Date(bug.deadline).toLocaleDateString();
+  document.getElementById("priority").textContent = bug.priority;
+  document.getElementById("severity").textContent = bug.severity;
+
+  setStatusDropdown(document.querySelector("#status"), bug.status);
 
   if (bug.resolvedTime) {
       document.querySelector("#resolved").textContent = new Date(bug.resolvedTime).toLocaleDateString();
@@ -51,7 +59,7 @@ function closePopup() {
 
 function saveStatus() {
   const selectedStatus = document.querySelector("#status").value;
-  const bugId = getBugIdFromURL();
+  const bugId = extractIdFromUrl();
   updateBugStatus(bugId, selectedStatus);
 }
 
@@ -65,67 +73,112 @@ async function updateBugStatus(bugId, newStatus) {
   }
 }
 
-function getBugIdFromURL() {
-  const currentURL = new URL(window.location.href);
-  return currentURL.pathname.split("/").pop();
-}
-
-let selectedDeveloperId = null;
-
 async function fetchAndDisplayDevelopers(projectId) {
   try {
       const response = await axiosInstance.get(`/api/projects/dev/${projectId}`);
       const developers = response.data;
       const developerListElement = document.getElementById("developerList");
-      developerListElement.innerHTML = "";
+      renderMemberList(developerListElement, developers)
 
-      developers.forEach((developer) => {
-          const radioInput = createRadioInput(developer);
-          const developerLabel = createDeveloperLabel(developer, radioInput);
-          developerListElement.appendChild(developerLabel);
-      });
   } catch (error) {
       console.error("Error fetching developers:", error);
   }
 }
 
-function createRadioInput(developer) {
-  const radioInput = document.createElement('input');
-  radioInput.type = 'radio';
-  radioInput.id = developer._id;
-  radioInput.name = 'developer';
-  radioInput.value = developer._id;
-  radioInput.classList.add('hidden', 'peer');
-  radioInput.addEventListener('change', () => selectedDeveloperId = developer._id);
-  return radioInput;
+function renderMemberList(element, members) {
+  // Clear existing element
+  element.innerHTML = '';
+
+  for (const developer of members) {
+      const { _id, name, developerType } = developer;
+
+      // Create radio button
+      const radioInput = document.createElement('input');
+      radioInput.type = 'radio';
+      radioInput.id = _id;
+      radioInput.name = 'developer';
+      radioInput.value = _id;
+      radioInput.classList.add('hidden', 'peer');
+
+      // Create label
+      const memberLabel = document.createElement('label');
+      memberLabel.setAttribute('for', _id);
+      memberLabel.classList.add(
+          'inline-flex',
+          'items-center',
+          'justify-between',
+          'w-full',
+          'h-full',
+          'p-2',
+          'text-gray-500',
+          'bg-white',
+          'border-2',
+          'border-gray-200',
+          'rounded-lg',
+          'cursor-pointer',
+          'hover:text-gray-600',
+          'peer-checked:border-blue-600',
+          'peer-checked:text-gray-600',   
+          'hover:bg-gray-50'
+      );
+
+      // Create content container
+      const contentDiv = document.createElement('div');
+      contentDiv.classList.add('block');
+
+      // Create name and developer type elements
+      const nameElement = document.createElement('div');
+      nameElement.classList.add('w-full', 'text-lg', 'font-semibold');
+      nameElement.textContent = name;
+
+      const developerTypeElement = document.createElement('div');
+      developerTypeElement.classList.add('w-full', 'text-sm');
+      developerTypeElement.textContent = `Developer Type: ${developerType ? developerType : 'N/A'}`;
+
+      // Add elements to content container and label
+      contentDiv.appendChild(nameElement);
+      contentDiv.appendChild(developerTypeElement);
+      memberLabel.appendChild(contentDiv);
+      const labelDiv = document.createElement('div');
+      labelDiv.classList.add('w-full', 'flex', 'items-center', 'h-full');
+      labelDiv.appendChild(radioInput);
+      labelDiv.appendChild(memberLabel);
+
+      // Add event listener for radio button selection
+      radioInput.addEventListener('change', () => {
+          selectedDeveloperId = _id;
+          selectedDeveloperName = name;
+          console.log(`Selected ID: ${selectedDeveloperId}`);
+      });
+
+      // Append the whole structure to the main element
+      element.appendChild(labelDiv);
+  }
 }
 
-function createDeveloperLabel(developer, radioInput) {
-  const developerLabel = document.createElement('label');
-  developerLabel.setAttribute('for', developer._id);
-  developerLabel.className = 'inline-flex items-center justify-between w-full h-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 peer-checked:border-blue-600 peer-checked:text-gray-600 hover:bg-gray-50';
-  const nameElement = document.createElement('div');
-  nameElement.className = 'w-full text-lg font-semibold';
-  nameElement.textContent = developer.name;
-  developerLabel.appendChild(radioInput);
-  developerLabel.appendChild(nameElement);
-  
-  return developerLabel;
-}
+
+
 
 function confirmAssignment() {
   if (!selectedDeveloperId) {
       alert('Please select a developer first.');
       return;
   }
-  assignDeveloper(selectedDeveloperId);
+  console.log("Confirm selection ID: " + selectedDeveloperId);
+  console.log("Confirm selection name: " + selectedDeveloperName);
+  assignDeveloper(selectedDeveloperId, selectedDeveloperName);
   closePopup();
 }
 
-async function assignDeveloper(developerId) {
-  const bugId = getBugIdFromURL();
+async function assignDeveloper(developerId, developerName) {
+  const bugId = extractIdFromUrl();
   try {
-      const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { assignedTo: developerId });
+      const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { 
+        assignedTo: {
+          _id: developerId,
+          name: developerName
+        } 
+      });
       console.log('Developer assigned successfully!', response);
   } catch (error) {
       console.error('Error assigning developer:', error);
