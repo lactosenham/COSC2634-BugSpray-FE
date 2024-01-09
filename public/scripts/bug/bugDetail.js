@@ -1,10 +1,11 @@
 let selectedDeveloperId = "";
 let selectedDeveloperName = "";
+const bugId = extractIdFromUrl();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const bugId = extractIdFromUrl();
   fetchAndDisplayBugDetails(bugId);
   setupEventListeners();
+  accessControl();
 });
 
 async function fetchAndDisplayBugDetails(bugId) {
@@ -42,19 +43,31 @@ function updateBugDetailsUI(bug) {
   }
 }
 
+function accessControl() {
+  // Hide from developer
+  hideFrom('inReivewStatus', 'Developer');
+  hideFrom('closedStatus', 'Developer');
+  hideFrom('assignDeveloperButton', 'Developer');
+
+  // Hide from manager
+  hideFrom('todoStatus', 'Manager');
+  hideFrom('inProgressStatus', 'Manager');
+  hideFrom('resolvedStatus', 'Manager');
+}
+
 function setupEventListeners() {
-  document.getElementById("assignDeveloperButton").addEventListener("click", showPopup);
-  document.getElementById("closePopup").addEventListener("click", closePopup);
+  document.getElementById("assignDeveloperButton").addEventListener("click", showModal);
+  document.getElementById("hideModal").addEventListener("click", hideModal);
   document.getElementById("saveStatus").addEventListener("click", saveStatus);
   document.getElementById('confirmAssign').addEventListener('click', confirmAssignment);
 }
 
-function showPopup() {
-  document.getElementById("developerPopup").classList.remove("hidden");
+function showModal() {
+  document.getElementById("assignDeveloperModal").classList.remove("hidden");
 }
 
-function closePopup() {
-  document.getElementById("developerPopup").classList.add("hidden");  
+function hideModal() {
+  document.getElementById("assignDeveloperModal").classList.add("hidden");  
 }
 
 function saveStatus() {
@@ -67,6 +80,11 @@ async function updateBugStatus(bugId, newStatus) {
   try {
       const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { status: newStatus });
       console.log("Status Updated: ", response.data);
+
+      // Show the popup with a callback to reload the current page
+      showPopup('Changing Status', "Bug's Status changed to " + newStatus, function () {
+        fetchAndDisplayBugDetails(bugId);
+    });
   } catch (error) {
       console.error("Error updating status: ", error);
       alert("Failed to update status. Please try again.");
@@ -167,7 +185,6 @@ function confirmAssignment() {
   console.log("Confirm selection ID: " + selectedDeveloperId);
   console.log("Confirm selection name: " + selectedDeveloperName);
   assignDeveloper(selectedDeveloperId, selectedDeveloperName);
-  closePopup();
 }
 
 async function assignDeveloper(developerId, developerName) {
@@ -180,6 +197,14 @@ async function assignDeveloper(developerId, developerName) {
         } 
       });
       console.log('Developer assigned successfully!', response);
+
+      // Hide the 'assignDeveloperModal' modal
+      hideModal();
+
+      // Show the popup with a callback to reload the current page
+      showPopup('Assigning Developer', 'Developer ' + selectedDeveloperName + ' has been assigned to this bug', function() {
+        fetchAndDisplayBugDetails(bugId);
+      })
   } catch (error) {
       console.error('Error assigning developer:', error);
   }
