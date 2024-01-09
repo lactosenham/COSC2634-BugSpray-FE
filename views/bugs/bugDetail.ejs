@@ -41,6 +41,11 @@
             <option value="Closed">Closed</option>
           </select>
         </div>
+        
+        <!-- Save status button -->
+        <button id="saveStatus" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Save Status
+        </button>
 
         <!-- Details Section -->
         <div class="px-4 mt-2 border-2 rounded-lg border-slate-300">
@@ -54,10 +59,36 @@
               <h1 class="w-1/2">Reporter</h1>
               <a href="" id="reporter-name">Name</a>
             </div>
+            <!-- Trigger Button for Popup -->
             <div class="flex pb-5">
               <h1 class="w-1/2">Assignee</h1>
               <a href="" id="assignee-name">Name</a>
+              <button id="assignDeveloperButton" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Assign Developer
+              </button>
             </div>
+
+            <!-- Popup Modal Content -->
+            <div id="developerPopup" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+              <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                  <div class="mt-3 text-center">
+                      <span id="closePopup" class="float-right cursor-pointer text-xl font-bold">&times;</span>
+                      <h3 id="popupTitle" class="text-lg leading-6 font-medium text-gray-900">Assign Developer</h3>
+                      <div class="mt-2 px-7 py-3">
+                          <p id="popupBody" class="text-sm text-gray-500">Developers List:</p>
+                          <div id="developerList" class="text-lg text-center">
+                              <!-- Developer list will be populated here -->
+                          </div>
+                      </div>
+                      <div class="items-center px-4 py-3">
+                          <button id="confirmAssign" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                              Assign
+                          </button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
             <div class="flex pb-5">
               <h1 class="w-1/2">Priority</h1>
               <h1 id="priority">Priority Level</h1>
