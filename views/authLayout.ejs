@@ -12,6 +12,11 @@
   <!-- Pass bodyFile as filename -->
   <%- include(bodyFile) %>
 
+  <!-- Popup -->
+  <div id="myPopup" class="popup">
+    <%- include('./partials/popup'); %>
+  </div>
+
   <!-- Popup Control Script -->
   <script src="/scripts/utils/popupScript.js"></script>
 
@@ -27,11 +32,6 @@
           <script src="<%= script %>"></script>
       <% }); %>
   <% } %>
-
-  <!-- Popup -->
-  <div id="myPopup" class="popup">
-    <%- include('./partials/popup'); %>
-  </div>
 
 </body>
 
