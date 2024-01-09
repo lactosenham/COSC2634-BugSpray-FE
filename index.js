@@ -170,14 +170,19 @@ app.get('/bugs', (req, res) => {
 );
 
 // Bug Details
-app.get('/bug-detail', (req, res) => {
+app.get('/bug-detail/:bugId', (req, res) => {
   res.render('layout', {
     title: 'Bug Details',
     activePage: "bugs",
     bodyFile: './bugs/bugDetail',
+    scripts: [
+      '/scripts/bug/bugDetail.js'
+    ]
   });
 }
 );
+
+  
 
 // 404 Not Found Handler
 // app.use((req, res, next) => {

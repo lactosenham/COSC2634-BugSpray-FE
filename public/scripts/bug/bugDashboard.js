@@ -132,7 +132,7 @@ function displayBugs(bugs) {
                 </div>
             </div>
             <div class="text-blue-500 cursor-pointer hover:text-blue-700">
-                <a href="/bugs/${bug._id}">Details →</a>
+                <a href="/bug-detail/${bug._id}">Details →</a>
             </div>
         </div>
         `;
