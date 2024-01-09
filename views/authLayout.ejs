@@ -26,6 +26,17 @@
   <!-- Axios Import Script -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the token exists in localStorage
+        const token = localStorage.getItem('token');
+        if (token) {
+            // Redirect to the login page if token is not found
+            window.location.href = '/';
+        }
+    });
+  </script>
+
   <!-- Run all scripts -->
   <% if(scripts) { %>
       <% scripts.forEach(function(script) { %>
