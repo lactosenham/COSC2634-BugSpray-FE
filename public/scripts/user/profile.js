@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    hideFrom('developerType', 'Manager');
     fetchUserProfile();
     setupProfileUpdateForm();
 });

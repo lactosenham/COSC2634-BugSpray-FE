@@ -29,7 +29,7 @@ document.getElementById('addBugForm').addEventListener('submit', function(e) {
         closeModal('bug-modal');
 
         // Show the popup with a callback to reload the current page
-        showPopup('Add Bug', 'Bug' + bugData.na, function() {
+        showPopup('Add Bug', 'Bug: ' + bugData.name, function() {
             fetchAndDisplayBugs(projectId);
         });
     })

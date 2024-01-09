@@ -11,12 +11,16 @@
     background-color: rgba(0,0,0,0.4);
 }
 
+.popup-loading {
+    background-color: rgba(0,0,0,0); /* Fully transparent background */
+}
+
 .popup-content {
     background-color: #fefefe;
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
 }
 
 .close {

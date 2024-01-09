@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   "/api",
   createProxyMiddleware({
-    target: "http://localhost:3000", // Backend server address
+    target: "https://sheltered-fjord-56184-5e2592813541.herokuapp.com/", // Backend server address
     changeOrigin: true,
     pathRewrite: {
       "^/api": "", // Rewrites '/api' to '' when forwarding the request

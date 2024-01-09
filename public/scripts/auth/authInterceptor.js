@@ -4,6 +4,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     config => {
+      showLoadingPopup();
       const token = localStorage.getItem('token'); 
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
@@ -11,12 +12,14 @@ axiosInstance.interceptors.request.use(
       return config;
     },
     error => {
+      hideLoadingPopup();
       return Promise.reject(error);
     }
   );
 
   axiosInstance.interceptors.response.use(
     response => {
+      hideLoadingPopup();
         console.log('Success: ', response.data);
         return response;
     },
@@ -25,6 +28,25 @@ axiosInstance.interceptors.request.use(
         // Redirect to login page
         window.location.href = '/login';
       }
+      hideLoadingPopup();
       return Promise.reject(error);
     }
   );
+
+  // Counter for active requests
+var activeRequests = 0;
+
+function showLoadingPopup() {
+    if (activeRequests === 0) {
+        showPopup('Loading...', 'Please wait', function() {});
+    }
+    activeRequests++;
+}
+
+function hideLoadingPopup() {
+    activeRequests--;
+    if (activeRequests <= 0) {
+        activeRequests = 0; // Reset the counter to prevent negative values
+        closePopup();
+    }
+}

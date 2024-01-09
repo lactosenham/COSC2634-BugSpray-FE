@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  hideFromDev('addProjectModal');
+  hideFrom('addProjectModal', 'Developer');
   fetchAndDisplayProjects();
 });
 
