@@ -1,4 +1,9 @@
+var isInitialized = false;
+
 document.addEventListener('DOMContentLoaded', function() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     initializeRoleFields();
     setupRegistrationForm();
 });
@@ -73,6 +78,7 @@ function extractFormData(form, roleSelect) {
 
 function handleRegistrationSuccess(response) {
     console.log(response);
+    isInitialized = false;
     showPopup('Register', 'User ' + response.data.username + ' registered', () => {
         window.location.href = '/login';
     });
