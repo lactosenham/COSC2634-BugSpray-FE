@@ -20,6 +20,14 @@ function showPopup(title, message, callback) {
 
     // Store the callback function
     popupCallback = callback;
+
+    // Set a timeout to automatically close the popup after 5 seconds
+    setTimeout(function() {
+        // Check if the modal is still displayed before closing
+        if (document.getElementById('myPopup').style.display === 'block') {
+            closePopup();
+        }
+    }, 3000); // 5000 milliseconds = 5 seconds
 }
 
 function closePopup() {

@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const projectId = extractIdFromUrl();
         fetchProjectDetails(projectId);
+        hideFrom("member", "Developer")
+        hideFrom("editProject", "Developer")
 
         var backToListButton = document.getElementById('back-to-list');
         if (backToListButton) {

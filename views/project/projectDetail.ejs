@@ -17,7 +17,7 @@
             <button id="back-to-list"
                 class="bg-[#0c4474] hover:bg-sky-400 text-white text-xs font-bold py-2 px-4 rounded">Back to
                 list</button>
-            <div><%- include('../partials/modals/editProject') %></div>
+            <div id="editProject"><%- include('../partials/modals/editProject') %></div>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
                 <div class="container p-5">
                     <div class="flex justify-between">
                         <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
-                        <div class="flex gap-2">
+                        <div id="member"  class="flex gap-2">
                             <%- include('../partials/modals/memberCRUD', { form: 'addMemberForm' , title: 'Add Member' ,
                                 submit: 'Add' , icon: 'fa-solid fa-plus' , list: 'allMemList' , content: 'allContent'
                                 ,color: 'bg-blue-700 hover:bg-blue-800' }) %>

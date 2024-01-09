@@ -25,11 +25,11 @@ function hideFrom(elementId, role) {
             label.style.display = 'none';
         }
     } else {
-        element.style.display = 'block';
+        element.style.display = 'flex';
         // Also show the label if it exists
         var label = document.querySelector(`label[for="${elementId}"]`);
         if (label) {
-            label.style.display = 'block';
+            label.style.display = 'flex';
         }
     }
 }

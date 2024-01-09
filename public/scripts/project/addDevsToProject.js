@@ -34,6 +34,7 @@ async function fetchmembers() {
 
         if (currentMembers.length === 0) {
             currentMemListElement.innerHTML = '<p class="text-red-500">No members found.</p>';
+            document.getElementById('Remove').classList.add('hidden');
         } else {
             renderMemberList(currentMemListElement, currentMembers, memberIds);
         }
