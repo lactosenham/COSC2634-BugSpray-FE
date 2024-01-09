@@ -22,24 +22,24 @@
     </div>
 
     <!-- Personnel and Bugs Sections -->
-    <div class="flex my-5 space-x-4">
+    <div class="grid grid-cols-1 gap-3 my-5 md:grid-cols-2">
         <!-- Personnel Section -->
         <div class="flex-1 rounded-lg bg-[#EBEFF3]">
             <section class="text-gray-600 body-font">
                 <div class="container p-5">
                     <div class="flex justify-between">
                         <h1 class="text-lg font-bold text-gray-900">Assigned Personnel</h1>
-                        <div id="member"  class="flex gap-2">
+                        <div id="member" class="flex gap-2">
                             <%- include('../partials/modals/memberCRUD', { form: 'addMemberForm' , title: 'Add Member' ,
                                 submit: 'Add' , icon: 'fa-solid fa-plus' , list: 'allMemList' , content: 'allContent'
                                 ,color: 'bg-blue-700 hover:bg-blue-800' }) %>
-                            <%- include('../partials/modals/memberCRUD', { form: 'removeMemberForm' ,
-                                title: 'Remove Member' , submit: 'Remove' , icon: 'fa-solid fa-xmark' ,
-                                list: 'currentMemList' , content: 'currentContent' ,
-                                color: 'bg-red-500 hover:bg-red-600' }) %>
+                                <%- include('../partials/modals/memberCRUD', { form: 'removeMemberForm' ,
+                                    title: 'Remove Member' , submit: 'Remove' , icon: 'fa-solid fa-xmark' ,
+                                    list: 'currentMemList' , content: 'currentContent' ,
+                                    color: 'bg-red-500 hover:bg-red-600' }) %>
                         </div>
                     </div>
-                    <div class="flex flex-wrap -mx-4 overflow-y-auto flex-grow members-container">
+                    <div class="grid grid-cols-2 -mx-4 overflow-y-auto members-container">
                         <!-- Personnel Cards Here -->
                         <!-- Repeat for each personnel -->
                     </div>

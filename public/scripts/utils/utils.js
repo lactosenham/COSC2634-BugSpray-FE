@@ -35,10 +35,10 @@ function hideFrom(elementId, role) {
 }
 
 
-  function createPersonnelCard(person, role) {
+function createPersonnelCard(person, role) {
     return `
-        <div class="w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2">
-            <div class="flex items-center p-4 border border-gray-200 bg-[#0c4474] hover:bg-sky-400 rounded-lg">
+        <div class="w-full px-4 py-2">
+            <div class="flex items-center p-3  bg-palette-3 hover:bg-sky-400 rounded-lg">
                 <div class="flex-grow">
                     <h2 class="font-medium text-white title-font">${person.name}</h2>
                     <p class="font-bold text-white">${role === 'Manager' ? 'Manager' : person.developerType}</p>
@@ -68,7 +68,7 @@ function createBugCard(bug) {
                 <span class="text-gray-700">${bug.assignedTo ? bug.assignedTo.username : 'Unassigned'}</span>
             </div>
             <div class="text-blue-500 cursor-pointer hover:text-blue-700">
-                <a href="/bugs/${bug._id}">Details →</a>
+                <a href="/bug-detail/${bug._id}">Details →</a>
             </div>
           </div>
         </div>

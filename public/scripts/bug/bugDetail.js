@@ -10,19 +10,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function fetchAndDisplayBugDetails(bugId) {
   try {
-      const response = await axiosInstance.get(`/api/bugs/${bugId}`);
-      const bug = response.data;
-      updateBugDetailsUI(bug);
-      fetchAndDisplayDevelopers(bug.projectId);
+    const response = await axiosInstance.get(`/api/bugs/${bugId}`);
+    const bug = response.data;
+    updateBugDetailsUI(bug);
+    fetchAndDisplayDevelopers(bug.projectId);
   } catch (error) {
-      console.error("Error fetching bug details:", error);
-      // Optionally, update the UI to show an error message
+    console.error("Error fetching bug details:", error);
+    // Optionally, update the UI to show an error message
   }
 }
 
 function updateBugDetailsUI(bug) {
 
-  if( bug.assignedTo != null) {
+  if (bug.assignedTo != null) {
     document.querySelector("#assignee-name").textContent = bug.assignedTo.name;
   }
 
@@ -39,7 +39,7 @@ function updateBugDetailsUI(bug) {
   setStatusDropdown(document.querySelector("#status"), bug.status);
 
   if (bug.resolvedTime) {
-      document.querySelector("#resolved").textContent = new Date(bug.resolvedTime).toLocaleDateString();
+    document.querySelector("#resolved").textContent = new Date(bug.resolvedTime).toLocaleDateString();
   }
 }
 
@@ -64,10 +64,12 @@ function setupEventListeners() {
 
 function showModal() {
   document.getElementById("assignDeveloperModal").classList.remove("hidden");
+  document.getElementById("assignDeveloperModal").classList.add("flex");
 }
 
 function hideModal() {
-  document.getElementById("assignDeveloperModal").classList.add("hidden");  
+  document.getElementById("assignDeveloperModal").classList.add("hidden");
+  document.getElementById("assignDeveloperModal").classList.remove("flex");
 }
 
 function saveStatus() {
@@ -78,28 +80,28 @@ function saveStatus() {
 
 async function updateBugStatus(bugId, newStatus) {
   try {
-      const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { status: newStatus });
-      console.log("Status Updated: ", response.data);
+    const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { status: newStatus });
+    console.log("Status Updated: ", response.data);
 
-      // Show the popup with a callback to reload the current page
-      showPopup('Changing Status', "Bug's Status changed to " + newStatus, function () {
-        fetchAndDisplayBugDetails(bugId);
+    // Show the popup with a callback to reload the current page
+    showPopup('Changing Status', "Bug's Status changed to " + newStatus, function () {
+      fetchAndDisplayBugDetails(bugId);
     });
   } catch (error) {
-      console.error("Error updating status: ", error);
-      alert("Failed to update status. Please try again.");
+    console.error("Error updating status: ", error);
+    alert("Failed to update status. Please try again.");
   }
 }
 
 async function fetchAndDisplayDevelopers(projectId) {
   try {
-      const response = await axiosInstance.get(`/api/projects/dev/${projectId}`);
-      const developers = response.data;
-      const developerListElement = document.getElementById("developerList");
-      renderMemberList(developerListElement, developers)
+    const response = await axiosInstance.get(`/api/projects/dev/${projectId}`);
+    const developers = response.data;
+    const developerListElement = document.getElementById("developerList");
+    renderMemberList(developerListElement, developers)
 
   } catch (error) {
-      console.error("Error fetching developers:", error);
+    console.error("Error fetching developers:", error);
   }
 }
 
@@ -108,69 +110,69 @@ function renderMemberList(element, members) {
   element.innerHTML = '';
 
   for (const developer of members) {
-      const { _id, name, developerType } = developer;
+    const { _id, name, developerType } = developer;
 
-      // Create radio button
-      const radioInput = document.createElement('input');
-      radioInput.type = 'radio';
-      radioInput.id = _id;
-      radioInput.name = 'developer';
-      radioInput.value = _id;
-      radioInput.classList.add('hidden', 'peer');
+    // Create radio button
+    const radioInput = document.createElement('input');
+    radioInput.type = 'radio';
+    radioInput.id = _id;
+    radioInput.name = 'developer';
+    radioInput.value = _id;
+    radioInput.classList.add('hidden', 'peer');
 
-      // Create label
-      const memberLabel = document.createElement('label');
-      memberLabel.setAttribute('for', _id);
-      memberLabel.classList.add(
-          'inline-flex',
-          'items-center',
-          'justify-between',
-          'w-full',
-          'h-full',
-          'p-2',
-          'text-gray-500',
-          'bg-white',
-          'border-2',
-          'border-gray-200',
-          'rounded-lg',
-          'cursor-pointer',
-          'hover:text-gray-600',
-          'peer-checked:border-blue-600',
-          'peer-checked:text-gray-600',   
-          'hover:bg-gray-50'
-      );
+    // Create label
+    const memberLabel = document.createElement('label');
+    memberLabel.setAttribute('for', _id);
+    memberLabel.classList.add(
+      'inline-flex',
+      'items-center',
+      'justify-between',
+      'w-full',
+      'h-full',
+      'p-2',
+      'text-gray-500',
+      'bg-white',
+      'border-2',
+      'border-gray-200',
+      'rounded-lg',
+      'cursor-pointer',
+      'hover:text-gray-600',
+      'peer-checked:border-blue-600',
+      'peer-checked:text-gray-600',
+      'hover:bg-gray-50'
+    );
 
-      // Create content container
-      const contentDiv = document.createElement('div');
-      contentDiv.classList.add('block');
+    // Create content container
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('block');
 
-      // Create name and developer type elements
-      const nameElement = document.createElement('div');
-      nameElement.classList.add('w-full', 'text-lg', 'font-semibold');
-      nameElement.textContent = name;
+    // Create name and developer type elements
+    const nameElement = document.createElement('div');
+    nameElement.classList.add('w-full', 'text-lg', 'font-semibold');
+    nameElement.textContent = name;
 
-      const developerTypeElement = document.createElement('div');
-      developerTypeElement.classList.add('w-full', 'text-sm');
-      developerTypeElement.textContent = `Developer Type: ${developerType ? developerType : 'N/A'}`;
+    const developerTypeElement = document.createElement('div');
+    developerTypeElement.classList.add('w-full', 'text-sm');
+    developerTypeElement.textContent = `Developer Type: ${developerType ? developerType : 'N/A'}`;
 
-      // Add elements to content container and label
-      contentDiv.appendChild(nameElement);
-      contentDiv.appendChild(developerTypeElement);
-      memberLabel.appendChild(contentDiv);
-      const labelDiv = document.createElement('div');
-      labelDiv.classList.add('w-full', 'flex', 'items-center', 'h-full');
-      labelDiv.appendChild(radioInput);
-      labelDiv.appendChild(memberLabel);
+    // Add elements to content container and label
+    contentDiv.appendChild(nameElement);
+    contentDiv.appendChild(developerTypeElement);
+    memberLabel.appendChild(contentDiv);
+    const labelDiv = document.createElement('div');
+    labelDiv.classList.add('w-full', 'flex', 'items-center', 'h-full');
+    labelDiv.appendChild(radioInput);
+    labelDiv.appendChild(memberLabel);
 
-      // Add event listener for radio button selection
-      radioInput.addEventListener('change', () => {
-          selectedDeveloperId = _id;
-          selectedDeveloperName = name;
-          console.log(`Selected ID: ${selectedDeveloperId}`);
-      });
+    // Add event listener for radio button selection
+    radioInput.addEventListener('change', () => {
+      selectedDeveloperId = _id;
+      selectedDeveloperName = name;
+      console.log(`Selected ID: ${selectedDeveloperId}`);
+    });
 
-      // Append the whole structure to the main element
-      element.appendChild(labelDiv);
+    // Append the whole structure to the main element
+    element.appendChild(labelDiv);
   }
 }
 
@@ -179,8 +181,8 @@ function renderMemberList(element, members) {
 
 function confirmAssignment() {
   if (!selectedDeveloperId) {
-      alert('Please select a developer first.');
-      return;
+    alert('Please select a developer first.');
+    return;
   }
   console.log("Confirm selection ID: " + selectedDeveloperId);
   console.log("Confirm selection name: " + selectedDeveloperName);
@@ -190,33 +192,32 @@ function confirmAssignment() {
 async function assignDeveloper(developerId, developerName) {
   const bugId = extractIdFromUrl();
   try {
-      const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, { 
-        assignedTo: {
-          _id: developerId,
-          name: developerName
-        } 
-      });
-      console.log('Developer assigned successfully!', response);
+    const response = await axiosInstance.patch(`/api/bugs/update/${bugId}`, {
+      assignedTo: {
+        _id: developerId,
+        name: developerName
+      }
+    });
+    console.log('Developer assigned successfully!', response);
 
-      // Hide the 'assignDeveloperModal' modal
-      hideModal();
+    // Hide the 'assignDeveloperModal' modal
+    hideModal();
 
-      // Show the popup with a callback to reload the current page
-      showPopup('Assigning Developer', 'Developer ' + selectedDeveloperName + ' has been assigned to this bug', function() {
-        fetchAndDisplayBugDetails(bugId);
-      })
+    // Show the popup with a callback to reload the current page
+    showPopup('Assigning Developer', 'Developer ' + selectedDeveloperName + ' has been assigned to this bug', function () {
+      fetchAndDisplayBugDetails(bugId);
+    })
   } catch (error) {
-      console.error('Error assigning developer:', error);
+    console.error('Error assigning developer:', error);
   }
 }
 
 function setStatusDropdown(dropdown, currentStatus) {
   const options = dropdown.options;
   for (let i = 0; i < options.length; i++) {
-      if (options[i].value === currentStatus) {
-          dropdown.selectedIndex = i;
-          break;
-      }
+    if (options[i].value === currentStatus) {
+      dropdown.selectedIndex = i;
+      break;
+    }
   }
 }
-  

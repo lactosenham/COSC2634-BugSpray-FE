@@ -5,10 +5,25 @@
         <i class="mt-4 ml-5 fa-solid fa-bug fa-xl"></i>
         <h1 class="text-xl pt-[1px] font-light" id="name">Bug Name</h1>
       </div>
+      <div>
+        <div class="mr-7">
+          <select id="status" class="px-4 py-2 rounded-lg">
+            <option id="openStatus" value="Open">Open</option>
+            <option id="todoStatus" value="To-do">To-do</option>
+            <option id="inProgressStatus" value="In Progress">In Progress</option>
+            <option id="resolvedStatus" value="Resolved">Resolved</option>
+            <option id="inReivewStatus" value="In-Review">In-Review</option>
+            <option id="closedStatus" value="Closed">Closed</option>
+          </select>
+          <button id="saveStatus" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+            Save Status
+          </button>
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 pt-3">
-      <div class="ml-5">
+    <div class="grid grid-cols-1 gap-4 pt-5 md:grid-cols-2">
+      <div class="p-5 md:ml-5 md:p-0">
         <!-- Description Section -->
         <h1 class="text-xl font-semibold">Description</h1>
         <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
@@ -18,89 +33,86 @@
         </div>
 
         <!-- Steps to Reproduce Section -->
-        <h1 class="text-xl font-semibold mt-4">Steps to Reproduce</h1>
+        <h1 class="mt-4 text-xl font-semibold">Steps to Reproduce</h1>
         <div class="px-4 mt-3 border-2 rounded-lg border-slate-300">
-          <div id="steps" class="px-2 py-5 overflow-x-auto overscroll-auto h-48">
+          <div id="steps" class="h-48 px-2 py-5 overflow-x-auto overscroll-auto">
             <!-- Steps to Reproduce Here -->
           </div>
         </div>
       </div>
 
-      <div class="mr-7">
+      <div class="p-5 md:mr-7 md:p-0">
         <!-- Status Dropdown -->
-        <div class="pb-4">
-          <select id="status" class="px-4 py-2 rounded-lg">
-            <option id="openStatus" value="Open">Open</option>
-            <option id="todoStatus" value="To-do">To-do</option>
-            <option id="inProgressStatus" value="In Progress">In Progress</option>
-            <option id="resolvedStatus" value="Resolved">Resolved</option>
-            <option id="inReivewStatus" value="In-Review">In-Review</option>
-            <option id="closedStatus" value="Closed">Closed</option>
-          </select>
-        </div>
-        
+
+
         <!-- Save status button -->
-        <button id="saveStatus" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Save Status
-        </button>
+
 
         <!-- Details Section -->
+        <div class="flex justify-between">
+          <h1 class="text-xl font-semibold">Details</h1>
+          <button id="assignDeveloperButton"
+            class="px-4 py-2 text-xs font-bold text-white rounded bg-palette-3 hover:bg-sky-400">
+            Assign Developer
+          </button>
+        </div>
         <div class="px-4 mt-2 border-2 rounded-lg border-slate-300">
-          <h1 class="pt-5 text-xl font-semibold">Details</h1>
           <div class="pt-3 pb-5">
             <div class="flex pb-5">
-              <h1 class="w-1/2">Current Status</h1>
+              <h1 class="w-1/2 font-bold">Current Status</h1>
               <h1 id="status-level" class="w-1/2">Status Level</h1>
             </div>
             <div class="flex pb-5">
-              <h1 class="w-1/2">Reporter</h1>
+              <h1 class="w-1/2 font-bold">Reporter</h1>
               <a href="" id="reporter-name">Name</a>
             </div>
 
             <!-- Trigger Button for Popup -->
             <div class="flex pb-5">
-              <h1 class="w-1/2">Assignee</h1>
-              <a href="" id="assignee-name">Name</a>
-              <button id="assignDeveloperButton" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Assign Developer
-              </button>
+              <h1 class="w-1/2 font-bold">Assigned To</h1>
+              <a href="" id="assignee-name"></a>
             </div>
 
-              <!-- Popup Modal Content -->
-              <div id="assignDeveloperModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
-                <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-                    <div class="mt-3 text-center">
-                        <span id="hideModal" class="float-right cursor-pointer text-xl font-bold">&times;</span>
-                        <h3 id="modalTitle" class="text-lg leading-6 font-medium text-gray-900">Assign Developer</h3>
-                        <div class="mt-2 px-7 py-3">
-                            <p id="modalBody" class="text-sm text-gray-500">Developers List:</p>
-                            <div id="developerList" class="text-lg text-center">
-                                <!-- Developer list will be populated here -->
-                            </div>
-                        </div>
-                        <div class="items-center px-4 py-3">
-                            <button id="confirmAssign" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                                Assign
-                            </button>
-                        </div>
+            <!-- Popup Modal Content -->
+            <div id="assignDeveloperModal"
+              class="fixed inset-0 items-center justify-center hidden w-full h-full overflow-y-auto bg-gray-600 bg-opacity-50">
+              <div class="relative mx-auto bg-white border rounded-md shadow-lg top-20 w-96">
+                <div class="">
+                  <div class="flex justify-between p-5">
+                    <h3 id="modalTitle" class="text-lg font-semibold leading-6 text-gray-900">Assign
+                      Developer</h3>
+                    <span id="hideModal"
+                      class="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto"><i
+                        class="fa-solid fa-x"></i></span>
+                  </div>
+                  <div class="p-5">
+                    <p id="modalBody" class="text-sm text-gray-500"></p>
+                    <div id="developerList" class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
+                      <!-- Developer list will be populated here -->
                     </div>
+                    <button id="confirmAssign"
+                      class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                      Assign
+                    </button>
+                  </div>
                 </div>
               </div>
+            </div>
 
             <div class="flex pb-5">
-              <h1 class="w-1/2">Priority</h1>
+              <h1 class="w-1/2 font-bold">Priority</h1>
               <h1 id="priority">Priority Level</h1>
             </div>
             <div class="flex pb-5">
-              <h1 class="w-1/2">Severity</h1>
+              <h1 class="w-1/2 font-bold">Severity</h1>
               <h1 id="severity">Severity Level</h1>
             </div>
             <div class="flex pb-5">
-              <h1 class="w-1/2">Deadline</h1>
+              <h1 class="w-1/2 font-bold">Deadline</h1>
               <h1 id="deadline">Deadline Date</h1>
             </div>
             <div class="flex">
-              <h1 class="w-1/2">Date reported</h1>
+              <h1 class="w-1/2 font-bold">Date reported</h1>
               <h1 id="date">Date</h1>
             </div>
           </div>
