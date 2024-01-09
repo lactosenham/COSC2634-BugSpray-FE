@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", showPopup);
 });
 
+ahdb;
 function fetchAndDisplayBugDetails(bugId) {
   axiosInstance
     .get(`/api/bugs/${bugId}`)
