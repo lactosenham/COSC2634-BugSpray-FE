@@ -1,12 +1,9 @@
 <nav class="px-4 py-2 transition duration-300 border-gray-200 lg:px-6 bg-palette-3 rounded-b-3xl">
   <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto space-x-4">
     <a href="/" class="flex items-center">
-      <img src="./img/Bugspray - Dark.png" class="block w-32 mr-3" alt="Logo" />
+      <img src="./img/BugsprayDark.png" class="block w-32 mr-3" alt="Logo" />
     </a>
     <div class="flex items-center gap-3 lg:order-2">
-      <button id="searchBtn" class="flex items-center justify-center p-2">
-        <i class="text-2xl text-white fa fa-search hover:text-gray-200"></i>
-      </button>
       <a href="/profile"><i class="text-white fa-solid fa-user fa-2xl hover:text-gray-200"></i></a>
       <button data-collapse-toggle="mobile-menu-2" type="button"
         class="inline-flex items-center p-2 ml-1 text-sm text-gray-400 rounded-lg lg:hidden focus:outline-none focus:ring-2 hover:bg-palette-2 focus:ring-gray-600"
@@ -17,35 +14,18 @@
     <div class="items-center justify-center flex-grow hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
       <ul class="flex flex-col mt-4 space-y-4 font-medium lg:flex-row lg:space-x-2 lg:space-y-0 lg:mt-0">
         <li>
-          <a href="/" class="block px-2 py-2 rounded <%= activePage === 'summary' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">SUMMARY</a>
+          <a href="/"
+            class="block px-2 py-2 rounded <%= activePage === 'summary' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">SUMMARY</a>
         </li>
         <li>
-          <a href="/projects" class="block px-2 py-2 rounded <%= activePage === 'projects' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">PROJECTS</a>
+          <a href="/projects"
+            class="block px-2 py-2 rounded <%= activePage === 'projects' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">PROJECTS</a>
         </li>
         <li>
-          <a href="/bugs" class="block px-2 py-2 rounded <%= activePage === 'bugs' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">BUGS</a>
+          <a href="/bugs"
+            class="block px-2 py-2 rounded <%= activePage === 'bugs' ? 'text-white bg-palette-2' : 'bg-transparent text-gray-400 hover:text-white' %>">BUGS</a>
         </li>
       </ul>
     </div>
   </div>
-  <form method="get">
-    <div id="searchBar" class="hidden w-full px-4 py-4 transition-opacity duration-300 delay-150 rounded-b-3xl">
-      <div class="flex items-center max-w-screen-xl mx-auto">
-        <input type="text" id="searchInput"
-          class="flex-grow h-12 pl-4 text-sm text-black border-none rounded-l-lg outline-none bg-zinc-100"
-          placeholder="Search..." name="name" />
-        <button
-          class="bg-palette-2 text-white h-12 w-24 text-sm font-medium rounded-r-lg py-2.5 focus:outline-none focus:ring-blue-800"
-          type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          Search
-        </button>
-        <button id="closeSearchBtn"
-          class="items-center justify-center hidden w-10 h-10 p-2 ml-4 text-white border-none rounded-lg shadow-md md:flex bg-rose-500 shadow-rose-800"
-          type="button">
-          <i class="text-2xl fas fa-times hover:text-palette-2" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </form>
 </nav>

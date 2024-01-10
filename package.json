@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "buildcss": "npx tailwindcss -i public/style/input.css -o public/style/output.css --watch"
+    "start": "node index.js",
+    "dev": "nodemon app.js",
+    "postinstall": "npx tailwindcss -i public/style/input.css -o public/style/output.css --build",
+    "build": "npx tailwindcss -i public/style/input.css -o public/style/output.css --watch"
   },
   "author": "",
   "license": "ISC",

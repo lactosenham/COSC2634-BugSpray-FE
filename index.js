@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 const path = require("path");
-const port = 3001;
+const port =  process.env.PORT || 3001;
 
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
