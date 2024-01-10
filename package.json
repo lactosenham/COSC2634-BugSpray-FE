@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "run": "nodemon app.js",
+    "start": "node index.js",
+    "dev": "nodemon app.js",
     "build": "npx tailwindcss -i public/style/input.css -o public/style/output.css --watch"
   },
   "author": "",
