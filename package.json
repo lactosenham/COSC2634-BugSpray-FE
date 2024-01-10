@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon app.js",
-    "build": "npx tailwindcss -i public/style/input.css -o public/style/output.css && webpack --mode=production"
+    "postinstall": "npx tailwindcss -i public/style/input.css -o public/style/output.css --build",
+    "build": "npx tailwindcss -i public/style/input.css -o public/style/output.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -24,9 +25,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "tailwindcss": "^3.4.0",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "tailwindcss": "^3.4.0"
   },
   "keywords": [],
   "description": ""
