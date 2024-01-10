@@ -3,6 +3,7 @@ let assignedBugs = [];  // Store assigned bugs here
 let currentDisplay = 'all';  // Track the current display state
 
 document.addEventListener('DOMContentLoaded', function () {
+    hideFrom('assigned', 'Manager');
     if (!isUserAuthenticated()) {
         // Redirect to login page if not authenticated
         window.location.href = '/login';
