@@ -1,47 +1,47 @@
-<section class="flex items-center">
+<section class="flex flex-col items-center justify-center">
     <div
         class="flex flex-col items-center justify-center p-10 mx-auto my-10 text-white shadow-xl bg-palette-3 rounded-3xl">
         <h1 class="my-4 text-3xl font-bold text-center">My Profile</h1>
         <form id="profileForm">
             <div class="flex flex-col gap-5">
-                <div id="usernameContainer"  class="flex flex-row w-96">
+                <div id="usernameContainer" class="flex flex-col md:flex-row md:w-96">
                     <div class="w-2/5">
                         <label for="username" class="block mb-2 font-bold text-white text-md">Username</label>
                     </div>
-                    <div class="w-3/5">
+                    <div class="md:w-3/5">
                         <input type="text" name="username" id="username"
                             class="bg-palette-2 border border-gray-300 placeholder-grey-700 text-white invalid:text-red-500 sm:text-sm rounded-lg block w-full p-2.5"
                             placeholder="userName123" pattern="[a-zA-Z0-9]{8,15}" required>
                     </div>
                 </div>
-                <div class="flex flex-row w-96">
+                <div class="flex flex-col md:flex-row md:w-96">
                     <div class="w-2/5">
                         <label for="name" class="block mb-2 font-bold text-white text-md">Your
                             Name</label>
                     </div>
-                    <div class="w-3/5">
+                    <div class="md:w-3/5">
                         <input type="text"
                             class="bg-palette-2 border border-gray-300 placeholder-gray-400 text-white sm:text-sm rounded-lg block w-full p-2.5"
                             id="name" name="name" placeholder="John Doe" minlength="5">
                     </div>
                 </div>
-                <div id="roleContainer" class="flex flex-row w-96">
+                <div id="roleContainer" class="flex flex-col md:flex-row md:w-96">
                     <div class="w-2/5">
                         <label for="role" class="block mb-2 font-bold text-white text-md">Role</label>
                     </div>
-                    <div class="w-3/5">
+                    <div class="md:w-3/5">
                         <input type="text"
                             class="bg-palette-2 border border-gray-300 font-bold text-gray-300 sm:text-sm rounded-lg block w-full p-2.5"
                             id="role" name="role" value="Developer" disabled>
                     </div>
                 </div>
-                <div  class="flex flex-row w-96">
+                <div class="flex flex-col md:flex-row md:w-96">
                     <div class="w-2/5">
                         <label for="developerType" class="block mb-2 text-sm font-bold text-white">
                             Type
                         </label>
                     </div>
-                    <div class="w-3/5">
+                    <div class="md:w-3/5">
                         <select class="bg-palette-2 border border-gray-300 text-white
                     sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block
                     w-full p-2.5" id="developerType" name="developerType" required>

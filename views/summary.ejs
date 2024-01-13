@@ -3,7 +3,7 @@
     <div class="min-h-screen bg-blue-50">
 
       <!-- Top Metrics Section -->
-      <div class="grid gap-10 p-4 lg:grid-cols-3 sm:grid-cols-2">
+      <div class="grid grid-cols-1 gap-5 p-4 md:gap-10 md:grid-cols-3">
 
         <!-- Total Bugs Card -->
         <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
@@ -47,12 +47,12 @@
       </div> <!-- End of Top Metrics Section -->
 
       <!-- Charts Section -->
-      <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-3">
 
         <!-- Total Bugs Reported Chart -->
-        <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
-          <b class="flex flex-row text-gray-500">Total Bugs Reported</b>
-          <canvas id="totalBugs" class="p-5"></canvas>
+        <div class="flex-col bg-white rounded shadow-sm lg:p-8 lg:col-span-2">
+          <b class="flex flex-row px-8 pt-8 text-gray-500 lg:px-0 lg:pt-0">Total Bugs Reported</b>
+          <canvas id="totalBugs" class="p-2 md:p-5"></canvas>
         </div>
 
         <!-- Bugs By Severity Chart -->
@@ -64,10 +64,10 @@
       </div> <!-- End of Charts Section -->
 
       <!-- Additional Charts Section (if needed) -->
-      <div class="grid gap-3 p-4 mt-4 lg:grid-cols-3 md:grid-cols-3">
-        
+      <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-3">
+
         <!-- Recently Solved Bugs Chart -->
-        <div class="flex-col col-span-2 p-8 bg-white rounded shadow-sm">
+        <div class="flex-col p-8 bg-white rounded shadow-sm lg:col-span-2">
           <b class="flex flex-row text-gray-500">Recently Solved Bugs</b>
           <div id="recentlySolved" class="p-5"></div>
         </div>
@@ -86,8 +86,8 @@
   <!-- Load all scripts -->
   <% if(scripts) { %>
     <% scripts.forEach(function(script) { %>
-        <script src="<%= script %>"></script>
-    <% }); %>
-  <% } %>
+      <script src="<%= script %>"></script>
+      <% }); %>
+        <% } %>
 
 </div>
