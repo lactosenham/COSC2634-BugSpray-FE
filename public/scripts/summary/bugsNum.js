@@ -6,7 +6,7 @@ async function fetchBugsNum() {
     try {
 
         // Get total number of bugs
-        const totalRes = await axios.get('/api/bugs/all');
+        const totalRes = await axiosInstance.get('/api/bugs/all');
         const total = totalRes.data;
         console.log('Total number of bugs: ', total.length);
 
