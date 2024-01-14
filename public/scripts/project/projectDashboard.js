@@ -17,6 +17,7 @@ function fetchAndDisplayProjects() {
 
 function displayProjects(projects) {
   const cardsGrid = document.querySelector('.cards-grid');
+  cardsGrid.innerHTML = "";
   projects.forEach(project => {
       const projectCard = createProjectCardHTML(project);
       cardsGrid.innerHTML += projectCard;
