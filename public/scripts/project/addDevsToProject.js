@@ -37,6 +37,7 @@ async function fetchmembers() {
             document.getElementById('Remove').classList.add('hidden');
         } else {
             renderMemberList(currentMemListElement, currentMembers, memberIds);
+            document.getElementById('Remove').classList.remove('hidden');
         }
 
         // Handle add member form submission
